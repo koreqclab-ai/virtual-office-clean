@@ -1,0 +1,240 @@
+{
+  "agent_system": {
+    "name": "SEO Competitive Analysis Agent System",
+    "version": "1.0.0",
+    "description": "A modular agent system for comprehensive SEO competitive analysis and strategy development",
+    "architecture": "agent_swarm",
+    
+    "core_agent": {
+      "name": "SEO_Competitive_Strategist",
+      "role": "SEO Competitive Strategist & Auditor",
+      "description": "Master orchestrator agent that coordinates specialized SEO analysis agents and synthesizes comprehensive competitive strategies",
+      
+      "core_capabilities": [
+        "Competitive landscape analysis",
+        "SEO gap identification",
+        "Strategy synthesis and prioritization",
+        "Multi-agent coordination",
+        "Performance benchmarking",
+        "ROI-focused recommendations"
+      ],
+      
+      "required_tools": [
+        "mcp__puppeteer__*",
+        "mcp__brave-search__*",
+        "mcp__fetch__*",
+        "WebSearch",
+        "WebFetch",
+        "Write",
+        "Read",
+        "Grep",
+        "Glob"
+      ],
+      
+      "standard_workflow": [
+        "initialize_analysis_scope",
+        "coordinate_specialized_agents",
+        "synthesize_findings",
+        "generate_strategic_recommendations",
+        "create_implementation_roadmap",
+        "establish_monitoring_framework"
+      ],
+      
+      "output_deliverables": [
+        "competitive_gap_analysis.csv",
+        "seo_audit_report.json", 
+        "SEO_COMPETITIVE_STRATEGY.md",
+        "implementation_roadmap.md",
+        "monitoring_dashboard.json"
+      ]
+    },
+    
+    "specialized_agents": {
+      "seo_audit_agent": {
+        "name": "SEO_Technical_Auditor",
+        "role": "Technical SEO Analyst & Competitor Auditor",
+        "focus": "Technical SEO analysis, site structure, performance metrics",
+        
+        "capabilities": [
+          "Technical SEO auditing",
+          "Site structure analysis",
+          "Performance benchmarking",
+          "Meta data extraction",
+          "Core Web Vitals analysis",
+          "Mobile optimization assessment"
+        ],
+        
+        "tools": ["mcp__puppeteer__*", "mcp__fetch__*", "WebFetch"],
+        
+        "deliverables": [
+          "technical_audit.json",
+          "performance_metrics.csv",
+          "crawl_analysis.json"
+        ]
+      },
+      
+      "content_strategy_agent": {
+        "name": "Content_Gap_Analyzer",
+        "role": "Content Strategy Specialist",
+        "focus": "Content gap analysis, topic clusters, content opportunities",
+        
+        "capabilities": [
+          "Content gap identification",
+          "Topic cluster analysis",
+          "Content quality assessment",
+          "Editorial calendar creation",
+          "Content optimization recommendations",
+          "Semantic keyword analysis"
+        ],
+        
+        "tools": ["mcp__brave-search__*", "WebSearch", "mcp__fetch__*"],
+        
+        "deliverables": [
+          "content_gaps.csv",
+          "topic_clusters.json",
+          "content_calendar.csv",
+          "optimization_opportunities.json"
+        ]
+      },
+      
+      "keyword_research_agent": {
+        "name": "Keyword_Intelligence_Agent",
+        "role": "Keyword Research & Ranking Specialist",
+        "focus": "Keyword opportunities, ranking analysis, search intent mapping",
+        
+        "capabilities": [
+          "Keyword opportunity identification",
+          "Competitor ranking analysis",
+          "Search intent classification",
+          "Keyword difficulty assessment",
+          "SERP feature analysis",
+          "Long-tail opportunity discovery"
+        ],
+        
+        "tools": ["mcp__brave-search__*", "WebSearch", "Grep"],
+        
+        "deliverables": [
+          "keyword_opportunities.csv",
+          "ranking_analysis.json",
+          "serp_features.csv",
+          "search_intent_mapping.json"
+        ]
+      },
+      
+      "link_building_agent": {
+        "name": "Link_Authority_Analyzer",
+        "role": "Link Building & Authority Specialist", 
+        "focus": "Backlink analysis, link building opportunities, domain authority assessment",
+        
+        "capabilities": [
+          "Backlink profile analysis",
+          "Link gap identification",
+          "Authority metric assessment",
+          "Link building opportunity discovery",
+          "Competitor link strategy analysis",
+          "Outreach target identification"
+        ],
+        
+        "tools": ["mcp__brave-search__*", "mcp__fetch__*", "WebSearch"],
+        
+        "deliverables": [
+          "backlink_analysis.json",
+          "link_opportunities.csv",
+          "authority_metrics.json",
+          "outreach_targets.csv"
+        ]
+      },
+      
+      "performance_monitoring_agent": {
+        "name": "SEO_Performance_Monitor",
+        "role": "Performance Tracking & Monitoring Specialist",
+        "focus": "Ongoing competitive monitoring, trend analysis, performance tracking",
+        
+        "capabilities": [
+          "Competitive position tracking",
+          "Performance trend analysis",
+          "Alert system management",
+          "ROI measurement",
+          "Strategy effectiveness assessment",
+          "Automated reporting"
+        ],
+        
+        "tools": ["mcp__brave-search__*", "WebSearch", "Write", "Read"],
+        
+        "deliverables": [
+          "performance_dashboard.json",
+          "trend_analysis.csv",
+          "competitive_alerts.json",
+          "roi_metrics.json"
+        ]
+      }
+    },
+    
+    "coordination_framework": {
+      "execution_modes": {
+        "sequential": "Agents execute in defined order with dependency management",
+        "parallel": "Independent agents execute simultaneously for faster results",
+        "hybrid": "Mix of parallel and sequential based on task dependencies"
+      },
+      
+      "data_sharing": {
+        "shared_workspace": "/seo-analysis-workspace/",
+        "data_formats": ["JSON", "CSV", "Markdown"],
+        "naming_conventions": "{agent_name}_{deliverable_type}_{timestamp}",
+        "version_control": "Git-based with automated commits"
+      },
+      
+      "conflict_resolution": {
+        "priority_hierarchy": [
+          "technical_constraints",
+          "data_quality",
+          "strategic_alignment", 
+          "resource_optimization"
+        ],
+        "consensus_mechanism": "weighted_voting",
+        "escalation_path": "master_strategist_override"
+      }
+    },
+    
+    "industry_adaptability": {
+      "configuration_system": "modular_templates",
+      "supported_industries": [
+        "virtual_office_services",
+        "business_services",
+        "professional_services", 
+        "e_commerce",
+        "saas",
+        "local_services",
+        "healthcare",
+        "legal_services",
+        "real_estate"
+      ],
+      
+      "customization_parameters": [
+        "target_keywords",
+        "competitor_set",
+        "geographic_focus",
+        "business_model",
+        "conversion_goals",
+        "content_types",
+        "technical_requirements"
+      ]
+    },
+    
+    "quality_assurance": {
+      "validation_checks": [
+        "data_completeness",
+        "accuracy_verification",
+        "consistency_review",
+        "actionability_assessment"
+      ],
+      
+      "success_metrics": [
+        "analysis_coverage_percentage",
+        "recommendation_implementation_rate",
+        "performance_improvement_tracking",
+        "time_to_insight_reduction"
+      ]
+    }
+  }
+}

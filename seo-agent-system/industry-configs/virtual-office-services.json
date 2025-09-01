@@ -1,0 +1,299 @@
+{
+  "industry_profile": {
+    "name": "Virtual Office Services",
+    "description": "Virtual office, business address, and mail forwarding services",
+    "market_characteristics": {
+      "business_model": "subscription_service",
+      "customer_type": "b2b_small_business",
+      "decision_factors": ["location_prestige", "pricing", "service_reliability", "compliance"],
+      "seasonal_patterns": "Q1_peak_business_formation",
+      "competitive_intensity": "high"
+    }
+  },
+  
+  "keyword_strategy": {
+    "primary_keywords": {
+      "commercial_high_intent": [
+        "virtual office {location}",
+        "business address rental {location}",
+        "virtual business address {location}",
+        "mail forwarding service {location}",
+        "professional business address {location}"
+      ],
+      
+      "commercial_comparison": [
+        "virtual office vs {competitor}",
+        "best virtual office {location}",
+        "virtual office pricing {location}",
+        "cheap virtual office {location}",
+        "virtual office packages {location}"
+      ],
+      
+      "service_specific": [
+        "virtual receptionist service",
+        "business phone forwarding",
+        "virtual meeting rooms {location}",
+        "registered agent service {location}",
+        "business formation services"
+      ]
+    },
+    
+    "long_tail_opportunities": [
+      "how much does virtual office cost",
+      "do I need virtual office for LLC",
+      "virtual office for Amazon seller",
+      "virtual office tax implications",
+      "virtual office vs home address business"
+    ],
+    
+    "local_modifiers": [
+      "downtown {city}",
+      "financial district {city}",
+      "{city} business center",
+      "prestigious address {city}",
+      "{state} virtual office"
+    ],
+    
+    "informational_keywords": [
+      "what is virtual office",
+      "virtual office benefits",
+      "how virtual office works",
+      "virtual office for startups",
+      "remote business setup guide"
+    ]
+  },
+  
+  "competitor_analysis_framework": {
+    "competitor_categories": {
+      "tier_1_national": {
+        "description": "Large national virtual office chains",
+        "examples": ["regus", "davinci", "alliance-virtual-offices"],
+        "strengths": ["brand_recognition", "location_network", "marketing_budget"],
+        "analysis_focus": ["pricing_strategy", "service_differentiation", "local_presence"]
+      },
+      
+      "tier_2_regional": {
+        "description": "Regional virtual office providers",
+        "examples": ["local_business_centers", "regional_chains"],
+        "strengths": ["local_knowledge", "personalized_service", "flexible_pricing"],
+        "analysis_focus": ["local_seo", "service_quality", "customer_relationships"]
+      },
+      
+      "tier_3_adjacent": {
+        "description": "Adjacent service providers",
+        "examples": ["coworking_spaces", "mail_services", "business_formation"],
+        "strengths": ["service_integration", "existing_customer_base"],
+        "analysis_focus": ["cross_selling", "service_bundling", "market_expansion"]
+      }
+    },
+    
+    "competitive_intelligence_queries": [
+      "site:{competitor}.com virtual office pricing",
+      "site:{competitor}.com locations",
+      "site:{competitor}.com vs {our_brand}",
+      "\"{competitor_brand}\" virtual office review",
+      "\"{competitor_brand}\" complaint OR problem",
+      "best alternative to {competitor_brand}"
+    ]
+  },
+  
+  "content_strategy": {
+    "content_pillars": [
+      {
+        "pillar": "Virtual Office Education",
+        "topics": [
+          "How virtual offices work",
+          "Benefits of virtual offices",
+          "Virtual office vs traditional office",
+          "Virtual office setup guide",
+          "Virtual office legal requirements"
+        ],
+        "content_types": ["guides", "infographics", "videos", "faqs"]
+      },
+      
+      {
+        "pillar": "Location & Pricing",
+        "topics": [
+          "Location guides by city",
+          "Pricing comparison tools",
+          "Cost calculators",
+          "Premium address benefits",
+          "Service package comparisons"
+        ],
+        "content_types": ["location_pages", "calculators", "comparison_tables", "pricing_guides"]
+      },
+      
+      {
+        "pillar": "Business Solutions",
+        "topics": [
+          "Industry-specific solutions",
+          "Business formation guidance",
+          "Compliance and legal topics",
+          "Remote work resources",
+          "Entrepreneur success stories"
+        ],
+        "content_types": ["case_studies", "industry_guides", "resource_centers", "blog_posts"]
+      }
+    ],
+    
+    "content_gaps_to_analyze": [
+      "competitor_comparison_content",
+      "local_market_guides", 
+      "pricing_transparency",
+      "customer_success_stories",
+      "industry_specific_solutions"
+    ]
+  },
+  
+  "technical_seo_priorities": {
+    "schema_markup_types": [
+      "LocalBusiness",
+      "Service", 
+      "PostalAddress",
+      "Organization",
+      "FAQ",
+      "Review",
+      "BreadcrumbList"
+    ],
+    
+    "local_seo_factors": [
+      "google_my_business_optimization",
+      "local_citations_consistency", 
+      "location_page_optimization",
+      "local_reviews_management",
+      "geo_targeted_content"
+    ],
+    
+    "conversion_optimization": [
+      "pricing_page_optimization",
+      "signup_flow_optimization", 
+      "trust_signal_implementation",
+      "mobile_conversion_optimization",
+      "page_speed_optimization"
+    ]
+  },
+  
+  "link_building_strategy": {
+    "target_link_types": [
+      {
+        "type": "industry_directories",
+        "examples": [
+          "business.com",
+          "yellowpages.com", 
+          "yelp.com",
+          "bbb.org",
+          "chamber_of_commerce"
+        ],
+        "priority": "high"
+      },
+      
+      {
+        "type": "business_resource_sites",
+        "examples": [
+          "entrepreneur.com",
+          "inc.com", 
+          "smallbusiness.com",
+          "sba.gov_resources",
+          "business_blogs"
+        ],
+        "priority": "high"
+      },
+      
+      {
+        "type": "local_business_websites",
+        "examples": [
+          "local_chambers",
+          "economic_development",
+          "business_associations",
+          "startup_communities"
+        ],
+        "priority": "medium"
+      }
+    ],
+    
+    "content_for_links": [
+      "virtual_office_industry_reports",
+      "remote_work_statistics",
+      "business_formation_guides", 
+      "entrepreneur_resource_lists",
+      "local_business_directories"
+    ]
+  },
+  
+  "conversion_tracking": {
+    "primary_conversions": [
+      "free_trial_signup",
+      "quote_request",
+      "phone_consultation",
+      "service_signup",
+      "demo_booking"
+    ],
+    
+    "micro_conversions": [
+      "pricing_page_views",
+      "location_page_engagement",
+      "service_comparison_usage",
+      "resource_downloads",
+      "newsletter_signup"
+    ],
+    
+    "success_metrics": {
+      "traffic_quality": "qualified_visitor_percentage > 60%",
+      "conversion_rate": "visitor_to_lead > 3%", 
+      "customer_acquisition_cost": "cac_reduction_target: 25%",
+      "lifetime_value": "customer_ltv_increase: 15%"
+    }
+  },
+  
+  "competitive_monitoring": {
+    "tracking_keywords": [
+      "virtual office {primary_location}",
+      "business address {primary_location}",
+      "{brand_name} vs competitors",
+      "virtual office pricing",
+      "best virtual office {location}"
+    ],
+    
+    "competitor_monitoring": [
+      "new_location_launches",
+      "pricing_changes",
+      "service_additions",
+      "marketing_campaigns",
+      "customer_reviews_sentiment"
+    ],
+    
+    "alert_triggers": [
+      "ranking_drop > 5 positions",
+      "competitor_new_locations",
+      "negative_review_spike", 
+      "competitor_pricing_change",
+      "new_market_entrant"
+    ]
+  },
+  
+  "seasonal_strategies": {
+    "Q1_business_formation_season": {
+      "keyword_focus": ["llc_formation", "new_business_address", "startup_virtual_office"],
+      "content_themes": ["new_business_setup", "business_formation_guide", "entrepreneur_resources"],
+      "promotion_strategy": "new_business_discounts"
+    },
+    
+    "Q2_expansion_season": {
+      "keyword_focus": ["business_expansion", "multiple_locations", "franchise_addresses"],
+      "content_themes": ["scaling_business", "multi_location_management", "growth_strategies"],
+      "promotion_strategy": "multi_location_packages"
+    },
+    
+    "Q3_planning_season": {
+      "keyword_focus": ["budget_planning", "virtual_office_roi", "cost_comparison"],
+      "content_themes": ["budget_optimization", "cost_savings", "efficiency_guides"],
+      "promotion_strategy": "annual_payment_discounts"
+    },
+    
+    "Q4_year_end_season": {
+      "keyword_focus": ["tax_benefits", "business_deductions", "year_end_setup"],
+      "content_themes": ["tax_planning", "year_end_business_moves", "accounting_tips"],
+      "promotion_strategy": "year_end_specials"
+    }
+  }
+}

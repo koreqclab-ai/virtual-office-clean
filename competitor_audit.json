@@ -1,0 +1,125 @@
+{
+  "audit_date": "2025-08-31",
+  "target_keywords": ["virtual office singapore", "registered office address", "virtual mailbox singapore"],
+  "competitors": {
+    "anytimemailbox.com": {
+      "homepage": {
+        "title": "Virtual Business Address for Business Registration Needs",
+        "meta_description": "Transform your business with a virtual business address. Enjoy a physical address recognized for official registrations and packages.",
+        "h1": "Virtual Business Address",
+        "canonical": "https://www.anytimemailbox.com/virtual-business-address",
+        "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "word_count": 1322,
+        "h2_count": 8,
+        "h3_count": 12,
+        "image_count": 15,
+        "images_without_alt": 2,
+        "internal_links": 45,
+        "external_links": 8
+      },
+      "strengths": ["Global brand recognition", "Professional design", "Clear value proposition", "Strong conversion focus"],
+      "weaknesses": ["No Singapore-specific content", "Limited local SEO", "Generic targeting"],
+      "pricing_strategy": "Mid-market ($9.99-29.99/month)",
+      "location_focus": "USA/Global markets",
+      "estimated_monthly_traffic": "100K-500K"
+    },
+    "vofficesingapore.com": {
+      "homepage": {
+        "title": "Singapore Virtual Office from S$4.17 per month!",
+        "meta_description": "Elevate your business with a professional virtual office in Singapore. Enjoy a registered address, mail services, free alerts, and a client portal. Start today!",
+        "h1": "Singapore Virtual Office",
+        "canonical": "https://vofficesingapore.com",
+        "robots": "",
+        "word_count": 2793,
+        "h2_count": 9,
+        "h3_count": 39,
+        "image_count": 29,
+        "images_without_alt": 0,
+        "internal_links": 47,
+        "external_links": 6
+      },
+      "strengths": ["Ultra-low pricing", "Singapore-focused", "Comprehensive content", "Strong local SEO"],
+      "weaknesses": ["Non-CBD location (Paya Lebar)", "Budget positioning", "Limited premium appeal"],
+      "pricing_strategy": "Budget leader ($4.17/month)",
+      "location_focus": "Paya Lebar Square",
+      "estimated_monthly_traffic": "10K-50K"
+    },
+    "regus.com": {
+      "homepage": {
+        "title": "Regus | Serviced Office Space, Coworking & Virtual Offices",
+        "meta_description": "Our extensive global network of office space, coworking, virtual office locations and meeting rooms offers you a flexibility and choice. Get a quote today.",
+        "h1": "Office space your way.",
+        "canonical": "https://www.regus.com/en-gb",
+        "robots": "index, follow",
+        "word_count": 9427,
+        "h2_count": 33,
+        "h3_count": 68,
+        "image_count": 57,
+        "images_without_alt": 0,
+        "internal_links": 325,
+        "external_links": 10
+      },
+      "strengths": ["Premium brand", "Multiple CBD locations", "Comprehensive services", "Enterprise focus"],
+      "weaknesses": ["Very high pricing", "Generic messaging", "Not virtual-office focused"],
+      "pricing_strategy": "Premium ($80-150+/month)",
+      "location_focus": "Multiple premium CBD locations",
+      "estimated_monthly_traffic": "500K+"
+    },
+    "ipostal1.com": {
+      "homepage": {
+        "title": "#1 Digital Mailbox - Over 4,000 Mailbox Locations Worldwide",
+        "meta_description": "Manage your mail securely with iPostal1's Digital Mailbox. We receive your mail which you can view & manage on the iPostal1 App or website. Stop mail theft and get started today!",
+        "h1": "#1 Digital Mailbox Service Worldwide",
+        "canonical": "https://ipostal1.com",
+        "robots": "index, follow",
+        "word_count": 5608,
+        "h2_count": 15,
+        "h3_count": 11,
+        "image_count": 24,
+        "images_without_alt": 9,
+        "internal_links": 5,
+        "external_links": 10
+      },
+      "strengths": ["Technology focus", "Global reach", "Digital mailbox positioning", "Strong app features"],
+      "weaknesses": ["No Singapore focus", "USA-centric", "Limited business address positioning"],
+      "pricing_strategy": "Mid-market ($19.99-49.99/month)",
+      "location_focus": "USA/Global",
+      "estimated_monthly_traffic": "200K-500K"
+    }
+  },
+  "market_gaps_identified": {
+    "pricing_sweet_spot": {
+      "gap": "Premium CBD location at mid-market pricing",
+      "opportunity": "International Plaza at $9.99/month vs VOffice $4.17 (Paya Lebar) vs Regus $80+ (CBD)",
+      "positioning": "Classy but affordable CBD virtual office"
+    },
+    "content_depth": {
+      "gap": "Comprehensive Singapore-specific content with international appeal",
+      "opportunity": "Most competitors either focus globally or locally, not both"
+    },
+    "conversion_optimization": {
+      "gap": "Professional design with clear pricing transparency",
+      "opportunity": "Many competitors hide pricing or have confusing structures"
+    }
+  },
+  "keyword_ranking_estimates": {
+    "virtual_office_singapore": {
+      "vofficesingapore.com": "Positions 1-3",
+      "regus.com": "Positions 4-8", 
+      "servcorp.com.sg": "Positions 6-10",
+      "virtualoffice.com.sg": "Positions 8-12",
+      "our_opportunity": "Target positions 3-5 with CBD premium positioning"
+    },
+    "registered_office_address": {
+      "servcorp.com.sg": "Positions 2-5",
+      "regus.com": "Positions 4-8",
+      "vofficesingapore.com": "Positions 6-10",
+      "our_opportunity": "Target positions 3-6 with compliance focus"
+    },
+    "virtual_mailbox_singapore": {
+      "vofficesingapore.com": "Positions 1-4",
+      "limited_competition": true,
+      "our_opportunity": "Target positions 1-3 with mail forwarding focus"
+    }
+  }
+}

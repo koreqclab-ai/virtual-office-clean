@@ -1,0 +1,325 @@
+{
+  "industry_profile": {
+    "name": "{industry_name}",
+    "description": "{industry_description}",
+    "market_characteristics": {
+      "business_model": "{b2b|b2c|marketplace|subscription_service|ecommerce}",
+      "customer_type": "{enterprise|small_business|consumer|mixed}",
+      "decision_factors": [
+        "{primary_decision_factor}",
+        "{secondary_decision_factor}",
+        "{tertiary_decision_factor}"
+      ],
+      "seasonal_patterns": "{seasonal_description}",
+      "competitive_intensity": "{low|medium|high}"
+    }
+  },
+  
+  "keyword_strategy": {
+    "primary_keywords": {
+      "commercial_high_intent": [
+        "{service} {location}",
+        "{service} near me",
+        "best {service} {location}",
+        "{service} pricing",
+        "{service} cost"
+      ],
+      
+      "commercial_comparison": [
+        "{service} vs {alternative}",
+        "best {service} {location}",
+        "{service} reviews",
+        "top {service} providers",
+        "{service} comparison"
+      ],
+      
+      "service_specific": [
+        "{specific_service_1}",
+        "{specific_service_2}",
+        "{specific_service_3}",
+        "{niche_service_variation}",
+        "{premium_service_offering}"
+      ]
+    },
+    
+    "long_tail_opportunities": [
+      "how much does {service} cost",
+      "do I need {service} for {use_case}",
+      "{service} for {target_market}",
+      "{service} {pain_point} solutions",
+      "why choose {service} over {alternative}"
+    ],
+    
+    "local_modifiers": [
+      "downtown {city}",
+      "{city} {service}",
+      "{state} {service}",
+      "near {landmark}",
+      "{neighborhood} {service}"
+    ],
+    
+    "informational_keywords": [
+      "what is {service}",
+      "{service} benefits",
+      "how {service} works",
+      "{service} for {target_audience}",
+      "{service} getting started guide"
+    ]
+  },
+  
+  "competitor_analysis_framework": {
+    "competitor_categories": {
+      "tier_1_market_leaders": {
+        "description": "Dominant market leaders with significant resources",
+        "examples": ["{leader_1}", "{leader_2}", "{leader_3}"],
+        "strengths": ["brand_recognition", "marketing_budget", "feature_set"],
+        "analysis_focus": ["pricing_strategy", "feature_differentiation", "content_strategy"]
+      },
+      
+      "tier_2_established_players": {
+        "description": "Established competitors with solid market presence",
+        "examples": ["{established_1}", "{established_2}", "{established_3}"],
+        "strengths": ["specialized_expertise", "customer_loyalty", "niche_focus"],
+        "analysis_focus": ["specialization_areas", "customer_satisfaction", "pricing_models"]
+      },
+      
+      "tier_3_emerging_disruptors": {
+        "description": "Newer entrants with innovative approaches",
+        "examples": ["{disruptor_1}", "{disruptor_2}", "{disruptor_3}"],
+        "strengths": ["innovation", "agility", "modern_tech_stack"],
+        "analysis_focus": ["technology_adoption", "user_experience", "growth_strategies"]
+      }
+    },
+    
+    "competitive_intelligence_queries": [
+      "site:{competitor}.com {primary_keyword}",
+      "site:{competitor}.com pricing",
+      "site:{competitor}.com features",
+      "\"{competitor_brand}\" review",
+      "\"{competitor_brand}\" vs {our_brand}",
+      "alternative to {competitor_brand}"
+    ]
+  },
+  
+  "content_strategy": {
+    "content_pillars": [
+      {
+        "pillar": "{primary_content_pillar}",
+        "topics": [
+          "{pillar_topic_1}",
+          "{pillar_topic_2}",
+          "{pillar_topic_3}",
+          "{pillar_topic_4}",
+          "{pillar_topic_5}"
+        ],
+        "content_types": ["guides", "tutorials", "videos", "infographics"]
+      },
+      
+      {
+        "pillar": "{secondary_content_pillar}",
+        "topics": [
+          "{pillar_topic_1}",
+          "{pillar_topic_2}",
+          "{pillar_topic_3}",
+          "{pillar_topic_4}",
+          "{pillar_topic_5}"
+        ],
+        "content_types": ["case_studies", "comparisons", "tools", "calculators"]
+      },
+      
+      {
+        "pillar": "{tertiary_content_pillar}",
+        "topics": [
+          "{pillar_topic_1}",
+          "{pillar_topic_2}",
+          "{pillar_topic_3}",
+          "{pillar_topic_4}",
+          "{pillar_topic_5}"
+        ],
+        "content_types": ["industry_news", "trends", "expert_interviews", "research"]
+      }
+    ],
+    
+    "content_gaps_to_analyze": [
+      "{content_gap_1}",
+      "{content_gap_2}",
+      "{content_gap_3}",
+      "{content_gap_4}",
+      "{content_gap_5}"
+    ]
+  },
+  
+  "technical_seo_priorities": {
+    "schema_markup_types": [
+      "Organization",
+      "Service",
+      "{industry_specific_schema_1}",
+      "{industry_specific_schema_2}",
+      "FAQ",
+      "Review",
+      "BreadcrumbList"
+    ],
+    
+    "industry_specific_factors": [
+      "{technical_factor_1}",
+      "{technical_factor_2}",
+      "{technical_factor_3}",
+      "{technical_factor_4}",
+      "{technical_factor_5}"
+    ],
+    
+    "conversion_optimization": [
+      "{conversion_element_1}",
+      "{conversion_element_2}",
+      "{conversion_element_3}",
+      "mobile_optimization",
+      "page_speed_optimization"
+    ]
+  },
+  
+  "link_building_strategy": {
+    "target_link_types": [
+      {
+        "type": "{link_type_1}",
+        "examples": [
+          "{example_site_1}",
+          "{example_site_2}",
+          "{example_site_3}",
+          "{example_site_4}",
+          "{example_site_5}"
+        ],
+        "priority": "high"
+      },
+      
+      {
+        "type": "{link_type_2}",
+        "examples": [
+          "{example_site_1}",
+          "{example_site_2}",
+          "{example_site_3}",
+          "{example_site_4}",
+          "{example_site_5}"
+        ],
+        "priority": "medium"
+      },
+      
+      {
+        "type": "{link_type_3}",
+        "examples": [
+          "{example_site_1}",
+          "{example_site_2}",
+          "{example_site_3}",
+          "{example_site_4}",
+          "{example_site_5}"
+        ],
+        "priority": "medium"
+      }
+    ],
+    
+    "content_for_links": [
+      "{linkable_content_1}",
+      "{linkable_content_2}",
+      "{linkable_content_3}",
+      "{linkable_content_4}",
+      "{linkable_content_5}"
+    ]
+  },
+  
+  "conversion_tracking": {
+    "primary_conversions": [
+      "{primary_conversion_1}",
+      "{primary_conversion_2}",
+      "{primary_conversion_3}",
+      "{primary_conversion_4}",
+      "{primary_conversion_5}"
+    ],
+    
+    "micro_conversions": [
+      "{micro_conversion_1}",
+      "{micro_conversion_2}",
+      "{micro_conversion_3}",
+      "{micro_conversion_4}",
+      "{micro_conversion_5}"
+    ],
+    
+    "success_metrics": {
+      "traffic_quality": "{qualified_visitor_target}",
+      "conversion_rate": "{conversion_rate_target}",
+      "customer_acquisition_cost": "{cac_target}",
+      "lifetime_value": "{ltv_target}"
+    }
+  },
+  
+  "competitive_monitoring": {
+    "tracking_keywords": [
+      "{primary_brand_keyword}",
+      "{primary_service_keyword}",
+      "{competitor_comparison_keyword}",
+      "{pricing_keyword}",
+      "{local_keyword}"
+    ],
+    
+    "competitor_monitoring": [
+      "{monitoring_area_1}",
+      "{monitoring_area_2}",
+      "{monitoring_area_3}",
+      "{monitoring_area_4}",
+      "{monitoring_area_5}"
+    ],
+    
+    "alert_triggers": [
+      "ranking_drop > {threshold} positions",
+      "{competitor_activity_trigger}",
+      "{reputation_trigger}",
+      "{pricing_trigger}",
+      "{market_change_trigger}"
+    ]
+  },
+  
+  "seasonal_strategies": {
+    "{season_1}": {
+      "keyword_focus": ["{seasonal_keyword_1}", "{seasonal_keyword_2}", "{seasonal_keyword_3}"],
+      "content_themes": ["{seasonal_theme_1}", "{seasonal_theme_2}", "{seasonal_theme_3}"],
+      "promotion_strategy": "{seasonal_promotion_strategy}"
+    },
+    
+    "{season_2}": {
+      "keyword_focus": ["{seasonal_keyword_1}", "{seasonal_keyword_2}", "{seasonal_keyword_3}"],
+      "content_themes": ["{seasonal_theme_1}", "{seasonal_theme_2}", "{seasonal_theme_3}"],
+      "promotion_strategy": "{seasonal_promotion_strategy}"
+    },
+    
+    "{season_3}": {
+      "keyword_focus": ["{seasonal_keyword_1}", "{seasonal_keyword_2}", "{seasonal_keyword_3}"],
+      "content_themes": ["{seasonal_theme_1}", "{seasonal_theme_2}", "{seasonal_theme_3}"],
+      "promotion_strategy": "{seasonal_promotion_strategy}"
+    },
+    
+    "{season_4}": {
+      "keyword_focus": ["{seasonal_keyword_1}", "{seasonal_keyword_2}", "{seasonal_keyword_3}"],
+      "content_themes": ["{seasonal_theme_1}", "{seasonal_theme_2}", "{seasonal_theme_3}"],
+      "promotion_strategy": "{seasonal_promotion_strategy}"
+    }
+  },
+  
+  "customization_notes": {
+    "required_replacements": [
+      "{industry_name} - Full industry name",
+      "{industry_description} - Brief description of the industry",
+      "{service} - Primary service offering",
+      "{location} - Target geographic area",
+      "{target_market} - Primary target audience",
+      "{competitor_brand} - Main competitor brand names",
+      "{our_brand} - Client brand name"
+    ],
+    
+    "configuration_steps": [
+      "1. Replace all placeholder variables with industry-specific values",
+      "2. Customize keyword lists based on actual search volume data",
+      "3. Update competitor lists with real market players",
+      "4. Adjust seasonal strategies based on industry cycles",
+      "5. Validate schema markup types for industry relevance",
+      "6. Customize conversion tracking based on business model"
+    ]
+  }
+}
