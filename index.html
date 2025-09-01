@@ -221,19 +221,26 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/index.tsx"></script>
-<!-- AI Chat Widget for Anson & Co - Temporary Inline Version -->
-<script>
+<!-- AI Chat Widget with Dynamic Configuration -->
+<script
+  data-widget-id="a0b1c2d3-e4f5-6789-a0b1-c2d3e4f56789"
+  data-api-key="aw_MTc1Njc0MDg0Nzc5MjAuMzM4OTQ5ODYz"
+  data-primary-color="#C4A484"
+  data-company-name="Anson & Co"
+  data-welcome-message="Hello! How can I help you with your premium Singapore CBD address and virtual office services?"
+  data-position="bottom-right">
 (function() {
   'use strict';
   
-  // Inline widget with proper color configuration
+  // Get configuration from script tag or use defaults
+  const script = document.currentScript;
   const config = {
-    widgetId: 'a0b1c2d3-e4f5-6789-a0b1-c2d3e4f56789',
-    apiKey: 'aw_MTc1Njc0MDg0Nzc5MjAuMzM4OTQ5ODYz',
-    primaryColor: '#C4A484',
-    companyName: 'Anson & Co',
-    welcomeMessage: 'Hello! How can I help you with your premium Singapore CBD address and virtual office services?',
-    position: 'bottom-right'
+    widgetId: script?.dataset?.widgetId || 'a0b1c2d3-e4f5-6789-a0b1-c2d3e4f56789',
+    apiKey: script?.dataset?.apiKey || 'aw_MTc1Njc0MDg0Nzc5MjAuMzM4OTQ5ODYz', 
+    primaryColor: script?.dataset?.primaryColor || '#2563eb', // Default blue, can be customized
+    companyName: script?.dataset?.companyName || 'AI Assistant',
+    welcomeMessage: script?.dataset?.welcomeMessage || 'Hello! How can I help you today?',
+    position: script?.dataset?.position || 'bottom-right'
   };
   
   let isOpen = false;
