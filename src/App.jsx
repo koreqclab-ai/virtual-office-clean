@@ -6,7 +6,7 @@ import { MainContent } from './components/MainContent';
 import { Footer } from './components/Footer';
 import { MobileLocationPanel } from './components/MobileLocationPanel';
 import { MobileNavigation } from './components/MobileNavigation';
-import { ChatWidget } from './components/ChatWidget';
+// Removed old ChatWidget - now using AI-powered widget in HTML
 import { ContactForm } from './components/ContactForm';
 import { ThankYouPage } from './components/ThankYouPage';
 import { AnytimeStyleLanding } from './components/AnytimeStyleLanding';
@@ -56,7 +56,7 @@ function App() {
           setIsOpen={setIsMobileMenuOpen}
           onGetStartedClick={handleGetStartedClick}
         />
-        <ChatWidget />
+        {/* ChatWidget removed - now using AI-powered widget in HTML */}
         <ContactForm 
           isOpen={isContactFormOpen}
           onClose={() => setIsContactFormOpen(false)}
