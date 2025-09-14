@@ -227,8 +227,8 @@ export function MainContent({ onGetStartedClick }) {
             {/* Vincent Tan */}
             <div className="bg-gray-50 p-8 rounded-2xl">
               <div className="flex items-center mb-6">
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-orange-600 font-bold text-xl">VT</span>
+                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mr-4 overflow-hidden">
+                  <img src="/vincent.png" alt="Vincent Tan" className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900">Vincent Tan</h3>
@@ -261,8 +261,8 @@ export function MainContent({ onGetStartedClick }) {
             {/* Sarah */}
             <div className="bg-gray-50 p-8 rounded-2xl">
               <div className="flex items-center mb-6">
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mr-4">
-                  <span className="text-orange-600 font-bold text-xl">S</span>
+                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mr-4 overflow-hidden">
+                  <img src="/sarah.png" alt="Sarah" className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900">Sarah</h3>
@@ -308,7 +308,7 @@ export function MainContent({ onGetStartedClick }) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
               <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl">📄</span>
+                <img src="/acra_registration.png" alt="ACRA Registration" className="w-12 h-12 object-contain" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">ACRA Registration</h3>
               <p className="text-gray-600 text-sm">Need real Singapore address for company registration</p>
@@ -316,7 +316,7 @@ export function MainContent({ onGetStartedClick }) {
             
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
               <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl">🏠</span>
+                <img src="/home_based_business.png" alt="Home-Based Business" className="w-12 h-12 object-contain" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Home-Based Business</h3>
               <p className="text-gray-600 text-sm">Run e-commerce or online business professionally</p>
@@ -324,7 +324,7 @@ export function MainContent({ onGetStartedClick }) {
             
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
               <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl">🔒</span>
+                <img src="/privacy_protection.png" alt="Privacy Protection" className="w-12 h-12 object-contain" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Privacy Protection</h3>
               <p className="text-gray-600 text-sm">Keep personal address off public records</p>
@@ -332,7 +332,7 @@ export function MainContent({ onGetStartedClick }) {
             
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
               <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl">🏢</span>
+                <img src="/cbd_presence.png" alt="CBD Presence" className="w-12 h-12 object-contain" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">CBD Presence</h3>
               <p className="text-gray-600 text-sm">Appear established in Singapore's business district</p>
@@ -455,7 +455,7 @@ export function MainContent({ onGetStartedClick }) {
               onClick={() => onGetStartedClick(`${plan.id}-plan`)}
               className="w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors mb-6"
             >
-              Get Started
+              Get Business Address Now
             </button>
 
             {/* Features */}
@@ -563,7 +563,7 @@ export function MainContent({ onGetStartedClick }) {
               onClick={() => onGetStartedClick(`${plan.id}-plan`)}
               className="w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors mb-6"
             >
-              Get Started
+              Get Business Address Now
             </button>
 
             {/* Features */}
