@@ -57,7 +57,7 @@ export function MobileNavigation({ isOpen, setIsOpen, onGetStartedClick }) {
                     }}
                     className="w-full bg-amber-600 text-white py-3 rounded-full hover:bg-amber-700 transition-colors font-medium"
                   >
-                    Get Started
+                    Get Business Address Now
                   </button>
                 </li>
               </ul>

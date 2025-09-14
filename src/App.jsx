@@ -9,9 +9,7 @@ import { MobileNavigation } from './components/MobileNavigation';
 // Removed old ChatWidget - now using AI-powered widget in HTML
 import { ContactForm } from './components/ContactForm';
 import { ThankYouPage } from './components/ThankYouPage';
-import { AnytimeStyleLanding } from './components/AnytimeStyleLanding';
-import { DarkStyleLanding } from './components/DarkStyleLanding';
-import { ArcSpacesStyleLanding } from './components/ArcSpacesStyleLanding';
+// Moved to docs folder: AnytimeStyleLanding, DarkStyleLanding, ArcSpacesStyleLanding
 import { FAQ } from './components/FAQ';
 import { ACRACompliancePage } from './components/ACRACompliancePage';
 import { FinTechPage } from './components/FinTechPage';
@@ -30,21 +28,18 @@ function App() {
     <Router>
       <div className="min-h-screen bg-white font-light text-gray-800 overflow-x-hidden">
         <Routes>
-          <Route path="/" element={<ArcSpacesStyleLanding onGetStartedClick={handleGetStartedClick} />} />
-          <Route path="/old-main" element={
+          <Route path="/" element={
             <>
-              <Header 
+              <Header
                 isMobileMenuOpen={isMobileMenuOpen}
                 setIsMobileMenuOpen={setIsMobileMenuOpen}
-                onGetStartedClick={handleGetStartedClick}
               />
               <Navigation />
               <MainContent onGetStartedClick={handleGetStartedClick} />
               <Footer />
             </>
           } />
-          <Route path="/anytime-style" element={<AnytimeStyleLanding onGetStartedClick={handleGetStartedClick} />} />
-          <Route path="/dark-style" element={<DarkStyleLanding onGetStartedClick={handleGetStartedClick} />} />
+          {/* Moved to docs folder: /old-main, /anytime-style, /dark-style routes */}
           <Route path="/faq" element={<FAQ />} />
           <Route path="/acra-compliance" element={<ACRACompliancePage onGetStartedClick={handleGetStartedClick} />} />
           <Route path="/fintech" element={<FinTechPage onGetStartedClick={handleGetStartedClick} />} />

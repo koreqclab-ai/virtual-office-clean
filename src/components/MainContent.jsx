@@ -1,3 +1,7 @@
+
+import { useState } from 'react';
+import { coreFeatures } from '../data/features';
+import { pricingPlans } from '../data/pricing';
 import React, { useEffect } from 'react';
 
 export function MainContent({ onGetStartedClick }) {
@@ -57,6 +61,8 @@ export function MainContent({ onGetStartedClick }) {
     };
   }, []);
 
+  const [activeTab, setActiveTab] = useState('local');
+
   return (
     <div className="min-h-screen">
       {/* Hero Section - Dark Background (Anytime Mailbox Style) */}
@@ -80,7 +86,7 @@ export function MainContent({ onGetStartedClick }) {
                   onClick={() => onGetStartedClick('hero-primary')}
                   className="bg-orange-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-orange-600 transition-colors"
                 >
-                  Get Started
+                  Get Business Address Now
                 </button>
                 <button 
                   onClick={() => onGetStartedClick('hero-secondary')}
@@ -335,197 +341,302 @@ export function MainContent({ onGetStartedClick }) {
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section id="pricing" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Simple, Transparent Pricing</h2>
-            <p className="text-xl text-gray-600">Choose the plan that fits your business needs</p>
-            <div className="mt-4 inline-flex bg-orange-100 rounded-lg p-1">
-              <span className="bg-orange-500 text-white px-4 py-2 rounded-md text-sm font-medium">Annual Billing (Save 20%)</span>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Basic Plan */}
-            <div className="bg-gray-50 p-8 rounded-2xl border-2 border-gray-200 hover:border-orange-300 transition-colors">
-              <div className="text-center">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Basic Address</h3>
-                <div className="text-4xl font-bold text-orange-500 mb-2">$9.99<span className="text-lg text-gray-500">/month*</span></div>
-                <p className="text-sm text-gray-500 mb-6">*billed annually $119.88</p>
-                
-                <ul className="text-left space-y-3 mb-8">
-                  <li className="flex items-center">
-                    <span className="text-orange-500 mr-2">✓</span>
-                    Premium CBD business address
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-orange-500 mr-2">✓</span>
-                    ACRA-compliant registration
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-orange-500 mr-2">✓</span>
-                    Mail receipt and storage
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-orange-500 mr-2">✓</span>
-                    Business address usage
-                  </li>
-                </ul>
-
-                <button
-                  onClick={() => onGetStartedClick('basic-plan')}
-                  className="w-full bg-gray-900 text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors"
-                >
-                  Get Started
-                </button>
-              </div>
-            </div>
-
-            {/* Monthly Forwarding - Most Popular */}
-            <div className="bg-white p-8 rounded-2xl border-2 border-orange-500 relative shadow-lg">
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <span className="bg-orange-500 text-white px-4 py-1 rounded-full text-sm font-medium">Most Popular</span>
-              </div>
-              <div className="text-center">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Monthly Forwarding</h3>
-                <div className="text-4xl font-bold text-orange-500 mb-2">$15.99<span className="text-lg text-gray-500">/month*</span></div>
-                <p className="text-sm text-gray-500 mb-6">*billed annually $191.88</p>
-                
-                <ul className="text-left space-y-3 mb-8">
-                  <li className="flex items-center">
-                    <span className="text-orange-500 mr-2">✓</span>
-                    All Basic Address features
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-orange-500 mr-2">✓</span>
-                    Monthly mail forwarding
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-orange-500 mr-2">✓</span>
-                    Singapore-wide delivery
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-orange-500 mr-2">✓</span>
-                    Last working day schedule
-                  </li>
-                </ul>
-
-                <button
-                  onClick={() => onGetStartedClick('monthly-plan')}
-                  className="w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors"
-                >
-                  Get Started
-                </button>
-              </div>
-            </div>
-
-            {/* Bi-Weekly Forwarding */}
-            <div className="bg-gray-50 p-8 rounded-2xl border-2 border-gray-200 hover:border-orange-300 transition-colors">
-              <div className="text-center">
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Bi-Weekly Forwarding</h3>
-                <div className="text-4xl font-bold text-orange-500 mb-2">$19.99<span className="text-lg text-gray-500">/month*</span></div>
-                <p className="text-sm text-gray-500 mb-6">*billed annually $239.88</p>
-                
-                <ul className="text-left space-y-3 mb-8">
-                  <li className="flex items-center">
-                    <span className="text-orange-500 mr-2">✓</span>
-                    All Basic Address features
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-orange-500 mr-2">✓</span>
-                    Bi-weekly mail forwarding
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-orange-500 mr-2">✓</span>
-                    Every Friday delivery
-                  </li>
-                  <li className="flex items-center">
-                    <span className="text-orange-500 mr-2">✓</span>
-                    Priority mail handling
-                  </li>
-                </ul>
-
-                <button
-                  onClick={() => onGetStartedClick('biweekly-plan')}
-                  className="w-full bg-gray-900 text-white py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors"
-                >
-                  Get Started
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Additional Services */}
-          <div className="mt-16 text-center">
-            <h3 className="text-2xl font-bold text-gray-900 mb-8">Additional Services</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-orange-50 p-6 rounded-lg">
-                <div className="text-2xl mb-2">📄</div>
-                <h4 className="font-bold text-gray-900 mb-2">Mail Scanning</h4>
-                <p className="text-orange-600 font-bold">$4.99/month*</p>
-                <p className="text-xs text-gray-600">15 pages included</p>
-              </div>
-              <div className="bg-orange-50 p-6 rounded-lg">
-                <div className="text-2xl mb-2">💰</div>
-                <h4 className="font-bold text-gray-900 mb-2">Cheque Deposits</h4>
-                <p className="text-orange-600 font-bold">$10/cheque</p>
-                <p className="text-xs text-gray-600">1-2 day processing</p>
-              </div>
-              <div className="bg-orange-50 p-6 rounded-lg">
-                <div className="text-2xl mb-2">👤</div>
-                <h4 className="font-bold text-gray-900 mb-2">Personal Names</h4>
-                <p className="text-orange-600 font-bold">Same pricing</p>
-                <p className="text-xs text-gray-600">Individual registration</p>
-              </div>
-              <div className="bg-orange-50 p-6 rounded-lg">
-                <div className="text-2xl mb-2">💼</div>
-                <h4 className="font-bold text-gray-900 mb-2">Multi-Entity</h4>
-                <p className="text-orange-600 font-bold">Up to 20% off</p>
-                <p className="text-xs text-gray-600">2nd: 10%, 3rd: 15%, 4th+: 20%</p>
-              </div>
-            </div>
+      {/* Core Features Section */}
+<section className="py-16 bg-gray-50">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-12">
+      <h2 className="text-3xl font-bold text-gray-900 mb-4">Core Features in Every Plan</h2>
+      <p className="text-lg text-gray-600">Essential features included with all virtual office plans</p>
+    </div>
+    
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {coreFeatures.map((feature) => (
+        <div key={feature.id} className="flex items-start space-x-4">
+          <img src={feature.icon} alt="Feature icon" className="w-6 h-6 mt-1 flex-shrink-0" />
+          <div>
+            <p className="text-gray-900 font-medium">
+              {feature.title}
+              {feature.linkText && feature.linkHref && (
+                <>
+                  {' '}
+                  {feature.linkIcon && <img src={feature.linkIcon} alt="Link icon" className="inline w-4 h-4 mx-1" />}
+                  <a href={feature.linkHref} className="text-orange-500 hover:text-orange-600 underline">
+                    {feature.linkText}
+                  </a>
+                </>
+              )}
+              {feature.infoLink && (
+                <a href={feature.infoLink} className="ml-2 inline-flex items-center justify-center w-4 h-4 text-xs font-semibold text-white bg-gray-400 hover:bg-gray-600 rounded-full">
+                  i
+                </a>
+              )}
+            </p>
+            {feature.subtitle && (
+              <p className="text-sm text-gray-600 mt-1">{feature.subtitle}</p>
+            )}
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
-      {/* Bottom Statistics Section - Orange Background (Anytime Mailbox Style) */}
-      <section className="bg-orange-500 py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center text-white">
-            <div>
-              <div className="text-4xl font-bold mb-4">🏢</div>
-              <h3 className="text-2xl font-bold mb-2">Prime CBD Location</h3>
-              <p className="text-orange-100">International Plaza, 10 Anson Road</p>
-              <p className="text-orange-100 text-sm mt-2">Grade A Building • MRT Connected</p>
-            </div>
-            
-            <div>
-              <div className="text-4xl font-bold mb-4">✓</div>
-              <h3 className="text-2xl font-bold mb-2">ACRA Registered Partner</h3>
-              <p className="text-orange-100">Pre-verified business address provider</p>
-              <p className="text-orange-100 text-sm mt-2">16+ Years Experience • 100% Compliant</p>
-            </div>
-            
-            <div>
-              <div className="text-4xl font-bold mb-4">🌏</div>
-              <h3 className="text-2xl font-bold mb-2">Trusted by 500+</h3>
-              <p className="text-orange-100">companies across Southeast Asia</p>
-              <p className="text-orange-100 text-sm mt-2">International Businesses • Local SMEs</p>
-            </div>
+{/* Pricing Plans Section */}
+<section id="pricing" className="py-20 bg-white">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center mb-16">
+      <h2 className="text-4xl font-bold text-gray-900 mb-6">Pricing Plans</h2>
+      <p className="text-xl text-gray-600 mb-8">Flexible Virtual Office Plans to Suit Every Business Need</p>
+      
+      {/* Modern Tab Selector */}
+      <div className="inline-flex items-center bg-gray-100 rounded-xl p-1 mb-12">
+        <button 
+          className={`px-8 py-3 rounded-lg font-semibold text-sm transition-all duration-200 ${
+            activeTab === 'local' 
+              ? 'bg-orange-500 text-white shadow-md' 
+              : 'text-gray-600 hover:text-gray-900'
+          }`}
+          onClick={() => setActiveTab('local')}
+        >
+          <div className="text-center">
+            <div className="font-bold">Local Company</div>
+            <div className="text-xs opacity-75">registered in Singapore</div>
           </div>
-          
-          <div className="text-center mt-12">
+        </button>
+        <button 
+          className={`px-8 py-3 rounded-lg font-semibold text-sm transition-all duration-200 ${
+            activeTab === 'offshore' 
+              ? 'bg-orange-500 text-white shadow-md' 
+              : 'text-gray-600 hover:text-gray-900'
+          }`}
+          onClick={() => setActiveTab('offshore')}
+        >
+          <div className="text-center">
+            <div className="font-bold">Offshore Company</div>
+            <div className="text-xs opacity-75">registered overseas</div>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    {/* Local Company Plans */}
+    <div className={`transition-all duration-300 ${activeTab === 'local' ? 'opacity-100' : 'opacity-0 hidden'}`}>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {pricingPlans.filter(plan => plan.category === 'local').map((plan) => (
+          <div key={plan.id} className="relative bg-white border border-gray-200 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+            {/* Plan Header */}
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex space-x-2">
+                {plan.icons.map((icon, index) => (
+                  <div key={index} className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+                    <img src={icon} alt="Plan icon" className="w-6 h-6" />
+                  </div>
+                ))}
+              </div>
+              {plan.badge && (
+                <span className="bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                  {plan.badge}
+                </span>
+              )}
+            </div>
+
+            {/* Plan Title & Price */}
+            <h3 className="text-lg font-bold text-gray-900 mb-4">{plan.title}</h3>
+            <div className="flex items-baseline justify-between mb-6">
+              <div>
+                <span className="text-3xl font-bold text-orange-500">{plan.price}</span>
+                <span className="text-gray-600">/year</span>
+              </div>
+              <span className="text-sm text-gray-500">No GST</span>
+            </div>
+
+            {/* Subscribe Button */}
             <button
-              onClick={() => onGetStartedClick('bottom-cta')}
-              className="bg-white text-orange-500 px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition-colors shadow-lg"
+              onClick={() => onGetStartedClick(`${plan.id}-plan`)}
+              className="w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors mb-6"
             >
-              Get Your CBD Address Today - From $9.99/month*
+              Get Started
             </button>
-            <p className="text-orange-100 text-sm mt-3">*Annual billing • Start immediately • No setup fees</p>
+
+            {/* Features */}
+            <div className="space-y-4">
+              <div className="flex items-center text-sm">
+                <span className="text-orange-500 font-bold mr-2">✓</span>
+                <span>All core features</span>
+              </div>
+              
+              <div>
+                <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">What's Special</h4>
+                <div className="space-y-3">
+                  {plan.specialFeatures.map((feature, index) => (
+                    <div key={index} className="space-y-2">
+                      <div className="flex items-start">
+                        <span className="text-orange-500 font-bold mr-2 mt-0.5">✓</span>
+                        <div className="text-sm">
+                          <p className="font-medium text-gray-900">{feature.title}</p>
+                          {feature.subtitle && (
+                            <p className="text-gray-600 mt-1">{feature.subtitle}</p>
+                          )}
+                          {feature.details && (
+                            <ul className="mt-2 space-y-1 text-gray-600">
+                              {feature.details.map((detail, idx) => (
+                                <li key={idx} className="text-xs">• {detail}</li>
+                              ))}
+                            </ul>
+                          )}
+                          {feature.image && (
+                            <img 
+                              src={feature.image.src} 
+                              alt={feature.image.alt}
+                              className="w-full max-w-[200px] mx-auto my-3 rounded-lg"
+                            />
+                          )}
+                          {feature.link && (
+                            <div className="mt-2">
+                              <a 
+                                href={feature.link.href}
+                                className="text-orange-500 hover:text-orange-600 text-xs underline inline-flex items-center"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                {feature.link.text}
+                                {feature.link.image && (
+                                  <img src={feature.link.image} alt="PDF" className="w-4 h-4 ml-1" />
+                                )}
+                              </a>
+                            </div>
+                          )}
+                          {feature.note && (
+                            <p className="text-xs text-gray-500 mt-2">{feature.note}</p>
+                          )}
+                          {feature.disclaimer && (
+                            <p className="text-xs text-gray-500 mt-1">{feature.disclaimer}</p>
+                          )}
+                          {feature.additionalInfo && (
+                            <p className="text-xs italic text-gray-500 mt-1">{feature.additionalInfo}</p>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        ))}
+      </div>
+    </div>
+
+    {/* Offshore Company Plans */}
+    <div className={`transition-all duration-300 ${activeTab === 'offshore' ? 'opacity-100' : 'opacity-0 hidden'}`}>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {pricingPlans.filter(plan => plan.category === 'offshore').map((plan) => (
+          <div key={plan.id} className="relative bg-white border border-gray-200 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+            {/* Plan Header */}
+            <div className="flex items-center justify-between mb-6">
+              <div className="flex space-x-2">
+                {plan.icons.map((icon, index) => (
+                  <div key={index} className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
+                    <img src={icon} alt="Plan icon" className="w-6 h-6" />
+                  </div>
+                ))}
+              </div>
+              {plan.badge && (
+                <span className="bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                  {plan.badge}
+                </span>
+              )}
+            </div>
+
+            {/* Plan Title & Price */}
+            <h3 className="text-lg font-bold text-gray-900 mb-4">{plan.title}</h3>
+            <div className="flex items-baseline justify-between mb-6">
+              <div>
+                <span className="text-3xl font-bold text-orange-500">{plan.price}</span>
+                <span className="text-gray-600">/year</span>
+              </div>
+              <span className="text-sm text-gray-500">No GST</span>
+            </div>
+
+            {/* Subscribe Button */}
+            <button
+              onClick={() => onGetStartedClick(`${plan.id}-plan`)}
+              className="w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors mb-6"
+            >
+              Get Started
+            </button>
+
+            {/* Features */}
+            <div className="space-y-4">
+              <div className="flex items-center text-sm">
+                <span className="text-orange-500 font-bold mr-2">✓</span>
+                <span>All core features</span>
+              </div>
+              
+              <div>
+                <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">What's Special</h4>
+                <div className="space-y-3">
+                  {plan.specialFeatures.map((feature, index) => (
+                    <div key={index} className="space-y-2">
+                      <div className="flex items-start">
+                        <span className="text-orange-500 font-bold mr-2 mt-0.5">✓</span>
+                        <div className="text-sm">
+                          <p className="font-medium text-gray-900">{feature.title}</p>
+                          {feature.subtitle && (
+                            <p className="text-gray-600 mt-1">{feature.subtitle}</p>
+                          )}
+                          {feature.details && (
+                            <ul className="mt-2 space-y-1 text-gray-600">
+                              {feature.details.map((detail, idx) => (
+                                <li key={idx} className="text-xs">• {detail}</li>
+                              ))}
+                            </ul>
+                          )}
+                          {feature.image && (
+                            <img 
+                              src={feature.image.src} 
+                              alt={feature.image.alt}
+                              className="w-full max-w-[200px] mx-auto my-3 rounded-lg"
+                            />
+                          )}
+                          {feature.link && (
+                            <div className="mt-2">
+                              <a 
+                                href={feature.link.href}
+                                className="text-orange-500 hover:text-orange-600 text-xs underline inline-flex items-center"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                {feature.link.text}
+                                {feature.link.image && (
+                                  <img src={feature.link.image} alt="PDF" className="w-4 h-4 ml-1" />
+                                )}
+                              </a>
+                            </div>
+                          )}
+                          {feature.note && (
+                            <p className="text-xs text-gray-500 mt-2">{feature.note}</p>
+                          )}
+                          {feature.disclaimer && (
+                            <p className="text-xs text-gray-500 mt-1">{feature.disclaimer}</p>
+                          )}
+                          {feature.additionalInfo && (
+                            <p className="text-xs italic text-gray-500 mt-1">{feature.additionalInfo}</p>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* FAQ Section */}
       <section className="py-20 bg-gray-50">

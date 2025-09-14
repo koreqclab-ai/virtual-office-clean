@@ -73,7 +73,7 @@ export function ContactForm({ isOpen, onClose, buttonSource = 'unknown' }) {
   const getFormTitle = () => {
     switch (buttonSource) {
       case 'get-started':
-        return 'Get Started with Your Virtual Office';
+        return 'Get Business Address Now with Your Virtual Office';
       case 'subscribe':
         return 'Subscribe to Virtual Office Service';
       case 'consultation':
@@ -88,7 +88,7 @@ export function ContactForm({ isOpen, onClose, buttonSource = 'unknown' }) {
       case 'get-started':
         return 'Ready to get your premium International Plaza virtual office? Let us know your requirements and we\'ll get you set up.';
       case 'subscribe':
-        return 'Choose your virtual office package and we\'ll help you get started with your premium CBD address.';
+        return 'Choose your virtual office package and we\'ll help you get your premium CBD address now.';
       case 'consultation':
         return 'Book a free consultation to discuss your virtual office needs and find the perfect solution.';
       default:
