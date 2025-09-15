@@ -10,15 +10,17 @@ export function ContactForm({ isOpen, onClose, buttonSource = 'unknown' }) {
     phone: '',
     serviceInterest: 'self-collection',
     message: '',
+    needCompanyRegistration: false,
     source: buttonSource
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
   const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: type === 'checkbox' ? checked : value
     });
   };
 
@@ -43,6 +45,7 @@ export function ContactForm({ isOpen, onClose, buttonSource = 'unknown' }) {
           phone: formData.phone,
           serviceInterest: formData.serviceInterest,
           message: formData.message,
+          needCompanyRegistration: formData.needCompanyRegistration,
           buttonSource: formData.source,
           _replyto: formData.email, // Formspree auto-response field
           _subject: 'New Virtual Office Inquiry from ' + formData.name
@@ -471,6 +474,37 @@ export function ContactForm({ isOpen, onClose, buttonSource = 'unknown' }) {
               />
             </div>
 
+            {/* Company Registration Services Checkbox */}
+            <div className="form-group-full">
+              <label className="flex items-start gap-3 cursor-pointer"
+                     style={{
+                       fontSize: '0.875rem',
+                       color: '#5C5651'
+                     }}>
+                <input
+                  type="checkbox"
+                  name="needCompanyRegistration"
+                  checked={formData.needCompanyRegistration}
+                  onChange={handleChange}
+                  className="mt-1 rounded transition-all"
+                  style={{
+                    width: '16px',
+                    height: '16px',
+                    accentColor: '#B8A898',
+                    backgroundColor: '#F7F6F4',
+                    border: '1px solid #EEEBE6'
+                  }}
+                />
+                <span className="select-none"
+                      style={{
+                        lineHeight: '1.4',
+                        fontWeight: '400'
+                      }}>
+                  I need Company Registration Services
+                </span>
+              </label>
+            </div>
+
             {/* Submit Button */}
             <div className="modal-actions flex flex-col sm:flex-row gap-4"
                  style={{
@@ -553,32 +587,6 @@ export function ContactForm({ isOpen, onClose, buttonSource = 'unknown' }) {
             </div>
           </form>
 
-          {/* Contact Info */}
-          <div className="mt-8 pt-6 text-center"
-               style={{
-                 borderTop: '1px solid #F0EDE8'
-               }}>
-            <p className="mb-2"
-               style={{
-                 color: '#8B8680',
-                 fontWeight: '400'
-               }}>
-              Prefer to talk? Call us directly:
-            </p>
-            <a href="tel:+6561234567" className="transition-colors"
-               style={{
-                 color: '#B8A898',
-                 fontWeight: '500'
-               }}
-               onMouseEnter={(e) => {
-                 e.target.style.color = '#A39086';
-               }}
-               onMouseLeave={(e) => {
-                 e.target.style.color = '#B8A898';
-               }}>
-              +65 6123 4567
-            </a>
-          </div>
         </div>
       </div>
     </div>

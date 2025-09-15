@@ -437,6 +437,29 @@
   font-style: normal;
 }
 
+/* Checkbox Styling for Neutral Theme */
+input[type="checkbox"] {
+  accent-color: #B8A898;
+  background-color: #F7F6F4;
+  border: 1px solid #EEEBE6;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="checkbox"]:hover {
+  border-color: #B8A898;
+}
+
+input[type="checkbox"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(184, 168, 152, 0.1);
+}
+
+input[type="checkbox"]:checked {
+  background-color: #B8A898;
+  border-color: #B8A898;
+}
+
 /* Form Validation States */
 .form-input.error,
 .form-select.error,
