@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import { Link } from 'react-router-dom';
 
 export function Header({ isMobileMenuOpen, setIsMobileMenuOpen, onGetStartedClick }) {
   // Smooth scroll functionality
@@ -37,12 +38,12 @@ export function Header({ isMobileMenuOpen, setIsMobileMenuOpen, onGetStartedClic
                onClick={handlePricingClick}>
               Pricing
             </a>
-            <a href="/faq" className="font-medium hover:opacity-75" style={{color: '#8B7355'}}>
+            <Link to="/faq" className="font-medium hover:opacity-75 transition-all duration-200" style={{color: '#8B7355'}}>
               FAQ
-            </a>
-            <a href="/incorporation-guide" className="font-medium hover:opacity-75" style={{color: '#8B7355'}}>
+            </Link>
+            <Link to="/incorporation-guide" className="font-medium hover:opacity-75 transition-all duration-200" style={{color: '#8B7355'}}>
               Incorporation Guide
-            </a>
+            </Link>
             <button
               onClick={() => onGetStartedClick('header-get-started')}
               className="text-white px-6 py-2 rounded font-medium hover:opacity-90"

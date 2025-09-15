@@ -12,6 +12,7 @@ import { ThankYouPage } from './components/ThankYouPage';
 import { FAQ } from './components/FAQ';
 import { ACRACompliancePage } from './components/ACRACompliancePage';
 import { FinTechPage } from './components/FinTechPage';
+import { IncorporationGuide } from './components/IncorporationGuide';
 
 function App() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -39,6 +40,7 @@ function App() {
           } />
           {/* Moved to docs folder: /old-main, /anytime-style, /dark-style routes */}
           <Route path="/faq" element={<FAQ />} />
+          <Route path="/incorporation-guide" element={<IncorporationGuide />} />
           <Route path="/acra-compliance" element={<ACRACompliancePage onGetStartedClick={handleGetStartedClick} />} />
           <Route path="/fintech" element={<FinTechPage onGetStartedClick={handleGetStartedClick} />} />
           <Route path="/thank-you" element={<ThankYouPage />} />

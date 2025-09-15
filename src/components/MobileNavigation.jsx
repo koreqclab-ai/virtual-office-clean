@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import { Link } from 'react-router-dom';
 
 export function MobileNavigation({ isOpen, setIsOpen, onGetStartedClick }) {
   // Smooth scroll functionality
@@ -50,26 +51,21 @@ export function MobileNavigation({ isOpen, setIsOpen, onGetStartedClick }) {
             <nav className="p-6">
               <ul className="space-y-4">
                 <li>
-                  <a href="#home" onClick={handleLinkClick} className="block text-lg text-gray-700 hover:text-amber-600 py-2 transition-colors">
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a href="#services" onClick={handleLinkClick} className="block text-lg text-gray-700 hover:text-amber-600 py-2 transition-colors">
-                    Services
-                  </a>
-                </li>
-                <li>
-                  <a href="#locations" onClick={handleLinkClick} className="block text-lg text-gray-700 hover:text-amber-600 py-2 transition-colors">
-                    Locations
-                  </a>
-                </li>
-                <li>
                   <a href="#pricing"
                      onClick={handlePricingClick}
                      className="block text-lg text-gray-700 hover:text-amber-600 py-2 transition-colors">
                     Pricing
                   </a>
+                </li>
+                <li>
+                  <Link to="/faq" onClick={handleLinkClick} className="block text-lg text-gray-700 hover:text-amber-600 py-2 transition-colors">
+                    FAQ
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/incorporation-guide" onClick={handleLinkClick} className="block text-lg text-gray-700 hover:text-amber-600 py-2 transition-colors">
+                    Incorporation Guide
+                  </Link>
                 </li>
                 <li className="pt-4 border-t border-gray-100">
                   <button 
