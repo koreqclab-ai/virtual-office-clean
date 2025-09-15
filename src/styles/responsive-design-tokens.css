@@ -498,6 +498,112 @@ input[type="checkbox"]:checked {
   to { transform: rotate(360deg); }
 }
 
+/* Mobile Hero Text Scaling */
+@media (max-width: 768px) {
+  /* Hero heading responsive sizing */
+  .text-5xl {
+    font-size: 2.25rem !important;        /* Reduced from ~3rem */
+    line-height: 1.2 !important;          /* Tighter line spacing */
+    letter-spacing: -0.02em !important;   /* Slight letter tightening */
+  }
+
+  /* Hero content container improvements */
+  .ml-\[15\%\] {
+    margin-left: 5% !important;           /* Reduce left margin on mobile */
+    padding: 0 1.5rem !important;         /* Add horizontal padding */
+  }
+
+  .max-w-4xl {
+    max-width: 90vw !important;           /* Prevent edge overflow */
+  }
+
+  /* Hero text body improvements */
+  .text-lg {
+    font-size: 1rem !important;           /* Reduce body text size */
+    line-height: 1.4 !important;
+  }
+
+  .max-w-2xl {
+    max-width: 85vw !important;           /* Constrain body text width */
+  }
+
+  /* Hero section padding adjustment */
+  section[style*="paddingTop: '264px'"] {
+    padding-top: 120px !important;        /* Reduce top padding on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Even smaller sizing for small phones */
+  .text-5xl {
+    font-size: 1.875rem !important;       /* Further reduction for small screens */
+    line-height: 1.15 !important;
+  }
+
+  .text-lg {
+    font-size: 0.9rem !important;         /* Smaller body text */
+    line-height: 1.35 !important;
+  }
+
+  .ml-\[15\%\] {
+    margin-left: 2% !important;           /* Even tighter margins */
+    padding: 0 1rem !important;
+  }
+
+  section[style*="paddingTop: '264px'"] {
+    padding-top: 100px !important;        /* Further reduced padding */
+  }
+}
+
+/* Improve text wrapping and readability */
+@media (max-width: 768px) {
+  .text-5xl,
+  .hero-title {
+    word-wrap: break-word;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    white-space: normal;                   /* Allow natural wrapping */
+    word-break: normal;                    /* Prevent aggressive breaking */
+  }
+
+  /* Hero section overall mobile improvements */
+  .min-h-screen {
+    min-height: 100vh;                     /* Ensure proper mobile height */
+  }
+}
+
+/* Mobile section spacing improvements */
+@media (max-width: 768px) {
+  .py-20 {
+    padding-top: 3rem !important;         /* Reduced from 5rem */
+    padding-bottom: 3rem !important;
+  }
+
+  .text-4xl {
+    font-size: 1.75rem !important;        /* Section headings */
+    margin-bottom: 1rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .text-xl {
+    font-size: 1rem !important;           /* Section subtitles */
+    margin-bottom: 1.5rem !important;
+    line-height: 1.4 !important;
+  }
+
+  .mb-16 {
+    margin-bottom: 2rem !important;       /* Reduce large margins */
+  }
+
+  .mb-6 {
+    margin-bottom: 1rem !important;       /* Tighter spacing */
+  }
+
+  .mb-8 {
+    margin-bottom: 1.5rem !important;     /* Adjusted spacing */
+  }
+}
+
 /* Pricing Section Tight Spacing */
 .pricing-section {
   --title-spacing: 0.75rem;        /* 12px - tight title spacing */
