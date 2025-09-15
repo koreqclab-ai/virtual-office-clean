@@ -247,60 +247,6 @@ body {
   }
 }
 
-/* Guide CTA Button Styles */
-.guide-cta-button {
-  background-color: #D4B896;
-  color: white;
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 9999px;
-  font-size: 1.125rem;
-  font-weight: 600;
-  font-family: 'Optima', 'Inter', sans-serif;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  min-width: 200px;
-}
-
-.guide-cta-button:hover {
-  background-color: #c4a882;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.guide-cta-button:active {
-  transform: translateY(0);
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.guide-cta-button:focus {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(212, 184, 150, 0.3);
-}
-
-.guide-cta-button:focus-visible {
-  outline: 2px solid #D4B896;
-  outline-offset: 2px;
-}
-
-/* Mobile Responsive for Guide CTA */
-@media (max-width: 768px) {
-  .guide-cta-button {
-    width: 100%;
-    max-width: 300px;
-    padding: 1.25rem 2rem;
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .guide-cta-button {
-    padding: 1rem 1.5rem;
-    font-size: 0.95rem;
-    max-width: 280px;
-  }
-}
 
 /* ACRA Compliance Page CTA Button Styles */
 .acra-cta-button {

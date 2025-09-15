@@ -181,20 +181,6 @@ export function IncorporationGuide() {
 
           </div>
 
-          {/* Call to Action */}
-          <div className="guide-cta">
-            <div className="cta-content">
-              <h3>Ready to Get Your Singapore Business Address?</h3>
-              <p>Start your company incorporation process with a prestigious International Plaza CBD address.</p>
-              <button
-                className="guide-cta-button"
-                onClick={() => window.location.href = '/#pricing'}
-                aria-label="Navigate to pricing plans section"
-              >
-                Get Business Address Now
-              </button>
-            </div>
-          </div>
         </div>
       </main>
 
