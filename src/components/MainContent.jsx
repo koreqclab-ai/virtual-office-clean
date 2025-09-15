@@ -335,26 +335,32 @@ export function MainContent({ onGetStartedClick }) {
   </div>
 </section>
 
-{/* Pricing Plans Section */}
-<section id="pricing" className="py-20 bg-white">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+{/* Pricing Plans Section - Neutral Color Scheme */}
+<section id="pricing" className="py-20 pricing-section" style={{backgroundColor: 'var(--cream-background)'}}>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pricing-container">
     <div className="text-center mb-16">
-      <h2 className="text-4xl font-bold text-gray-900 mb-6">Pricing Plans</h2>
-      <p className="text-xl text-gray-600 mb-8">Flexible Virtual Office Plans to Suit Every Business Need</p>
+      <h2 className="text-4xl font-bold mb-6 main-heading" style={{color: 'var(--heading-dark)'}}>Pricing Plans</h2>
+      <p className="text-xl mb-8" style={{color: 'var(--text-muted)'}}>Flexible Virtual Office Plans to Suit Every Business Need</p>
       
-      {/* Responsive Tab Selector with Keyboard Navigation */}
+      {/* Responsive Tab Selector with Keyboard Navigation - Neutral Colors */}
       <div
-        className="flex flex-col sm:inline-flex sm:flex-row items-center bg-gray-100 rounded-xl p-1 mb-8 sm:mb-12 w-full sm:w-auto max-w-md sm:max-w-none mx-auto"
+        className="flex flex-col sm:inline-flex sm:flex-row items-center rounded-xl p-1 mb-8 sm:mb-12 w-full sm:w-auto max-w-md sm:max-w-none mx-auto"
+        style={{backgroundColor: 'var(--light-beige)'}}
         role="tablist"
         aria-label="Pricing plan categories"
       >
         <button
           id="local-tab"
-          className={`w-full sm:w-auto touch-target-comfort px-4 sm:px-6 md:px-8 py-3 rounded-lg font-semibold text-xs sm:text-sm transition-all duration-200 mb-1 sm:mb-0 focus:outline-none focus:ring-2 focus:ring-orange-300 ${
+          className={`w-full sm:w-auto touch-target-comfort px-4 sm:px-6 md:px-8 py-3 rounded-lg font-semibold text-xs sm:text-sm transition-all duration-200 mb-1 sm:mb-0 focus:outline-none focus:ring-2 ${
             activeTab === 'local'
-              ? 'bg-orange-500 text-white shadow-md'
-              : 'text-gray-600 hover:text-gray-900 active:bg-gray-200'
+              ? 'shadow-md'
+              : 'hover:opacity-80 active:opacity-70'
           }`}
+          style={{
+            backgroundColor: activeTab === 'local' ? 'var(--primary-beige)' : 'transparent',
+            color: activeTab === 'local' ? 'white' : 'var(--text-muted)',
+            '--tw-ring-color': 'var(--light-beige)'
+          }}
           onClick={() => setActiveTab('local')}
           onKeyDown={(e) => handleTabKeyDown(e, 'local')}
           aria-selected={activeTab === 'local'}
@@ -369,11 +375,16 @@ export function MainContent({ onGetStartedClick }) {
         </button>
         <button
           id="offshore-tab"
-          className={`w-full sm:w-auto touch-target-comfort px-4 sm:px-6 md:px-8 py-3 rounded-lg font-semibold text-xs sm:text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-orange-300 ${
+          className={`w-full sm:w-auto touch-target-comfort px-4 sm:px-6 md:px-8 py-3 rounded-lg font-semibold text-xs sm:text-sm transition-all duration-200 focus:outline-none focus:ring-2 ${
             activeTab === 'offshore'
-              ? 'bg-orange-500 text-white shadow-md'
-              : 'text-gray-600 hover:text-gray-900 active:bg-gray-200'
+              ? 'shadow-md'
+              : 'hover:opacity-80 active:opacity-70'
           }`}
+          style={{
+            backgroundColor: activeTab === 'offshore' ? 'var(--primary-beige)' : 'transparent',
+            color: activeTab === 'offshore' ? 'white' : 'var(--text-muted)',
+            '--tw-ring-color': 'var(--light-beige)'
+          }}
           onClick={() => setActiveTab('offshore')}
           onKeyDown={(e) => handleTabKeyDown(e, 'offshore')}
           aria-selected={activeTab === 'offshore'}
@@ -400,17 +411,22 @@ export function MainContent({ onGetStartedClick }) {
         {pricingPlans.filter(plan => plan.category === 'local').map((plan) => (
           <div
             key={plan.id}
-            className="card-responsive relative border border-gray-200 hover:border-orange-200 focus-within:border-orange-300 transition-all duration-300"
+            className="card-responsive relative border transition-all duration-300"
+            style={{
+              backgroundColor: 'var(--warm-white)',
+              borderColor: 'var(--border-subtle)'
+            }}
             role="article"
             aria-labelledby={`plan-${plan.id}-title`}
           >
-            {/* Plan Header - Mobile Optimized */}
+            {/* Plan Header - Mobile Optimized - Neutral Colors */}
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 sm:mb-6">
               <div className="flex space-x-2 mb-2 sm:mb-0 justify-center sm:justify-start">
                 {plan.icons.map((icon, index) => (
                   <div
                     key={index}
-                    className="w-10 h-10 sm:w-12 sm:h-12 bg-orange-100 rounded-full flex items-center justify-center"
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center flag-icon-container"
+                    style={{backgroundColor: 'var(--light-beige)'}}
                     role="img"
                     aria-label={`Plan icon ${index + 1}`}
                   >
@@ -419,31 +435,41 @@ export function MainContent({ onGetStartedClick }) {
                 ))}
               </div>
               {plan.badge && (
-                <span className="bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded-full text-center sm:text-left">
+                <span className="text-xs font-semibold px-3 py-1 rounded-full text-center sm:text-left"
+                      style={{backgroundColor: 'var(--light-beige)', color: 'var(--soft-gray)'}}>
                   {plan.badge}
                 </span>
               )}
             </div>
 
-            {/* Plan Title & Price - Mobile Optimized */}
+            {/* Plan Title & Price - Mobile Optimized - Neutral Colors */}
             <h3
               id={`plan-${plan.id}-title`}
-              className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4 text-center sm:text-left"
+              className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-center sm:text-left card-title"
+              style={{color: 'var(--heading-muted)'}}
             >
               {plan.title}
             </h3>
             <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-4 sm:mb-6 text-center sm:text-left">
               <div className="mb-2 sm:mb-0">
-                <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-500">{plan.price}</span>
-                <span className="text-gray-600 text-sm sm:text-base">/year</span>
+                <span className="text-2xl sm:text-3xl md:text-4xl font-bold price-display" style={{color: 'var(--soft-gray)'}}>{plan.price}</span>
+                <span className="text-sm sm:text-base" style={{color: 'var(--text-muted)'}}>/year</span>
               </div>
-              <span className="text-xs sm:text-sm text-gray-500">No GST</span>
+              <span className="text-xs sm:text-sm card-subtitle" style={{color: 'var(--text-very-muted)'}}>No GST</span>
             </div>
 
-            {/* Subscribe Button - Touch Optimized */}
+            {/* Subscribe Button - Touch Optimized - Neutral Colors */}
             <button
               onClick={() => onGetStartedClick(`${plan.id}-plan`)}
-              className="btn-responsive w-full bg-orange-500 text-white hover:bg-orange-600 active:bg-orange-700 focus:ring-4 focus:ring-orange-200 mb-4 sm:mb-6 text-sm sm:text-base"
+              className="btn-responsive w-full cta-button mb-4 sm:mb-6 text-sm sm:text-base focus:ring-4 focus:outline-none"
+              style={{
+                backgroundColor: 'var(--primary-beige)',
+                color: 'white',
+                '--tw-ring-color': 'var(--light-beige)'
+              }}
+              onMouseEnter={(e) => e.target.style.backgroundColor = 'var(--primary-beige-hover)'}
+              onMouseLeave={(e) => e.target.style.backgroundColor = 'var(--primary-beige)'}
+              onMouseDown={(e) => e.target.style.backgroundColor = 'var(--primary-beige-active)'}
               aria-label={`Subscribe to ${plan.title} plan`}
             >
               <span className="block sm:hidden">Get Started</span>
@@ -530,17 +556,22 @@ export function MainContent({ onGetStartedClick }) {
         {pricingPlans.filter(plan => plan.category === 'offshore').map((plan) => (
           <div
             key={plan.id}
-            className="card-responsive relative border border-gray-200 hover:border-orange-200 focus-within:border-orange-300 transition-all duration-300"
+            className="card-responsive relative border transition-all duration-300"
+            style={{
+              backgroundColor: 'var(--warm-white)',
+              borderColor: 'var(--border-subtle)'
+            }}
             role="article"
             aria-labelledby={`plan-offshore-${plan.id}-title`}
           >
-            {/* Plan Header - Mobile Optimized */}
+            {/* Plan Header - Mobile Optimized - Neutral Colors */}
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 sm:mb-6">
               <div className="flex space-x-2 mb-2 sm:mb-0 justify-center sm:justify-start">
                 {plan.icons.map((icon, index) => (
                   <div
                     key={index}
-                    className="w-10 h-10 sm:w-12 sm:h-12 bg-orange-100 rounded-full flex items-center justify-center"
+                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center flag-icon-container"
+                    style={{backgroundColor: 'var(--light-beige)'}}
                     role="img"
                     aria-label={`Plan icon ${index + 1}`}
                   >
@@ -549,31 +580,41 @@ export function MainContent({ onGetStartedClick }) {
                 ))}
               </div>
               {plan.badge && (
-                <span className="bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded-full text-center sm:text-left">
+                <span className="text-xs font-semibold px-3 py-1 rounded-full text-center sm:text-left"
+                      style={{backgroundColor: 'var(--light-beige)', color: 'var(--soft-gray)'}}>
                   {plan.badge}
                 </span>
               )}
             </div>
 
-            {/* Plan Title & Price - Mobile Optimized */}
+            {/* Plan Title & Price - Mobile Optimized - Neutral Colors */}
             <h3
               id={`plan-offshore-${plan.id}-title`}
-              className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4 text-center sm:text-left"
+              className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-center sm:text-left card-title"
+              style={{color: 'var(--heading-muted)'}}
             >
               {plan.title}
             </h3>
             <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-4 sm:mb-6 text-center sm:text-left">
               <div className="mb-2 sm:mb-0">
-                <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-500">{plan.price}</span>
-                <span className="text-gray-600 text-sm sm:text-base">/year</span>
+                <span className="text-2xl sm:text-3xl md:text-4xl font-bold price-display" style={{color: 'var(--soft-gray)'}}>{plan.price}</span>
+                <span className="text-sm sm:text-base" style={{color: 'var(--text-muted)'}}>/year</span>
               </div>
-              <span className="text-xs sm:text-sm text-gray-500">No GST</span>
+              <span className="text-xs sm:text-sm card-subtitle" style={{color: 'var(--text-very-muted)'}}>No GST</span>
             </div>
 
-            {/* Subscribe Button - Touch Optimized */}
+            {/* Subscribe Button - Touch Optimized - Neutral Colors */}
             <button
               onClick={() => onGetStartedClick(`${plan.id}-plan`)}
-              className="btn-responsive w-full bg-orange-500 text-white hover:bg-orange-600 active:bg-orange-700 focus:ring-4 focus:ring-orange-200 mb-4 sm:mb-6 text-sm sm:text-base"
+              className="btn-responsive w-full cta-button mb-4 sm:mb-6 text-sm sm:text-base focus:ring-4 focus:outline-none"
+              style={{
+                backgroundColor: 'var(--primary-beige)',
+                color: 'white',
+                '--tw-ring-color': 'var(--light-beige)'
+              }}
+              onMouseEnter={(e) => e.target.style.backgroundColor = 'var(--primary-beige-hover)'}
+              onMouseLeave={(e) => e.target.style.backgroundColor = 'var(--primary-beige)'}
+              onMouseDown={(e) => e.target.style.backgroundColor = 'var(--primary-beige-active)'}
               aria-label={`Subscribe to ${plan.title} plan`}
             >
               <span className="block sm:hidden">Get Started</span>

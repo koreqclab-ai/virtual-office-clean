@@ -1,5 +1,26 @@
 /* Responsive Design Tokens - Mobile-First Approach */
 :root {
+  /* EXACT TARGET COLOR PALETTE - Neutral Beige Theme */
+  /* REMOVE these orange colors */
+  --old-orange: #FF7F32;
+  --old-button-orange: #E6661A;
+
+  /* REPLACE with exact target colors */
+  --primary-beige: #B8A898;        /* Main neutral tone */
+  --primary-beige-hover: #A39086;  /* Darker beige on hover */
+  --primary-beige-active: #948A7E; /* Even darker when clicked */
+  --light-beige: #D4CFC7;          /* Lighter variant */
+  --cream-background: #F7F6F4;     /* Page background */
+  --soft-gray: #8B8680;            /* Muted text */
+  --warm-white: #FEFDFB;           /* Card backgrounds */
+
+  /* Text Color Hierarchy */
+  --heading-dark: #4A453F;         /* Darker but not black */
+  --heading-muted: #5C5651;        /* Muted heading */
+  --text-muted: #6B6560;           /* Softer feature text */
+  --text-very-muted: #8B8680;      /* Very muted */
+  --border-subtle: #EEEBE6;        /* Very subtle border */
+
   /* Breakpoints - Mobile First */
   --mobile: 320px;
   --mobile-lg: 414px;
@@ -307,4 +328,100 @@
     min-height: 40px;
     padding: var(--spacing-xs);
   }
+}
+
+/* EXACT COLOR PALETTE IMPLEMENTATION */
+
+/* Phase 1: Complete Orange Removal */
+.pricing-card .price-display,
+.text-orange-500,
+.text-orange-600,
+[class*="text-orange"] {
+  color: var(--soft-gray) !important;
+}
+
+.bg-orange-500,
+.bg-orange-600,
+.bg-orange-100,
+[class*="bg-orange"] {
+  background-color: var(--primary-beige) !important;
+}
+
+.border-orange-200,
+.border-orange-300,
+[class*="border-orange"] {
+  border-color: var(--light-beige) !important;
+}
+
+.focus\:ring-orange-200,
+.focus\:ring-orange-300,
+[class*="ring-orange"] {
+  --tw-ring-color: var(--light-beige) !important;
+}
+
+/* Phase 2: Background & Container Colors */
+.pricing-section {
+  background-color: var(--cream-background) !important;
+}
+
+.pricing-container {
+  background-color: transparent !important;
+}
+
+.card-responsive {
+  background-color: var(--warm-white) !important;
+  border-color: var(--border-subtle) !important;
+}
+
+/* Phase 3: Text Color Hierarchy */
+.main-heading {
+  color: var(--heading-dark) !important;
+}
+
+.card-title {
+  color: var(--heading-muted) !important;
+}
+
+.price-display {
+  color: var(--soft-gray) !important;
+}
+
+.feature-text {
+  color: var(--text-muted) !important;
+}
+
+.card-subtitle {
+  color: var(--text-very-muted) !important;
+}
+
+/* Phase 4: Icon & Accent Colors */
+.flag-icon-container {
+  background-color: var(--light-beige) !important;
+}
+
+/* Phase 5: Button State Redesign */
+.btn-responsive,
+.cta-button {
+  background-color: var(--primary-beige) !important;
+  color: white !important;
+  border: none !important;
+}
+
+.btn-responsive:hover,
+.cta-button:hover {
+  background-color: var(--primary-beige-hover) !important;
+}
+
+.btn-responsive:active,
+.cta-button:active {
+  background-color: var(--primary-beige-active) !important;
+}
+
+/* Override any inline orange styles */
+[style*="orange"],
+[style*="#FF7F32"],
+[style*="#E6661A"],
+[style*="rgb(255, 127, 50)"] {
+  color: var(--soft-gray) !important;
+  background-color: var(--primary-beige) !important;
 }
