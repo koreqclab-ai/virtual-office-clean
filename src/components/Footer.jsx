@@ -33,12 +33,12 @@ export function Footer() {
           </div>
           
           <div>
-            <h3 className="text-lg font-medium mb-6">Services</h3>
+            <h3 className="text-lg font-medium mb-6">Quick Links</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-300 hover:text-amber-600 transition-colors font-light">Virtual Address</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-amber-600 transition-colors font-light">Mail Services</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-amber-600 transition-colors font-light">Phone Services</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-amber-600 transition-colors font-light">Meeting Rooms</a></li>
+              <li><a href="#pricing" className="text-gray-300 hover:text-amber-600 transition-colors font-light">Pricing</a></li>
+              <li><a href="#faq" className="text-gray-300 hover:text-amber-600 transition-colors font-light">FAQ</a></li>
+              <li><a href="/acra-compliance" className="text-gray-300 hover:text-amber-600 transition-colors font-light">ACRA Compliance</a></li>
+              <li><a href="/fintech" className="text-gray-300 hover:text-amber-600 transition-colors font-light">FinTech</a></li>
             </ul>
           </div>
           
