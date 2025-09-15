@@ -110,52 +110,6 @@ export function MainContent({ onGetStartedClick }) {
         </div>
       </section>
 
-      {/* Trust Indicators Section - Light Beige/Cream Background */}
-      <section className="py-20" style={{ backgroundColor: '#FDF6E3' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-            <div className="flex flex-col items-center">
-              <div className="w-20 h-20 rounded-full flex items-center justify-center mb-6" style={{ backgroundColor: '#8B7355' }}>
-                <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
-                  <path d="M9 12l2 2 4-4" stroke="white" strokeWidth="2" fill="none"/>
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-4" style={{ color: '#8B7355' }}>International Plaza CBD</h3>
-              <h3 className="text-xl font-bold mb-4" style={{ color: '#8B7355' }}>Premium Location</h3>
-              <p className="text-gray-700 text-base leading-relaxed max-w-sm">
-                Prestigious International Plaza address in Singapore's Central Business District
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-20 h-20 rounded-full flex items-center justify-center mb-6" style={{ backgroundColor: '#8B7355' }}>
-                <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-4" style={{ color: '#8B7355' }}>ACRA Pre-Verified</h3>
-              <h3 className="text-xl font-bold mb-4" style={{ color: '#8B7355' }}>Address Provider</h3>
-              <p className="text-gray-700 text-base leading-relaxed max-w-sm">
-                Pre-approved address for company registration with Singapore's ACRA
-              </p>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-20 h-20 rounded-full flex items-center justify-center mb-6" style={{ backgroundColor: '#8B7355' }}>
-                <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold mb-4" style={{ color: '#8B7355' }}>Trusted by 1000+</h3>
-              <h3 className="text-xl font-bold mb-4" style={{ color: '#8B7355' }}>across 40+ countries</h3>
-              <p className="text-gray-700 text-base leading-relaxed max-w-sm">
-                Serving businesses worldwide with reliable Singapore address solutions
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* What is Virtual Office Section */}
       <section className="py-20 bg-gray-50" id="services">
