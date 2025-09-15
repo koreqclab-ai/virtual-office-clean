@@ -66,7 +66,7 @@ export function MainContent({ onGetStartedClick }) {
   return (
     <div className="min-h-screen">
       {/* Hero Section - Marina Bay Sands Background - Full screen height */}
-      <section className="relative min-h-screen flex items-start pt-20">
+      <section className="relative min-h-screen flex items-start pt-24">
         {/* Marina Bay Sands Background - Exactly like Image 2 */}
         <div
           className="absolute inset-0 bg-cover bg-gray-900"
