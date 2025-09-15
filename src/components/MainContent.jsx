@@ -69,9 +69,10 @@ export function MainContent({ onGetStartedClick }) {
       <section className="relative h-[75vh] flex items-start pt-20">
         {/* Marina Bay Sands Background - Exactly like Image 2 */}
         <div
-          className="absolute inset-0 bg-cover bg-center bg-gray-900"
+          className="absolute inset-0 bg-cover bg-gray-900"
           style={{
-            backgroundImage: 'url("/images/hero/marina_bay_sands_aerial.jpg")'
+            backgroundImage: 'url("/images/hero/marina_bay_sands_aerial.jpg")',
+            backgroundPosition: "center 20%"
           }}
         >
           {/* Dark overlay for text readability - matching Image 2 */}
