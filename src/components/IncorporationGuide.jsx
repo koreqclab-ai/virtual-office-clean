@@ -1,6 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Header } from './Header';
 
 export function IncorporationGuide() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const handleGetStartedClick = (source) => {
+    // Navigate to pricing section on homepage
+    if (window.location.pathname === '/') {
+      // Already on homepage, scroll to pricing
+      const pricingElement = document.getElementById('pricing');
+      if (pricingElement) {
+        const headerHeight = 80;
+        const targetPosition = pricingElement.offsetTop - headerHeight - 20;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    } else {
+      // Navigate to homepage with pricing focus
+      window.location.href = '/#pricing';
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Schema.org JSON-LD */}
@@ -20,34 +42,11 @@ export function IncorporationGuide() {
         }}
       />
 
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 border-b border-neutral-200">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-[66px] sm:h-[66px]">
-            <div className="flex items-center">
-              <a href="/">
-                <img
-                  src="/logo.png"
-                  alt="Anson & Co"
-                  className="h-[48px] sm:h-[68px] w-auto"
-                />
-              </a>
-            </div>
-
-            <div className="flex items-center space-x-2 sm:space-x-3">
-              <div className="hidden md:flex items-center space-x-3 mr-3">
-                <a href="/#pricing" className="font-optima font-bold text-[15px] sm:text-[17px] leading-tight text-custom-gold hover:text-custom-goldHover transition-colors capitalize">Pricing</a>
-                <a href="/faq" className="font-optima font-bold text-[15px] sm:text-[17px] leading-tight text-custom-gold hover:text-custom-goldHover transition-colors capitalize">FAQ</a>
-                <a href="/incorporation-guide" className="font-optima font-bold text-[15px] sm:text-[17px] leading-tight text-custom-gold hover:text-custom-goldHover transition-colors capitalize">Incorporation<br/>Guide</a>
-                <a href="/acra-compliance" className="font-optima font-bold text-[15px] sm:text-[17px] leading-tight text-custom-gold hover:text-custom-goldHover transition-colors capitalize">ACRA<br/>Compliance</a>
-              </div>
-              <button className="border border-custom-gold px-[8px] py-[6px] sm:px-[9px] sm:py-[7px] bg-custom-gold hover:bg-custom-goldHover text-white font-optima font-bold text-[14px] sm:text-[17px] leading-tight transition-colors capitalize whitespace-nowrap">
-                Get Started
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Header
+        isMobileMenuOpen={isMobileMenuOpen}
+        setIsMobileMenuOpen={setIsMobileMenuOpen}
+        onGetStartedClick={handleGetStartedClick}
+      />
 
       {/* Main Content */}
       <main className="pt-[80px] sm:pt-[100px] pb-20">

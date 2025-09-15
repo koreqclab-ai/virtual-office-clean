@@ -1,6 +1,27 @@
 import React, { useState } from 'react';
+import { Header } from './Header';
 
 export function ACRACompliancePage({ onGetStartedClick }) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const handleGetStartedClick = (source) => {
+    // Navigate to pricing section on homepage
+    if (window.location.pathname === '/') {
+      // Already on homepage, scroll to pricing
+      const pricingElement = document.getElementById('pricing');
+      if (pricingElement) {
+        const headerHeight = 80;
+        const targetPosition = pricingElement.offsetTop - headerHeight - 20;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+    } else {
+      // Navigate to homepage with pricing focus
+      window.location.href = '/#pricing';
+    }
+  };
   return (
     <div className="min-h-screen bg-white">
       {/* Schema.org JSON-LD */}
@@ -28,37 +49,11 @@ export function ACRACompliancePage({ onGetStartedClick }) {
         }}
       />
 
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 border-b border-neutral-200">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-[66px] sm:h-[66px]">
-            <div className="flex items-center">
-              <a href="/">
-                <img 
-                  src="/logo.png" 
-                  alt="Anson & Co" 
-                  className="h-[68px] w-auto"
-                />
-              </a>
-            </div>
-            
-            <div className="flex items-center space-x-3">
-              <div className="hidden md:flex items-center space-x-3 mr-3">
-                <a href="/#pricing" className="font-optima font-bold text-[15px] sm:text-[17px] leading-tight text-custom-gold hover:text-custom-goldHover transition-colors capitalize">Pricing</a>
-                <a href="/faq" className="font-optima font-bold text-[15px] sm:text-[17px] leading-tight text-custom-gold hover:text-custom-goldHover transition-colors capitalize">FAQ</a>
-                <a href="/incorporation-guide" className="font-optima font-bold text-[15px] sm:text-[17px] leading-tight text-custom-gold hover:text-custom-goldHover transition-colors capitalize text-center">Incorporation<br/>Guide</a>
-                <a href="/acra-compliance" className="font-optima font-bold text-[15px] sm:text-[17px] leading-tight text-custom-gold hover:text-custom-goldHover transition-colors capitalize text-center">ACRA<br/>Compliance</a>
-              </div>
-              <button 
-                onClick={() => onGetStartedClick('nav-signup')}
-                className="border border-custom-gold px-[9px] py-[7px] bg-custom-gold hover:bg-custom-goldHover text-white font-optima font-bold text-[17px] leading-[22.1px] transition-colors capitalize"
-              >
-                Get Started
-              </button>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Header
+        isMobileMenuOpen={isMobileMenuOpen}
+        setIsMobileMenuOpen={setIsMobileMenuOpen}
+        onGetStartedClick={handleGetStartedClick}
+      />
 
       {/* Hero Section */}
       <section className="pt-[100px] pb-12 bg-gradient-to-br from-gray-50 to-white">
@@ -70,8 +65,8 @@ export function ACRACompliancePage({ onGetStartedClick }) {
             <p className="text-xl text-gray-600 font-optima max-w-4xl mx-auto mb-8">
               Meet all ACRA requirements with International Plaza CBD's fully compliant virtual office solutions. Professional address, accessibility compliance, and documentation support for seamless business registration.
             </p>
-            <button 
-              onClick={() => onGetStartedClick('acra-hero')}
+            <button
+              onClick={() => handleGetStartedClick('acra-hero')}
               className="bg-custom-gold hover:bg-custom-goldHover text-white px-8 py-4 rounded-lg font-optima font-bold text-lg transition-colors"
             >
               Get ACRA Compliant Address
@@ -323,23 +318,6 @@ export function ACRACompliancePage({ onGetStartedClick }) {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-custom-gold">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-optima font-bold text-white mb-6">
-            Ready for ACRA Compliance Success?
-          </h2>
-          <p className="text-xl text-white/90 font-optima mb-8">
-            Join thousands of Singapore businesses using International Plaza CBD for their ACRA compliance needs. Professional, reliable, and cost-effective virtual office solutions.
-          </p>
-          <button 
-            onClick={() => onGetStartedClick('acra-cta')}
-            className="bg-white text-custom-gold px-8 py-4 rounded-lg font-optima font-bold text-lg hover:bg-gray-100 transition-colors"
-          >
-            Get Started Today
-          </button>
-        </div>
-      </section>
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
