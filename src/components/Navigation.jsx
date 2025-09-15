@@ -10,14 +10,14 @@ export function Navigation() {
   ];
 
   return (
-    <nav className="bg-amber-50 border-b border-amber-100 py-3 hidden md:block">
+    <nav className="bg-white border-b border-orange-100 py-3 hidden md:block">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <ul className="flex justify-center space-x-8">
           {subNavItems.map((item, index) => (
             <li key={index}>
               <a 
                 href={item.href} 
-                className="text-gray-700 hover:text-amber-600 transition-colors duration-200 font-light text-sm tracking-wide"
+                className="font-optima_medium text-[17px] leading-[22.1px] capitalize text-orange-300 hover:text-sky-600 hover:border-sky-600 transition-colors duration-200"
               >
                 {item.label}
               </a>

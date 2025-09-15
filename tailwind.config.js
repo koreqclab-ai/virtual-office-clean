@@ -42,7 +42,9 @@ module.exports = {
           'sans-serif'
         ],
         display: ['Playfair Display', 'serif'],
+        serif: ['Lora', 'Crimson Text', 'Times New Roman', 'serif'],
         optima: ['Optima', 'Optima-Medium', 'Arial', 'sans-serif'],
+        'optima_medium': ['Optima', 'Optima-Medium', 'Arial', 'sans-serif'],
       },
       fontWeight: {
         extralight: '200',
