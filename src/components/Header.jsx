@@ -8,23 +8,24 @@ export function Header({ isMobileMenuOpen, setIsMobileMenuOpen, onGetStartedClic
           <div className="flex items-center">
             <div className="flex-shrink-0">
               <h1 className="font-serif text-3xl font-bold" style={{ color: '#8B7355' }}>ANSON & CO</h1>
-              <span className="text-sm text-gray-600 font-normal">The Right Address Matters</span>
+              <span className="text-sm font-normal" style={{color: '#8B7355'}}>The Right Address Matters</span>
             </div>
           </div>
 
           <nav className="hidden md:flex space-x-8 items-center">
-            <a href="/pricing" className="text-gray-700 hover:text-gray-900 font-medium">
+            <a href="/pricing" className="font-medium hover:opacity-75" style={{color: '#8B7355'}}>
               Pricing
             </a>
-            <a href="/faq" className="text-gray-700 hover:text-gray-900 font-medium">
+            <a href="/faq" className="font-medium hover:opacity-75" style={{color: '#8B7355'}}>
               FAQ
             </a>
-            <a href="/incorporation-guide" className="text-gray-700 hover:text-gray-900 font-medium">
+            <a href="/incorporation-guide" className="font-medium hover:opacity-75" style={{color: '#8B7355'}}>
               Incorporation Guide
             </a>
             <button
               onClick={() => onGetStartedClick('header-get-started')}
-              className="bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600 font-medium"
+              className="text-white px-6 py-2 rounded font-medium hover:opacity-90"
+              style={{backgroundColor: '#D4B896'}}
             >
               Get Business Address Now
             </button>
