@@ -65,8 +65,8 @@ export function MainContent({ onGetStartedClick }) {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section - Marina Bay Sands Background - Exactly like Image 2 */}
-      <section className="relative min-h-screen flex items-center">
+      {/* Hero Section - Marina Bay Sands Background - Text positioned higher */}
+      <section className="relative h-[75vh] flex items-start pt-20">
         {/* Marina Bay Sands Background - Exactly like Image 2 */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-gray-900"

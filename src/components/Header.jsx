@@ -3,17 +3,17 @@ import React from 'react';
 export function Header({ isMobileMenuOpen, setIsMobileMenuOpen, onGetStartedClick }) {
   return (
     <header className="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              <h1 className="text-2xl font-bold text-gray-900">Anson & Co</h1>
+              <h1 className="font-serif text-3xl font-bold" style={{ color: '#8B7355' }}>ANSON & CO</h1>
               <span className="text-sm text-gray-600 font-normal">The Right Address Matters</span>
             </div>
           </div>
-          
-          <nav className="hidden md:flex space-x-8">
-            <a href="#home" className="text-gray-700 hover:text-gray-900 font-medium transition-colors duration-200">
+
+          <nav className="hidden md:flex space-x-8 items-center">
+            <a href="/" className="text-gray-700 hover:text-gray-900 font-medium transition-colors duration-200">
               Home
             </a>
             <a href="#services" className="text-gray-700 hover:text-gray-900 font-medium transition-colors duration-200">
@@ -25,11 +25,11 @@ export function Header({ isMobileMenuOpen, setIsMobileMenuOpen, onGetStartedClic
             <a href="#pricing" className="text-gray-700 hover:text-gray-900 font-medium transition-colors duration-200">
               Pricing
             </a>
-            <button 
+            <button
               onClick={() => onGetStartedClick('header-get-started')}
-              className="bg-orange-500 text-white px-6 py-2 rounded-lg hover:bg-orange-600 transition-colors duration-200 font-medium"
+              className="bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600 transition-all duration-200 font-medium"
             >
-              Get Started
+              Get Business Address Now
             </button>
           </nav>
 
