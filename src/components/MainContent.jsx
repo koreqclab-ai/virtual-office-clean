@@ -169,7 +169,7 @@ export function MainContent({ onGetStartedClick }) {
             <div className="bg-gray-50 p-8 rounded-2xl">
               <div className="flex items-center mb-6">
                 <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mr-4 overflow-hidden">
-                  <img src="/vincent.png" alt="Vincent Tan" className="w-full h-full object-cover" />
+                  <img src="/images/vincent.png" alt="Vincent Tan" className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900">Vincent Tan</h3>
@@ -203,7 +203,7 @@ export function MainContent({ onGetStartedClick }) {
             <div className="bg-gray-50 p-8 rounded-2xl">
               <div className="flex items-center mb-6">
                 <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mr-4 overflow-hidden">
-                  <img src="/sarah.png" alt="Sarah" className="w-full h-full object-cover" />
+                  <img src="/images/sarah.png" alt="Sarah" className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900">Sarah</h3>
