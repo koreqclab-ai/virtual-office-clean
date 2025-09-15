@@ -87,13 +87,13 @@ export function MainContent({ onGetStartedClick }) {
             <h1>
               {/* Golden first line exactly like Image 2 */}
               <span
-                className="block text-5xl font-bold leading-tight mb-3"
+                className="block text-5xl font-bold leading-tight mb-1"
                 style={{color: '#D4B896'}}
               >
                 Establish Your Business
               </span>
               {/* White text lines like Image 2 */}
-              <span className="block text-5xl font-bold leading-tight mb-3 text-white">
+              <span className="block text-5xl font-bold leading-tight mb-1 text-white">
                 Presence with a Premium
               </span>
               <span className="block text-5xl font-bold leading-tight mb-8 text-white">
