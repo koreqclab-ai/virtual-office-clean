@@ -124,24 +124,25 @@ export function FAQ() {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 border-b border-neutral-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-[44px] md:h-[66px]">
+          <div className="flex items-center justify-between h-[66px] sm:h-[66px]">
             <div className="flex items-center">
               <a href="/">
-                <img 
-                  src="/logo.png" 
-                  alt="Anson & Co" 
-                  className="h-[68px] w-auto"
+                <img
+                  src="/logo.png"
+                  alt="Anson & Co"
+                  className="h-[48px] sm:h-[68px] w-auto"
                 />
               </a>
             </div>
-            
-            <div className="flex items-center space-x-3">
+
+            <div className="flex items-center space-x-2 sm:space-x-3">
               <div className="hidden md:flex items-center space-x-3 mr-3">
-                <a href="/#pricing" className="font-optima font-bold text-[17px] leading-[22.1px] text-custom-gold hover:text-custom-goldHover transition-colors capitalize">Pricing</a>
-                <a href="/faq" className="font-optima font-bold text-[17px] leading-[22.1px] text-custom-gold hover:text-custom-goldHover transition-colors capitalize">FAQ</a>
-                <a href="/acra-compliance" className="font-optima font-bold text-[17px] leading-[22.1px] text-custom-gold hover:text-custom-goldHover transition-colors capitalize text-center">Incorporation<br/>Guide</a>
+                <a href="/#pricing" className="font-optima font-bold text-[15px] sm:text-[17px] leading-tight text-custom-gold hover:text-custom-goldHover transition-colors capitalize">Pricing</a>
+                <a href="/faq" className="font-optima font-bold text-[15px] sm:text-[17px] leading-tight text-custom-gold hover:text-custom-goldHover transition-colors capitalize">FAQ</a>
+                <a href="/incorporation-guide" className="font-optima font-bold text-[15px] sm:text-[17px] leading-tight text-custom-gold hover:text-custom-goldHover transition-colors capitalize text-center">Incorporation<br/>Guide</a>
+                <a href="/acra-compliance" className="font-optima font-bold text-[15px] sm:text-[17px] leading-tight text-custom-gold hover:text-custom-goldHover transition-colors capitalize text-center">ACRA<br/>Compliance</a>
               </div>
-              <button className="border border-custom-gold px-[9px] py-[7px] bg-custom-gold hover:bg-custom-goldHover text-white font-optima font-bold text-[17px] leading-[22.1px] transition-colors capitalize">
+              <button className="border border-custom-gold px-[8px] py-[6px] sm:px-[9px] sm:py-[7px] bg-custom-gold hover:bg-custom-goldHover text-white font-optima font-bold text-[14px] sm:text-[17px] leading-tight transition-colors capitalize whitespace-nowrap">
                 Get Started
               </button>
             </div>
@@ -150,14 +151,14 @@ export function FAQ() {
       </nav>
 
       {/* FAQ Content */}
-      <main className="pt-[100px] pb-20">
+      <main className="pt-[80px] sm:pt-[100px] pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
-          <div className="text-center mb-16">
-            <h1 className="text-[40px] lg:text-[60px] font-optima font-bold text-custom-gold mb-6">
+          <div className="text-center mb-12 sm:mb-16">
+            <h1 className="text-[28px] sm:text-[40px] lg:text-[60px] font-optima font-bold text-custom-gold mb-4 sm:mb-6 leading-tight">
               Frequently Asked Questions
             </h1>
-            <p className="text-xl text-gray-600 font-optima max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 font-optima max-w-3xl mx-auto px-2 sm:px-0 leading-relaxed">
               Everything you need to know about our International Plaza CBD virtual office services
             </p>
           </div>
@@ -171,10 +172,10 @@ export function FAQ() {
               >
                 <button
                   onClick={() => toggleFaq(index)}
-                  className="w-full text-left p-6 focus:outline-none focus:ring-2 focus:ring-custom-gold focus:ring-opacity-50"
+                  className="w-full text-left p-4 sm:p-6 focus:outline-none focus:ring-2 focus:ring-custom-gold focus:ring-opacity-50"
                 >
                   <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-optima font-bold text-gray-900 pr-4">
+                    <h3 className="text-base sm:text-lg font-optima font-bold text-gray-900 pr-3 sm:pr-4 leading-tight">
                       {faq.question}
                     </h3>
                     <div className="flex-shrink-0">
@@ -198,9 +199,9 @@ export function FAQ() {
                 </button>
                 
                 {openFaq === index && (
-                  <div className="px-6 pb-6">
-                    <div className="border-t border-gray-100 pt-4">
-                      <p className="text-gray-700 font-optima leading-relaxed">
+                  <div className="px-4 sm:px-6 pb-4 sm:pb-6">
+                    <div className="border-t border-gray-100 pt-3 sm:pt-4">
+                      <p className="text-sm sm:text-base text-gray-700 font-optima leading-relaxed">
                         {faq.answer}
                       </p>
                     </div>
@@ -210,16 +211,27 @@ export function FAQ() {
             ))}
           </div>
 
-          {/* Contact Section */}
-          <div className="mt-16 text-center bg-gray-50 rounded-lg p-8">
-            <h2 className="text-2xl font-optima font-bold text-custom-gold mb-4">
-              Still have questions?
-            </h2>
-            <p className="text-gray-600 font-optima mb-6">
-              Can't find the answer you're looking for? Our team is here to help.
-            </p>
-            <button className="border border-custom-gold px-8 py-3 bg-custom-gold hover:bg-custom-goldHover text-white font-optima font-bold text-[17px] transition-colors capitalize rounded-lg">
-              Contact Support
+          {/* CTA Section */}
+          <div className="mt-16 text-center">
+            <button
+              className="faq-cta-button"
+              onClick={() => {
+                window.location.href = '/#pricing';
+                setTimeout(() => {
+                  const pricingSection = document.getElementById('pricing');
+                  if (pricingSection) {
+                    const headerHeight = document.querySelector('header')?.offsetHeight || 80;
+                    const targetPosition = pricingSection.offsetTop - headerHeight - 20;
+                    window.scrollTo({
+                      top: Math.max(0, targetPosition),
+                      behavior: 'smooth'
+                    });
+                  }
+                }, 100);
+              }}
+              aria-label="Navigate to pricing plans section"
+            >
+              Get Business Address Now
             </button>
           </div>
         </div>

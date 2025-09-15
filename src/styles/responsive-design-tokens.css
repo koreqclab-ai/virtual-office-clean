@@ -555,20 +555,55 @@ input[type="checkbox"]:checked {
   }
 }
 
-/* Improve text wrapping and readability */
+/* PHASE 1: Mobile Hero Text Sizing Fix */
 @media (max-width: 768px) {
   .text-5xl,
-  .hero-title {
-    word-wrap: break-word;
-    hyphens: auto;
-    overflow-wrap: break-word;
-    white-space: normal;                   /* Allow natural wrapping */
-    word-break: normal;                    /* Prevent aggressive breaking */
+  .hero-title,
+  .hero-heading,
+  .main-headline {
+    font-size: 1.75rem !important;        /* Reduced from 3rem+ for readability */
+    line-height: 1.25 !important;         /* Tighter line height */
+    max-width: 85% !important;            /* Constrain width for better blocks */
+    margin: 0 auto !important;            /* Center the text */
+    word-wrap: normal !important;         /* Prevent aggressive wrapping */
+    hyphens: none !important;             /* Disable hyphenation */
+    word-break: normal !important;        /* Prevent word breaking */
+    overflow-wrap: normal !important;
+    white-space: normal !important;
+    text-align: center !important;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem !important;        /* Smaller subtitle */
+    line-height: 1.4 !important;
+    max-width: 90% !important;
+    margin: 0 auto 1.5rem auto !important;
   }
 
   /* Hero section overall mobile improvements */
   .min-h-screen {
     min-height: 100vh;                     /* Ensure proper mobile height */
+  }
+
+  .hero-content {
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .text-5xl,
+  .hero-title,
+  .hero-heading,
+  .main-headline {
+    font-size: 1.5rem !important;         /* Even smaller for small phones */
+    line-height: 1.2 !important;
+    max-width: 90% !important;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem !important;
+    max-width: 95% !important;
   }
 }
 

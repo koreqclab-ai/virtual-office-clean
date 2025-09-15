@@ -1,113 +1,186 @@
-import React, { useState, useEffect } from 'react';
-import ReactMarkdown from 'react-markdown';
-import { Header } from './Header';
-
-const LoadingSpinner = () => {
-  return (
-    <div className="loading-container">
-      <div className="loading-spinner"></div>
-      <p className="loading-text">Loading Incorporation Guide...</p>
-    </div>
-  );
-};
+import React from 'react';
 
 export function IncorporationGuide() {
-  const [markdownContent, setMarkdownContent] = useState('');
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Schema.org JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Singapore Company Incorporation Guide",
+            "description": "Complete guide to Singapore company incorporation using virtual office addresses with ACRA compliance.",
+            "publisher": {
+              "@type": "Organization",
+              "name": "Anson & Co"
+            }
+          })
+        }}
+      />
 
-  useEffect(() => {
-    const loadMarkdownContent = async () => {
-      try {
-        const response = await fetch('/docs/incorporation-guide.md');
-        if (!response.ok) {
-          throw new Error('Failed to load incorporation guide');
-        }
-        const text = await response.text();
-        setMarkdownContent(text);
-      } catch (error) {
-        console.error('Error loading incorporation guide:', error);
-        setError(error.message);
-        // Fallback content if file not accessible
-        setMarkdownContent(`
-# Singapore Company Incorporation Guide with Virtual Office Address
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 border-b border-neutral-200">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-[66px] sm:h-[66px]">
+            <div className="flex items-center">
+              <a href="/">
+                <img
+                  src="/logo.png"
+                  alt="Anson & Co"
+                  className="h-[48px] sm:h-[68px] w-auto"
+                />
+              </a>
+            </div>
 
-## Introduction
-
-This comprehensive guide provides information about using virtual office addresses for Singapore company incorporation. While we provide virtual office address and mail forwarding services only, this guide offers general information about the incorporation process to help you understand how our address services fit into your business setup.
-
-**IMPORTANT DISCLAIMER:** We provide virtual office address and mail forwarding services only. We do not provide legal, accounting, or business registration advice. For official incorporation procedures, consult qualified professionals and relevant authorities.
-
-## What We Provide
-
-### Virtual Office Address Services
-- **Professional business address** at 10 Anson Road, International Plaza, Singapore CBD
-- **Mail receiving and forwarding** to your preferred address
-- **Address confirmation letters** for business registration purposes
-- **ACRA-compliant address** suitable for company registration
-
-For more information or to get started with your virtual office address, please contact us.
-        `);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadMarkdownContent();
-  }, []);
-
-  if (loading) {
-    return (
-      <>
-        <Header />
-        <div className="incorporation-guide-page">
-          <div className="guide-container">
-            <LoadingSpinner />
+            <div className="flex items-center space-x-2 sm:space-x-3">
+              <div className="hidden md:flex items-center space-x-3 mr-3">
+                <a href="/#pricing" className="font-optima font-bold text-[15px] sm:text-[17px] leading-tight text-custom-gold hover:text-custom-goldHover transition-colors capitalize">Pricing</a>
+                <a href="/faq" className="font-optima font-bold text-[15px] sm:text-[17px] leading-tight text-custom-gold hover:text-custom-goldHover transition-colors capitalize">FAQ</a>
+                <a href="/incorporation-guide" className="font-optima font-bold text-[15px] sm:text-[17px] leading-tight text-custom-gold hover:text-custom-goldHover transition-colors capitalize">Incorporation<br/>Guide</a>
+                <a href="/acra-compliance" className="font-optima font-bold text-[15px] sm:text-[17px] leading-tight text-custom-gold hover:text-custom-goldHover transition-colors capitalize">ACRA<br/>Compliance</a>
+              </div>
+              <button className="border border-custom-gold px-[8px] py-[6px] sm:px-[9px] sm:py-[7px] bg-custom-gold hover:bg-custom-goldHover text-white font-optima font-bold text-[14px] sm:text-[17px] leading-tight transition-colors capitalize whitespace-nowrap">
+                Get Started
+              </button>
+            </div>
           </div>
         </div>
-      </>
-    );
-  }
+      </nav>
 
-  return (
-    <>
-      <Header />
-      <div className="incorporation-guide-page">
-        <div className="guide-container">
-          {error && (
-            <div className="error-notice">
-              <p>Note: Displaying fallback content due to loading error: {error}</p>
-            </div>
-          )}
-          <ReactMarkdown
-            className="markdown-content"
-            components={{
-              h1: ({children}) => <h1 className="guide-title">{children}</h1>,
-              h2: ({children}) => <h2 className="guide-section-title">{children}</h2>,
-              h3: ({children}) => <h3 className="guide-subsection-title">{children}</h3>,
-              p: ({children}) => <p className="guide-paragraph">{children}</p>,
-              ul: ({children}) => <ul className="guide-list">{children}</ul>,
-              ol: ({children}) => <ol className="guide-ordered-list">{children}</ol>,
-              li: ({children}) => <li className="guide-list-item">{children}</li>,
-              a: ({href, children}) => (
-                <a
-                  href={href}
-                  className="guide-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {children}
-                </a>
-              ),
-              strong: ({children}) => <strong className="guide-bold">{children}</strong>,
-              em: ({children}) => <em className="guide-italic">{children}</em>,
-              code: ({children}) => <code className="guide-code">{children}</code>,
-              blockquote: ({children}) => <blockquote className="guide-blockquote">{children}</blockquote>,
-              hr: () => <hr className="guide-divider" />
-            }}
-          >
-            {markdownContent}
-          </ReactMarkdown>
+      {/* Main Content */}
+      <main className="pt-[80px] sm:pt-[100px] pb-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+          {/* Header */}
+          <header className="text-center mb-12 sm:mb-16">
+            <h1 className="text-[28px] sm:text-[40px] lg:text-[50px] font-optima font-bold text-custom-gold mb-4 sm:mb-6 leading-tight">
+              Singapore Company Incorporation Guide with Virtual Office Address
+            </h1>
+            <p className="text-lg sm:text-xl text-gray-600 font-optima max-w-3xl mx-auto px-2 sm:px-0 leading-relaxed">
+              Complete information about using virtual office addresses for Singapore company incorporation with ACRA compliance
+            </p>
+          </header>
+
+          {/* Content */}
+          <div className="bg-white border border-gray-200 rounded-lg shadow-sm p-6 sm:p-8 mb-8">
+
+            {/* Introduction Section */}
+            <section className="mb-8">
+              <h2 className="text-2xl sm:text-3xl font-optima font-bold text-custom-gold mb-4">Introduction</h2>
+              <p className="text-base sm:text-lg text-gray-700 font-optima leading-relaxed mb-4">
+                This comprehensive guide provides information about using virtual office addresses for Singapore company incorporation.
+                While we provide virtual office address and mail forwarding services only, this guide offers general information about
+                the incorporation process to help you understand how our address services fit into your business setup.
+              </p>
+
+              <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+                <p className="text-sm font-optima text-yellow-800">
+                  <strong>IMPORTANT DISCLAIMER:</strong> We provide virtual office address and mail forwarding services only.
+                  We do not provide legal, accounting, or business registration advice. For official incorporation procedures,
+                  consult qualified professionals and relevant authorities.
+                </p>
+              </div>
+            </section>
+
+            {/* What We Provide Section */}
+            <section className="mb-8">
+              <h2 className="text-2xl sm:text-3xl font-optima font-bold text-custom-gold mb-4">What We Provide</h2>
+
+              <h3 className="text-xl sm:text-2xl font-optima font-semibold text-gray-800 mb-3">Virtual Office Address Services</h3>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start">
+                  <span className="text-custom-gold mr-3 mt-1">•</span>
+                  <div>
+                    <strong className="font-optima text-gray-800">Professional business address</strong>
+                    <span className="font-optima text-gray-700"> at 10 Anson Road, International Plaza, Singapore CBD</span>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-custom-gold mr-3 mt-1">•</span>
+                  <div>
+                    <strong className="font-optima text-gray-800">Mail receiving and forwarding</strong>
+                    <span className="font-optima text-gray-700"> to your preferred address</span>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-custom-gold mr-3 mt-1">•</span>
+                  <div>
+                    <strong className="font-optima text-gray-800">Address confirmation letters</strong>
+                    <span className="font-optima text-gray-700"> for business registration purposes</span>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-custom-gold mr-3 mt-1">•</span>
+                  <div>
+                    <strong className="font-optima text-gray-800">ACRA-compliant address</strong>
+                    <span className="font-optima text-gray-700"> suitable for company registration</span>
+                  </div>
+                </li>
+              </ul>
+            </section>
+
+            {/* ACRA Compliance Section */}
+            <section className="mb-8">
+              <h2 className="text-2xl sm:text-3xl font-optima font-bold text-custom-gold mb-4">ACRA Compliance</h2>
+              <p className="text-base sm:text-lg text-gray-700 font-optima leading-relaxed mb-4">
+                Our International Plaza CBD address meets all ACRA requirements for company registration:
+              </p>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start">
+                  <span className="text-custom-gold mr-3 mt-1">•</span>
+                  <span className="font-optima text-gray-700">3-hour daily accessibility requirement (we exceed this)</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-custom-gold mr-3 mt-1">•</span>
+                  <span className="font-optima text-gray-700">Professional document handling and storage</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-custom-gold mr-3 mt-1">•</span>
+                  <span className="font-optima text-gray-700">Address verification letters when required</span>
+                </li>
+              </ul>
+            </section>
+
+            {/* Official Resources Section */}
+            <section className="mb-8">
+              <h2 className="text-2xl sm:text-3xl font-optima font-bold text-custom-gold mb-4">Official Resources</h2>
+              <p className="text-base sm:text-lg text-gray-700 font-optima leading-relaxed mb-4">
+                For official incorporation procedures and legal requirements, consult these authorities:
+              </p>
+              <ul className="space-y-3">
+                <li className="flex items-start">
+                  <span className="text-custom-gold mr-3 mt-1">•</span>
+                  <div>
+                    <strong className="font-optima text-gray-800">Business registration:</strong>
+                    <a href="https://www.acra.gov.sg" target="_blank" rel="noopener noreferrer" className="font-optima text-custom-gold hover:text-custom-goldHover underline ml-1">
+                      ACRA (https://www.acra.gov.sg)
+                    </a>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-custom-gold mr-3 mt-1">•</span>
+                  <div>
+                    <strong className="font-optima text-gray-800">Legal matters:</strong>
+                    <a href="https://www.mlaw.gov.sg" target="_blank" rel="noopener noreferrer" className="font-optima text-custom-gold hover:text-custom-goldHover underline ml-1">
+                      Ministry of Law (https://www.mlaw.gov.sg)
+                    </a>
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-custom-gold mr-3 mt-1">•</span>
+                  <div>
+                    <strong className="font-optima text-gray-800">Tax matters:</strong>
+                    <a href="https://www.iras.gov.sg" target="_blank" rel="noopener noreferrer" className="font-optima text-custom-gold hover:text-custom-goldHover underline ml-1">
+                      IRAS (https://www.iras.gov.sg)
+                    </a>
+                  </div>
+                </li>
+              </ul>
+            </section>
+
+          </div>
 
           {/* Call to Action */}
           <div className="guide-cta">
@@ -115,15 +188,34 @@ For more information or to get started with your virtual office address, please 
               <h3>Ready to Get Your Singapore Business Address?</h3>
               <p>Start your company incorporation process with a prestigious International Plaza CBD address.</p>
               <button
-                className="cta-button"
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                className="guide-cta-button"
+                onClick={() => window.location.href = '/#pricing'}
+                aria-label="Navigate to pricing plans section"
               >
                 Get Business Address Now
               </button>
             </div>
           </div>
         </div>
-      </div>
-    </>
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row items-center justify-between">
+            <div className="flex items-center mb-4 md:mb-0">
+              <img
+                src="/logo.png"
+                alt="Anson & Co"
+                className="h-12 w-auto"
+              />
+            </div>
+            <div className="text-sm text-gray-400 font-optima">
+              © 2025 Anson & Co. All rights reserved. | International Plaza CBD Virtual Office Services
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
   );
 }

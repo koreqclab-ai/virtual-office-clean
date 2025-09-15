@@ -31,18 +31,21 @@ export function Header({ isMobileMenuOpen, setIsMobileMenuOpen, onGetStartedClic
             </div>
           </div>
 
-          <nav className="hidden md:flex space-x-8 items-center">
+          <nav className="hidden md:flex space-x-6 items-center">
             <a href="#pricing"
-               className="font-medium hover:opacity-75 transition-all duration-200"
+               className="font-medium hover:opacity-75 transition-all duration-200 text-center"
                style={{color: '#8B7355'}}
                onClick={handlePricingClick}>
               Pricing
             </a>
-            <Link to="/faq" className="font-medium hover:opacity-75 transition-all duration-200" style={{color: '#8B7355'}}>
+            <Link to="/faq" className="font-medium hover:opacity-75 transition-all duration-200 text-center" style={{color: '#8B7355'}}>
               FAQ
             </Link>
-            <Link to="/incorporation-guide" className="font-medium hover:opacity-75 transition-all duration-200" style={{color: '#8B7355'}}>
-              Incorporation Guide
+            <Link to="/incorporation-guide" className="font-medium hover:opacity-75 transition-all duration-200 text-center" style={{color: '#8B7355'}}>
+              Incorporation<br/>Guide
+            </Link>
+            <Link to="/acra-compliance" className="font-medium hover:opacity-75 transition-all duration-200 text-center" style={{color: '#8B7355'}}>
+              ACRA<br/>Compliance
             </Link>
             <button
               onClick={() => onGetStartedClick('header-get-started')}

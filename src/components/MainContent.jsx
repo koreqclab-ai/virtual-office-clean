@@ -7,50 +7,29 @@ import '../styles/responsive-design-tokens.css';
 
 export function MainContent({ onGetStartedClick }) {
   useEffect(() => {
-    // Add FAQ Schema for Rich Snippets - PAA Optimized
-    const faqSchema = {
+    // Add Business Schema for Rich Snippets
+    const businessSchema = {
       "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How much does a virtual office cost in Singapore?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Virtual office costs in Singapore vary significantly by location and services. Budget providers in industrial areas start from $4.17/month, while premium CBD locations can cost $80+ monthly. Our International Plaza CBD address offers the perfect middle ground at $9.99/month (billed annually at $119.88), providing genuine business prestige without premium pricing. This includes ACRA-compliant registration, professional mail handling, and 24/7 building access. Annual billing demonstrates serious business commitment and unlocks substantial savings compared to monthly plans."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the cheapest virtual office in Singapore?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The cheapest virtual offices in Singapore start around $4.17/month from providers in Paya Lebar and industrial areas. However, these budget options often lack CBD prestige and may not be accepted by all banks or government agencies. For serious businesses, our $9.99/month International Plaza CBD address (annual billing) offers exceptional value - genuine CBD location, ACRA compliance, professional credibility, and banking acceptance at just 2.5x the cheapest options. Quality matters for business registration, banking relationships, and professional credibility."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is virtual office legal in Singapore?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, virtual offices are completely legal in Singapore when used correctly. ACRA (Accounting and Corporate Regulatory Authority) explicitly allows virtual office addresses for company registration, provided the address is genuine and the business can receive mail there. Key legal requirements include: using a real Singapore address (not a PO Box), ensuring mail reception capability, and maintaining business substance. Our International Plaza address is pre-verified with ACRA, accepted by all major banks, and fully compliant with Singapore company law. We've handled 1000+ registrations since 2009 with zero compliance issues."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What documents do I need for virtual office in Singapore?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "For virtual office setup in Singapore, you typically need: (1) Valid identification (passport/NRIC), (2) Proof of business ownership or directorship, (3) Service agreement with virtual office provider, and (4) Address authorization letter for ACRA filing. For ACRA company registration specifically, you'll need: incorporation form (available online), company constitution, director/shareholder details, and registered address confirmation (which we provide). Additional documents may include business license applications, bank account opening forms, and GST registration paperwork. Our International Plaza service includes comprehensive documentation support, address verification letters, and ACRA filing assistance to ensure smooth business setup."
-          }
-        }
-      ]
+      "@type": "LocalBusiness",
+      "name": "Anson & Co Virtual Office",
+      "description": "Premium virtual office solutions at International Plaza CBD Singapore",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "10 Anson Road, #18-08",
+        "addressLocality": "Singapore",
+        "postalCode": "079903",
+        "addressCountry": "SG"
+      },
+      "telephone": "+65-6123-4567",
+      "url": "https://virtualaddress.biz",
+      "priceRange": "$$$",
+      "openingHours": "Mo-Fr 09:00-18:00"
     };
 
     // Add schema to page
     const script = document.createElement('script');
     script.type = 'application/ld+json';
-    script.text = JSON.stringify(faqSchema);
+    script.text = JSON.stringify(businessSchema);
     document.head.appendChild(script);
 
     // Cleanup function
@@ -860,51 +839,6 @@ export function MainContent({ onGetStartedClick }) {
   </div>
 </section>
 
-
-      {/* FAQ Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-gray-900 text-center mb-12">
-            Frequently Asked Questions
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="space-y-6">
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="font-bold text-gray-900 mb-2">Can I use this for ACRA registration?</h3>
-                <p className="text-gray-700 text-sm">Yes, our International Plaza address is pre-verified with ACRA and accepted by all Singapore government agencies.</p>
-              </div>
-              
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="font-bold text-gray-900 mb-2">How quickly can I start?</h3>
-                <p className="text-gray-700 text-sm">You can start using the address immediately after payment and document verification, typically within 1-2 business days.</p>
-              </div>
-
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="font-bold text-gray-900 mb-2">Do banks accept this address?</h3>
-                <p className="text-gray-700 text-sm">Yes, all major Singapore banks recognize our premium International Plaza address for business account opening.</p>
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="font-bold text-gray-900 mb-2">Can I receive international mail?</h3>
-                <p className="text-gray-700 text-sm">Absolutely! We forward mail and packages anywhere in Singapore and internationally at transparent postage rates.</p>
-              </div>
-              
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="font-bold text-gray-900 mb-2">What about multi-entity discounts?</h3>
-                <p className="text-gray-700 text-sm">Yes! 2nd entity gets 10% off, 3rd entity gets 15% off, and 4th+ entities get 20% off. Perfect for growing portfolios.</p>
-              </div>
-
-              <div className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="font-bold text-gray-900 mb-2">Why annual billing only?</h3>
-                <p className="text-gray-700 text-sm">Annual billing demonstrates business commitment and unlocks our best rates. It's designed for serious, established businesses.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

@@ -83,3 +83,299 @@ body {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
+
+/* FAQ CTA Button Styles */
+.faq-cta-button {
+  background-color: #B8A898;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 2.5rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+  font-family: 'Optima', 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(184, 168, 152, 0.15);
+  min-width: 200px;
+}
+
+.faq-cta-button:hover {
+  background-color: #A39086;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(184, 168, 152, 0.25);
+}
+
+.faq-cta-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(184, 168, 152, 0.15);
+}
+
+.faq-cta-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(184, 168, 152, 0.3);
+}
+
+.faq-cta-button:focus-visible {
+  outline: 2px solid #B8A898;
+  outline-offset: 2px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .faq-cta-button {
+    width: 100%;
+    max-width: 300px;
+    padding: 1.25rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-cta-button {
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Comprehensive FAQ CTA Button Styles */
+.comprehensive-faq-cta-button {
+  background-color: #B8A898;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 1rem 2.5rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+  font-family: 'Optima', 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(184, 168, 152, 0.15);
+  min-width: 200px;
+}
+
+.comprehensive-faq-cta-button:hover {
+  background-color: #A39086;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(184, 168, 152, 0.25);
+}
+
+.comprehensive-faq-cta-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(184, 168, 152, 0.15);
+}
+
+.comprehensive-faq-cta-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(184, 168, 152, 0.3);
+}
+
+.comprehensive-faq-cta-button:focus-visible {
+  outline: 2px solid #B8A898;
+  outline-offset: 2px;
+}
+
+/* Mobile Responsive for Comprehensive FAQ */
+@media (max-width: 768px) {
+  .comprehensive-faq-cta-button {
+    width: 100%;
+    max-width: 300px;
+    padding: 1.25rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .comprehensive-faq-cta-button {
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* FAQ Page CTA Button Styles */
+.faq-cta-button {
+  background-color: #B8A898;
+  color: white;
+  padding: 1rem 2.5rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  font-family: 'Optima', 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(184, 168, 152, 0.15);
+  min-width: 200px;
+}
+
+.faq-cta-button:hover {
+  background-color: #A39086;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(184, 168, 152, 0.25);
+}
+
+.faq-cta-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(184, 168, 152, 0.15);
+}
+
+.faq-cta-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(184, 168, 152, 0.3);
+}
+
+.faq-cta-button:focus-visible {
+  outline: 2px solid #B8A898;
+  outline-offset: 2px;
+}
+
+/* Mobile Responsive for FAQ Page CTA */
+@media (max-width: 768px) {
+  .faq-cta-button {
+    width: 100%;
+    max-width: 300px;
+    padding: 1.25rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-cta-button {
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+    max-width: 280px;
+  }
+}
+
+/* Guide CTA Button Styles */
+.guide-cta-button {
+  background-color: #D4B896;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 9999px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  font-family: 'Optima', 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-width: 200px;
+}
+
+.guide-cta-button:hover {
+  background-color: #c4a882;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.guide-cta-button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.guide-cta-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(212, 184, 150, 0.3);
+}
+
+.guide-cta-button:focus-visible {
+  outline: 2px solid #D4B896;
+  outline-offset: 2px;
+}
+
+/* Mobile Responsive for Guide CTA */
+@media (max-width: 768px) {
+  .guide-cta-button {
+    width: 100%;
+    max-width: 300px;
+    padding: 1.25rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .guide-cta-button {
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+    max-width: 280px;
+  }
+}
+
+/* ACRA Compliance Page CTA Button Styles */
+.acra-cta-button {
+  background-color: #B8A898;
+  color: white;
+  padding: 1.25rem 2.5rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  font-family: 'Optima', 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-width: 220px;
+}
+
+.acra-cta-button:hover {
+  background-color: #A39086;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.acra-cta-button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.acra-cta-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(184, 168, 152, 0.3);
+}
+
+.acra-final-cta-button {
+  background-color: white;
+  color: #8B7355;
+  padding: 1.25rem 2.5rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  font-family: 'Optima', 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-width: 280px;
+}
+
+.acra-final-cta-button:hover {
+  background-color: #f9f9f9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.acra-final-cta-button:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile Responsive for ACRA CTA Buttons */
+@media (max-width: 768px) {
+  .acra-cta-button,
+  .acra-final-cta-button {
+    width: 100%;
+    max-width: 320px;
+    padding: 1.125rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .acra-cta-button,
+  .acra-final-cta-button {
+    padding: 1rem 1.5rem;
+    font-size: 0.95rem;
+    max-width: 300px;
+  }
+}

@@ -31,7 +31,7 @@ export function ACRACompliancePage({ onGetStartedClick }) {
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm z-50 border-b border-neutral-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-[44px] md:h-[66px]">
+          <div className="flex items-center justify-between h-[66px] sm:h-[66px]">
             <div className="flex items-center">
               <a href="/">
                 <img 
@@ -44,14 +44,10 @@ export function ACRACompliancePage({ onGetStartedClick }) {
             
             <div className="flex items-center space-x-3">
               <div className="hidden md:flex items-center space-x-3 mr-3">
-                <a 
-                  href="/#pricing"
-                  className="font-optima font-bold text-[17px] leading-[22.1px] text-custom-gold hover:text-custom-goldHover transition-colors capitalize"
-                >
-                  Pricing
-                </a>
-                <a href="/faq" className="font-optima font-bold text-[17px] leading-[22.1px] text-custom-gold hover:text-custom-goldHover transition-colors capitalize">FAQ</a>
-                <a href="/acra-compliance" className="font-optima font-bold text-[17px] leading-[22.1px] text-custom-gold hover:text-custom-goldHover transition-colors capitalize text-center">Incorporation<br/>Guide</a>
+                <a href="/#pricing" className="font-optima font-bold text-[15px] sm:text-[17px] leading-tight text-custom-gold hover:text-custom-goldHover transition-colors capitalize">Pricing</a>
+                <a href="/faq" className="font-optima font-bold text-[15px] sm:text-[17px] leading-tight text-custom-gold hover:text-custom-goldHover transition-colors capitalize">FAQ</a>
+                <a href="/incorporation-guide" className="font-optima font-bold text-[15px] sm:text-[17px] leading-tight text-custom-gold hover:text-custom-goldHover transition-colors capitalize text-center">Incorporation<br/>Guide</a>
+                <a href="/acra-compliance" className="font-optima font-bold text-[15px] sm:text-[17px] leading-tight text-custom-gold hover:text-custom-goldHover transition-colors capitalize text-center">ACRA<br/>Compliance</a>
               </div>
               <button 
                 onClick={() => onGetStartedClick('nav-signup')}
