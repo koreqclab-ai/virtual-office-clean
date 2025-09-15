@@ -498,6 +498,47 @@ input[type="checkbox"]:checked {
   to { transform: rotate(360deg); }
 }
 
+/* Pricing Section Tight Spacing */
+.pricing-section {
+  --title-spacing: 0.75rem;        /* 12px - tight title spacing */
+  --subtitle-spacing: 1rem;        /* 16px - reduced subtitle spacing */
+  --selector-spacing: 1.5rem;      /* 24px - compact selector spacing */
+  --header-spacing: 2rem;          /* 32px - reduced header bottom spacing */
+}
+
+/* Responsive spacing adjustments */
+@media (max-width: 768px) {
+  .pricing-section {
+    --title-spacing: 0.5rem;       /* Even tighter on mobile */
+    --subtitle-spacing: 0.75rem;   /* Compact mobile spacing */
+    --selector-spacing: 1rem;      /* Tight mobile selector spacing */
+    --header-spacing: 1.5rem;      /* Reduced mobile header spacing */
+    padding-top: 3rem;             /* Reduced mobile top padding */
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  .pricing-section {
+    --title-spacing: 0.625rem;     /* Tablet optimization */
+    --subtitle-spacing: 0.875rem;  /* Tablet subtitle spacing */
+    --selector-spacing: 1.25rem;   /* Tablet selector spacing */
+  }
+}
+
+/* Apply spacing variables to pricing elements */
+.pricing-section .main-heading {
+  margin-bottom: var(--title-spacing) !important;
+}
+
+.pricing-section .text-center.mb-8 {
+  margin-bottom: var(--header-spacing) !important;
+}
+
+/* Fine-tune tab selector spacing */
+.pricing-section [role="tablist"] {
+  margin-bottom: var(--selector-spacing) !important;
+}
+
 /* Smooth Scroll Behavior */
 html {
   scroll-behavior: smooth;

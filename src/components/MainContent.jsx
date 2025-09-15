@@ -484,15 +484,15 @@ export function MainContent({ onGetStartedClick }) {
 </section>
 
 {/* Pricing Plans Section - Neutral Color Scheme */}
-<section id="pricing" className="py-20 pricing-section" style={{backgroundColor: 'var(--cream-background)'}}>
+<section id="pricing" className="pt-12 pb-20 pricing-section" style={{backgroundColor: 'var(--cream-background)'}}>
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pricing-container">
-    <div className="text-center mb-16">
-      <h2 className="text-4xl font-bold mb-6 main-heading" style={{color: 'var(--heading-dark)'}}>Pricing Plans</h2>
-      <p className="text-xl mb-8" style={{color: 'var(--text-muted)'}}>Flexible Virtual Office Plans to Suit Every Business Need</p>
+    <div className="text-center mb-8">
+      <h2 className="text-4xl font-bold mb-3 main-heading" style={{color: 'var(--heading-dark)'}}>Pricing Plans</h2>
+      <p className="text-xl" style={{color: 'var(--text-muted)', marginBottom: 'var(--subtitle-spacing)'}}>Flexible Virtual Office Plans to Suit Every Business Need</p>
       
       {/* Responsive Tab Selector with Keyboard Navigation - Neutral Colors */}
       <div
-        className="flex flex-col sm:inline-flex sm:flex-row items-center rounded-xl p-1 mb-8 sm:mb-12 w-full sm:w-auto max-w-md sm:max-w-none mx-auto"
+        className="flex flex-col sm:inline-flex sm:flex-row items-center rounded-xl p-1 mb-6 sm:mb-8 w-full sm:w-auto max-w-md sm:max-w-none mx-auto"
         style={{backgroundColor: 'var(--light-beige)'}}
         role="tablist"
         aria-label="Pricing plan categories"
