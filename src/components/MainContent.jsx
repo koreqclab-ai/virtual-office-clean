@@ -65,106 +65,92 @@ export function MainContent({ onGetStartedClick }) {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section - Dark Background (Anytime Mailbox Style) */}
-      <section className="bg-gray-900 min-h-screen flex items-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            
-            {/* Left Content */}
-            <div className="text-white">
-              <h1 className="text-5xl lg:text-6xl font-bold leading-tight mb-6">
-                Establish Your Business Presence with a{' '}
-                <span className="text-orange-500">Premium Singapore CBD Address</span>
-              </h1>
-              
-              <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-                Use a real International Plaza address to register your company with ACRA, open business bank accounts, receive mail securely, and protect your privacy.
-              </p>
+      {/* Hero Section - Singapore Marina Bay Sands Background */}
+      <section className="relative h-[75vh] flex items-center">
+        {/* Background with adjusted positioning to show MBS rooftop */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: 'url("/images/hero/marina-bay-sands-aerial.avif")'
+          }}
+        >
+          <div className="absolute inset-0 bg-black/35"></div>
+        </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                <button
-                  onClick={() => onGetStartedClick('hero-primary')}
-                  className="bg-orange-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-orange-600 transition-colors"
-                >
-                  Get Business Address Now
-                </button>
-                <button 
-                  onClick={() => onGetStartedClick('hero-secondary')}
-                  className="border border-gray-600 text-white px-8 py-4 rounded-lg text-lg font-medium hover:bg-gray-800 transition-colors"
-                >
-                  Learn More
-                </button>
-              </div>
-            </div>
+        {/* Content Container - Left Positioned */}
+        <div className="relative z-10 w-full">
+          <div className="ml-[15%] max-w-4xl text-left">
 
-            {/* Right Image - Professional Person with Mobile */}
-            <div className="relative">
-              <div className="bg-gradient-to-br from-orange-500/20 to-purple-600/20 rounded-3xl p-8">
-                <div className="bg-gray-800 rounded-2xl p-8 text-center">
-                  {/* Professional Person with Mobile Device */}
-                  <div className="w-64 h-80 bg-gradient-to-b from-gray-700 to-gray-600 rounded-2xl mx-auto mb-6 flex items-center justify-center relative">
-                    <div className="text-center">
-                      {/* Person */}
-                      <div className="w-24 h-24 bg-orange-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <span className="text-white text-3xl">👤</span>
-                      </div>
-                      {/* Mobile Device */}
-                      <div className="w-32 h-20 bg-gray-600 rounded-lg mx-auto flex items-center justify-center">
-                        <span className="text-white text-2xl">📱</span>
-                      </div>
-                      {/* Address Badge */}
-                      <div className="absolute -bottom-2 -right-2 bg-orange-500 text-white px-3 py-1 rounded-full text-xs font-medium">
-                        CBD Address
-                      </div>
-                    </div>
-                  </div>
-                  <div className="text-white text-lg font-medium">
-                    Manage your business address from anywhere
-                  </div>
-                  <div className="text-gray-400 text-sm mt-2">
-                    International Plaza • 24/7 Access
-                  </div>
-                </div>
-              </div>
-            </div>
+            {/* Hero Text - Spacing & proportions to match Image 1 */}
+            <h1>
+              <span
+                className="block text-4xl md:text-5xl font-bold leading-tight mb-4"
+                style={{color: '#D4B896'}}
+              >
+                Establish Your Business
+              </span>
+              <span className="block text-4xl md:text-5xl font-bold leading-tight mb-4 text-white">
+                Presence with a Premium
+              </span>
+              <span className="block text-4xl md:text-5xl font-bold leading-tight mb-10 text-white">
+                Singapore CBD Address
+              </span>
+            </h1>
+
+            {/* Body Text */}
+            <p
+              className="text-lg leading-relaxed max-w-2xl"
+              style={{color: 'rgba(255,255,255,0.9)'}}
+            >
+              Use a real International Plaza address to register your company with ACRA, open business bank accounts, receive mail securely, and protect your privacy.
+            </p>
+
           </div>
         </div>
       </section>
 
-      {/* Trust Indicators Section - White Background */}
-      <section className="py-16 bg-white">
+      {/* Trust Indicators Section - Light Beige/Cream Background */}
+      <section className="py-20" style={{ backgroundColor: '#FDF6E3' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
             <div className="flex flex-col items-center">
-              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-4">
-                <span className="text-orange-600 text-2xl">🏢</span>
+              <div className="w-20 h-20 rounded-full flex items-center justify-center mb-6" style={{ backgroundColor: '#8B7355' }}>
+                <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                  <path d="M9 12l2 2 4-4" stroke="white" strokeWidth="2" fill="none"/>
+                </svg>
               </div>
-              <h3 className="font-bold text-gray-900 mb-2">Real CBD Address</h3>
-              <p className="text-gray-600 text-sm">International Plaza, Anson Road</p>
+              <h3 className="text-xl font-bold mb-4" style={{ color: '#8B7355' }}>International Plaza CBD</h3>
+              <h3 className="text-xl font-bold mb-4" style={{ color: '#8B7355' }}>Premium Location</h3>
+              <p className="text-gray-700 text-base leading-relaxed max-w-sm">
+                Prestigious International Plaza address in Singapore's Central Business District
+              </p>
             </div>
-            
+
             <div className="flex flex-col items-center">
-              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-4">
-                <span className="text-orange-600 text-2xl">✓</span>
+              <div className="w-20 h-20 rounded-full flex items-center justify-center mb-6" style={{ backgroundColor: '#8B7355' }}>
+                <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
               </div>
-              <h3 className="font-bold text-gray-900 mb-2">ACRA Compliant</h3>
-              <p className="text-gray-600 text-sm">Pre-verified business address</p>
+              <h3 className="text-xl font-bold mb-4" style={{ color: '#8B7355' }}>ACRA Pre-Verified</h3>
+              <h3 className="text-xl font-bold mb-4" style={{ color: '#8B7355' }}>Address Provider</h3>
+              <p className="text-gray-700 text-base leading-relaxed max-w-sm">
+                Pre-approved address for company registration with Singapore's ACRA
+              </p>
             </div>
-            
+
             <div className="flex flex-col items-center">
-              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-4">
-                <span className="text-orange-600 text-2xl">📬</span>
+              <div className="w-20 h-20 rounded-full flex items-center justify-center mb-6" style={{ backgroundColor: '#8B7355' }}>
+                <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
               </div>
-              <h3 className="font-bold text-gray-900 mb-2">Mail Forwarding</h3>
-              <p className="text-gray-600 text-sm">Bi-weekly or monthly options</p>
-            </div>
-            
-            <div className="flex flex-col items-center">
-              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mb-4">
-                <span className="text-orange-600 text-2xl">🌏</span>
-              </div>
-              <h3 className="font-bold text-gray-900 mb-2">International</h3>
-              <p className="text-gray-600 text-sm">Trusted globally</p>
+              <h3 className="text-xl font-bold mb-4" style={{ color: '#8B7355' }}>Trusted by 1000+</h3>
+              <h3 className="text-xl font-bold mb-4" style={{ color: '#8B7355' }}>across 40+ countries</h3>
+              <p className="text-gray-700 text-base leading-relaxed max-w-sm">
+                Serving businesses worldwide with reliable Singapore address solutions
+              </p>
             </div>
           </div>
         </div>
