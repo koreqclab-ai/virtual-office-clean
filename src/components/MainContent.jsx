@@ -181,12 +181,12 @@ export function MainContent({ onGetStartedClick }) {
             {/* Vincent Tan */}
             <div className="bg-gray-50 p-8 rounded-2xl">
               <div className="flex items-center mb-6">
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mr-4 overflow-hidden">
+                <div className="w-16 h-16 rounded-full flex items-center justify-center mr-4 overflow-hidden" style={{ backgroundColor: 'var(--light-beige)' }}>
                   <img src="/images/vincent.png" alt="Vincent Tan" className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900">Vincent Tan</h3>
-                  <p className="text-orange-600 font-medium">Digital Products Business</p>
+                  <p className="font-medium" style={{ color: 'var(--primary-beige)' }}>Digital Products Business</p>
                 </div>
               </div>
               <p className="text-gray-700 mb-4 leading-relaxed">
@@ -194,19 +194,19 @@ export function MainContent({ onGetStartedClick }) {
               </p>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-center">
-                  <span className="text-orange-500 mr-3 text-lg">✓</span>
+                  <span className="mr-3 text-lg" style={{ color: 'var(--primary-beige)' }}>✓</span>
                   Payment processor documents and merchant statements
                 </li>
                 <li className="flex items-center">
-                  <span className="text-orange-500 mr-3 text-lg">✓</span>
+                  <span className="mr-3 text-lg" style={{ color: 'var(--primary-beige)' }}>✓</span>
                   International customer correspondence
                 </li>
                 <li className="flex items-center">
-                  <span className="text-orange-500 mr-3 text-lg">✓</span>
+                  <span className="mr-3 text-lg" style={{ color: 'var(--primary-beige)' }}>✓</span>
                   CBD credibility for partnership negotiations
                 </li>
                 <li className="flex items-center">
-                  <span className="text-orange-500 mr-3 text-lg">✓</span>
+                  <span className="mr-3 text-lg" style={{ color: 'var(--primary-beige)' }}>✓</span>
                   Professional separation from home address
                 </li>
               </ul>
@@ -215,12 +215,12 @@ export function MainContent({ onGetStartedClick }) {
             {/* Sarah */}
             <div className="bg-gray-50 p-8 rounded-2xl">
               <div className="flex items-center mb-6">
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mr-4 overflow-hidden">
+                <div className="w-16 h-16 rounded-full flex items-center justify-center mr-4 overflow-hidden" style={{ backgroundColor: 'var(--light-beige)' }}>
                   <img src="/images/sarah.png" alt="Sarah" className="w-full h-full object-cover" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900">Sarah</h3>
-                  <p className="text-orange-600 font-medium">International Consultant</p>
+                  <p className="font-medium" style={{ color: 'var(--primary-beige)' }}>International Consultant</p>
                 </div>
               </div>
               <p className="text-gray-700 mb-4 leading-relaxed">
@@ -228,19 +228,19 @@ export function MainContent({ onGetStartedClick }) {
               </p>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-center">
-                  <span className="text-orange-500 mr-3 text-lg">✓</span>
+                  <span className="mr-3 text-lg" style={{ color: 'var(--primary-beige)' }}>✓</span>
                   Opened local business bank account
                 </li>
                 <li className="flex items-center">
-                  <span className="text-orange-500 mr-3 text-lg">✓</span>
+                  <span className="mr-3 text-lg" style={{ color: 'var(--primary-beige)' }}>✓</span>
                   Registered Singapore entity with ACRA
                 </li>
                 <li className="flex items-center">
-                  <span className="text-orange-500 mr-3 text-lg">✓</span>
+                  <span className="mr-3 text-lg" style={{ color: 'var(--primary-beige)' }}>✓</span>
                   Added prestigious address to proposals
                 </li>
                 <li className="flex items-center">
-                  <span className="text-orange-500 mr-3 text-lg">✓</span>
+                  <span className="mr-3 text-lg" style={{ color: 'var(--primary-beige)' }}>✓</span>
                   Boosted client trust and credibility
                 </li>
               </ul>
@@ -295,38 +295,74 @@ export function MainContent({ onGetStartedClick }) {
         </div>
       </section>
 
-      {/* Core Features Section */}
-<section className="py-16 bg-gray-50">
+      {/* Core Features Section - Neutral Beige Theme */}
+<section className="py-16" style={{ backgroundColor: 'var(--cream-background)' }}>
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="text-center mb-12">
-      <h2 className="text-3xl font-bold text-gray-900 mb-4">Core Features in Every Plan</h2>
-      <p className="text-lg text-gray-600">Essential features included with all virtual office plans</p>
+      <h2 className="text-3xl font-bold mb-4" style={{ color: '#4A453F' }}>Core Features in Every Plan</h2>
+      <p className="text-lg" style={{ color: 'var(--soft-gray)' }}>Essential features included with all virtual office plans</p>
     </div>
-    
+
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       {coreFeatures.map((feature) => (
-        <div key={feature.id} className="flex items-start space-x-4">
-          <img src={feature.icon} alt="Feature icon" className="w-6 h-6 mt-1 flex-shrink-0" />
-          <div>
-            <p className="text-gray-900 font-medium">
+        <div key={feature.id} className="flex items-start space-x-4 p-6 rounded-lg border transition-all duration-200 hover:shadow-lg"
+             style={{
+               backgroundColor: 'var(--warm-white)',
+               borderColor: '#EEEBE6',
+               boxShadow: '0 2px 4px rgba(184, 168, 152, 0.1)'
+             }}
+             onMouseEnter={(e) => {
+               e.currentTarget.style.boxShadow = '0 4px 12px rgba(184, 168, 152, 0.15)';
+             }}
+             onMouseLeave={(e) => {
+               e.currentTarget.style.boxShadow = '0 2px 4px rgba(184, 168, 152, 0.1)';
+             }}>
+          <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center mt-1"
+               style={{ backgroundColor: 'var(--light-beige)' }}>
+            <img src={feature.icon} alt="Feature icon" className="w-5 h-5"
+                 style={{ filter: 'hue-rotate(20deg) saturate(0.7) brightness(0.8)' }} />
+          </div>
+          <div className="flex-1">
+            <p className="font-medium" style={{ color: '#5C5651' }}>
               {feature.title}
               {feature.linkText && feature.linkHref && (
                 <>
                   {' '}
-                  {feature.linkIcon && <img src={feature.linkIcon} alt="Link icon" className="inline w-4 h-4 mx-1" />}
-                  <a href={feature.linkHref} className="text-orange-500 hover:text-orange-600 underline">
+                  {feature.linkIcon && <img src={feature.linkIcon} alt="Link icon" className="inline w-4 h-4 mx-1"
+                                             style={{ filter: 'hue-rotate(20deg) saturate(0.7) brightness(0.8)' }} />}
+                  <a href={feature.linkHref} className="underline transition-colors duration-200"
+                     style={{
+                       color: 'var(--primary-beige)',
+                       textDecorationColor: 'var(--light-beige)'
+                     }}
+                     onMouseEnter={(e) => {
+                       e.target.style.color = 'var(--primary-beige-hover)';
+                     }}
+                     onMouseLeave={(e) => {
+                       e.target.style.color = 'var(--primary-beige)';
+                     }}>
                     {feature.linkText}
                   </a>
                 </>
               )}
               {feature.infoLink && (
-                <a href={feature.infoLink} className="ml-2 inline-flex items-center justify-center w-4 h-4 text-xs font-semibold text-white bg-gray-400 hover:bg-gray-600 rounded-full">
+                <a href={feature.infoLink} className="ml-2 inline-flex items-center justify-center w-5 h-5 text-xs font-semibold rounded-full transition-all duration-200"
+                   style={{
+                     color: 'var(--warm-white)',
+                     backgroundColor: 'var(--primary-beige)'
+                   }}
+                   onMouseEnter={(e) => {
+                     e.target.style.backgroundColor = 'var(--primary-beige-hover)';
+                   }}
+                   onMouseLeave={(e) => {
+                     e.target.style.backgroundColor = 'var(--primary-beige)';
+                   }}>
                   i
                 </a>
               )}
             </p>
             {feature.subtitle && (
-              <p className="text-sm text-gray-600 mt-1">{feature.subtitle}</p>
+              <p className="text-sm mt-1" style={{ color: 'var(--soft-gray)' }}>{feature.subtitle}</p>
             )}
           </div>
         </div>
@@ -479,7 +515,7 @@ export function MainContent({ onGetStartedClick }) {
             {/* Features */}
             <div className="space-y-4">
               <div className="flex items-center text-sm">
-                <span className="text-orange-500 font-bold mr-2">✓</span>
+                <span className="font-bold mr-2" style={{ color: 'var(--primary-beige)' }}>✓</span>
                 <span>All core features</span>
               </div>
               
@@ -489,7 +525,7 @@ export function MainContent({ onGetStartedClick }) {
                   {plan.specialFeatures.map((feature, index) => (
                     <div key={index} className="space-y-2">
                       <div className="flex items-start">
-                        <span className="text-orange-500 font-bold mr-2 mt-0.5">✓</span>
+                        <span className="font-bold mr-2 mt-0.5" style={{ color: 'var(--primary-beige)' }}>✓</span>
                         <div className="text-sm">
                           <p className="font-medium text-gray-900">{feature.title}</p>
                           {feature.subtitle && (
@@ -513,7 +549,17 @@ export function MainContent({ onGetStartedClick }) {
                             <div className="mt-2">
                               <a 
                                 href={feature.link.href}
-                                className="text-orange-500 hover:text-orange-600 text-xs underline inline-flex items-center"
+                                className="text-xs underline inline-flex items-center transition-colors duration-200"
+                                style={{
+                                  color: 'var(--primary-beige)',
+                                  textDecorationColor: 'var(--light-beige)'
+                                }}
+                                onMouseEnter={(e) => {
+                                  e.target.style.color = 'var(--primary-beige-hover)';
+                                }}
+                                onMouseLeave={(e) => {
+                                  e.target.style.color = 'var(--primary-beige)';
+                                }}
                                 target="_blank"
                                 rel="noopener noreferrer"
                               >
@@ -624,7 +670,7 @@ export function MainContent({ onGetStartedClick }) {
             {/* Features */}
             <div className="space-y-4">
               <div className="flex items-center text-sm">
-                <span className="text-orange-500 font-bold mr-2">✓</span>
+                <span className="font-bold mr-2" style={{ color: 'var(--primary-beige)' }}>✓</span>
                 <span>All core features</span>
               </div>
               
@@ -634,7 +680,7 @@ export function MainContent({ onGetStartedClick }) {
                   {plan.specialFeatures.map((feature, index) => (
                     <div key={index} className="space-y-2">
                       <div className="flex items-start">
-                        <span className="text-orange-500 font-bold mr-2 mt-0.5">✓</span>
+                        <span className="font-bold mr-2 mt-0.5" style={{ color: 'var(--primary-beige)' }}>✓</span>
                         <div className="text-sm">
                           <p className="font-medium text-gray-900">{feature.title}</p>
                           {feature.subtitle && (
@@ -658,7 +704,17 @@ export function MainContent({ onGetStartedClick }) {
                             <div className="mt-2">
                               <a 
                                 href={feature.link.href}
-                                className="text-orange-500 hover:text-orange-600 text-xs underline inline-flex items-center"
+                                className="text-xs underline inline-flex items-center transition-colors duration-200"
+                                style={{
+                                  color: 'var(--primary-beige)',
+                                  textDecorationColor: 'var(--light-beige)'
+                                }}
+                                onMouseEnter={(e) => {
+                                  e.target.style.color = 'var(--primary-beige-hover)';
+                                }}
+                                onMouseLeave={(e) => {
+                                  e.target.style.color = 'var(--primary-beige)';
+                                }}
                                 target="_blank"
                                 rel="noopener noreferrer"
                               >
