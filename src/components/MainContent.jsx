@@ -126,7 +126,7 @@ export function MainContent({ onGetStartedClick }) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
               <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-orange-600 text-2xl">🏢</span>
+                <img src="/images/icons/cbd_presence.png" alt="Premium Location" className="w-10 h-10 object-contain" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Premium Location</h3>
               <p className="text-gray-600 leading-relaxed">
@@ -136,7 +136,7 @@ export function MainContent({ onGetStartedClick }) {
 
             <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
               <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-orange-600 text-2xl">📋</span>
+                <img src="/images/icons/acra_registration.png" alt="ACRA Registration" className="w-10 h-10 object-contain" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">ACRA Registration</h3>
               <p className="text-gray-600 leading-relaxed">
@@ -146,7 +146,7 @@ export function MainContent({ onGetStartedClick }) {
 
             <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
               <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-orange-600 text-2xl">🔒</span>
+                <img src="/images/icons/privacy_protection.png" alt="Privacy Protection" className="w-10 h-10 object-contain" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Privacy Protection</h3>
               <p className="text-gray-600 leading-relaxed">
@@ -249,7 +249,7 @@ export function MainContent({ onGetStartedClick }) {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
               <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <img src="/acra_registration.png" alt="ACRA Registration" className="w-12 h-12 object-contain" />
+                <img src="/images/icons/acra_registration.png" alt="ACRA Registration" className="w-12 h-12 object-contain" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">ACRA Registration</h3>
               <p className="text-gray-600 text-sm">Need real Singapore address for company registration</p>
@@ -257,7 +257,7 @@ export function MainContent({ onGetStartedClick }) {
             
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
               <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <img src="/home_based_business.png" alt="Home-Based Business" className="w-12 h-12 object-contain" />
+                <img src="/images/icons/home_based_business.png" alt="Home-Based Business" className="w-12 h-12 object-contain" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Home-Based Business</h3>
               <p className="text-gray-600 text-sm">Run e-commerce or online business professionally</p>
@@ -265,7 +265,7 @@ export function MainContent({ onGetStartedClick }) {
             
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
               <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <img src="/privacy_protection.png" alt="Privacy Protection" className="w-12 h-12 object-contain" />
+                <img src="/images/icons/privacy_protection.png" alt="Privacy Protection" className="w-12 h-12 object-contain" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Privacy Protection</h3>
               <p className="text-gray-600 text-sm">Keep personal address off public records</p>
@@ -273,7 +273,7 @@ export function MainContent({ onGetStartedClick }) {
             
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
               <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <img src="/cbd_presence.png" alt="CBD Presence" className="w-12 h-12 object-contain" />
+                <img src="/images/icons/cbd_presence.png" alt="CBD Presence" className="w-12 h-12 object-contain" />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">CBD Presence</h3>
               <p className="text-gray-600 text-sm">Appear established in Singapore's business district</p>
