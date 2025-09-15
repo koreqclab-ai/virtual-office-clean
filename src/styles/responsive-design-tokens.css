@@ -239,6 +239,70 @@
   }
 }
 
+/* Core Features Dual Container Responsive Design */
+.core-features-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  align-items: start;
+}
+
+.features-container-left,
+.features-container-right {
+  min-height: 400px;
+  height: fit-content;
+}
+
+.feature-item {
+  transition: background-color 0.2s ease;
+  border-radius: 6px;
+}
+
+.feature-item:first-child {
+  padding-top: 0 !important;
+}
+
+/* Mobile Stacking */
+@media (max-width: 1023px) {
+  .core-features-wrapper {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
+    margin: 1rem;
+    padding: 0;
+  }
+
+  .features-container-left,
+  .features-container-right {
+    padding: 1.5rem !important;
+    border-radius: 8px !important;
+    min-height: auto;
+    border-left: none !important;
+    border-right: none !important;
+    border-top: 3px solid var(--primary-beige) !important;
+  }
+
+  .feature-item {
+    padding: 1rem 0.75rem !important;
+    margin: 0 -0.75rem !important;
+  }
+}
+
+/* Tablet Adjustments */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .core-features-wrapper {
+    gap: 1.5rem;
+    margin: 1.5rem;
+  }
+
+  .features-container-left,
+  .features-container-right {
+    padding: 1.75rem !important;
+  }
+}
+
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
   * {

@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { coreFeatures } from '../data/features';
+import { leftColumnFeatures, rightColumnFeatures } from '../data/features';
 import { pricingPlans } from '../data/pricing';
 import React, { useEffect } from 'react';
 import '../styles/responsive-design-tokens.css';
@@ -295,78 +295,180 @@ export function MainContent({ onGetStartedClick }) {
         </div>
       </section>
 
-      {/* Core Features Section - Neutral Beige Theme */}
+      {/* Core Features Section - Dual Container Design */}
 <section className="py-16" style={{ backgroundColor: 'var(--cream-background)' }}>
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {/* Section Header */}
     <div className="text-center mb-12">
       <h2 className="text-3xl font-bold mb-4" style={{ color: '#4A453F' }}>Core Features in Every Plan</h2>
       <p className="text-lg" style={{ color: 'var(--soft-gray)' }}>Essential features included with all virtual office plans</p>
     </div>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {coreFeatures.map((feature) => (
-        <div key={feature.id} className="flex items-start space-x-4 p-6 rounded-lg border transition-all duration-200 hover:shadow-lg"
-             style={{
-               backgroundColor: 'var(--warm-white)',
-               borderColor: '#EEEBE6',
-               boxShadow: '0 2px 4px rgba(184, 168, 152, 0.1)'
-             }}
-             onMouseEnter={(e) => {
-               e.currentTarget.style.boxShadow = '0 4px 12px rgba(184, 168, 152, 0.15)';
-             }}
-             onMouseLeave={(e) => {
-               e.currentTarget.style.boxShadow = '0 2px 4px rgba(184, 168, 152, 0.1)';
-             }}>
-          <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center mt-1"
-               style={{ backgroundColor: 'var(--light-beige)' }}>
-            <img src={feature.icon} alt="Feature icon" className="w-5 h-5"
-                 style={{ filter: 'hue-rotate(20deg) saturate(0.7) brightness(0.8)' }} />
-          </div>
-          <div className="flex-1">
-            <p className="font-medium" style={{ color: '#5C5651' }}>
-              {feature.title}
-              {feature.linkText && feature.linkHref && (
-                <>
-                  {' '}
-                  {feature.linkIcon && <img src={feature.linkIcon} alt="Link icon" className="inline w-4 h-4 mx-1"
-                                             style={{ filter: 'hue-rotate(20deg) saturate(0.7) brightness(0.8)' }} />}
-                  <a href={feature.linkHref} className="underline transition-colors duration-200"
-                     style={{
-                       color: 'var(--primary-beige)',
-                       textDecorationColor: 'var(--light-beige)'
-                     }}
-                     onMouseEnter={(e) => {
-                       e.target.style.color = 'var(--primary-beige-hover)';
-                     }}
-                     onMouseLeave={(e) => {
-                       e.target.style.color = 'var(--primary-beige)';
-                     }}>
-                    {feature.linkText}
-                  </a>
-                </>
-              )}
-              {feature.infoLink && (
-                <a href={feature.infoLink} className="ml-2 inline-flex items-center justify-center w-5 h-5 text-xs font-semibold rounded-full transition-all duration-200"
-                   style={{
-                     color: 'var(--warm-white)',
-                     backgroundColor: 'var(--primary-beige)'
-                   }}
-                   onMouseEnter={(e) => {
-                     e.target.style.backgroundColor = 'var(--primary-beige-hover)';
-                   }}
-                   onMouseLeave={(e) => {
-                     e.target.style.backgroundColor = 'var(--primary-beige)';
-                   }}>
-                  i
-                </a>
-              )}
-            </p>
-            {feature.subtitle && (
-              <p className="text-sm mt-1" style={{ color: 'var(--soft-gray)' }}>{feature.subtitle}</p>
-            )}
-          </div>
+    {/* Dual Container Layout */}
+    <div className="core-features-wrapper grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+      {/* Left Container */}
+      <div className="features-container-left p-8 rounded-xl border transition-all duration-300"
+           style={{
+             backgroundColor: 'var(--warm-white)',
+             borderColor: '#EEEBE6',
+             boxShadow: '0 2px 8px rgba(184, 168, 152, 0.08)',
+             borderLeft: '3px solid var(--primary-beige)'
+           }}>
+        <div className="features-list">
+          {leftColumnFeatures.map((feature, index) => (
+            <div key={feature.id}
+                 className={`feature-item flex items-start gap-3 py-5 transition-all duration-200 rounded-lg -mx-3 px-3 ${
+                   index < leftColumnFeatures.length - 1 ? 'border-b' : ''
+                 }`}
+                 style={{
+                   borderColor: index < leftColumnFeatures.length - 1 ? '#F0EDE8' : 'transparent'
+                 }}
+                 onMouseEnter={(e) => {
+                   e.currentTarget.style.backgroundColor = '#F7F6F4';
+                 }}
+                 onMouseLeave={(e) => {
+                   e.currentTarget.style.backgroundColor = 'transparent';
+                 }}>
+
+              {/* Feature Icon */}
+              <div className="feature-icon flex-shrink-0 w-6 h-6 mt-0.5"
+                   style={{ color: 'var(--primary-beige)' }}>
+                <img src={feature.icon} alt="Feature icon" className="w-full h-full"
+                     style={{ filter: 'hue-rotate(20deg) saturate(0.7) brightness(0.8)' }} />
+              </div>
+
+              {/* Feature Content */}
+              <div className="feature-content flex-1">
+                <div className="feature-title font-medium mb-1" style={{ color: '#5C5651', lineHeight: '1.4' }}>
+                  {feature.title}
+                  {feature.linkText && feature.linkHref && (
+                    <>
+                      {' '}
+                      {feature.linkIcon && <img src={feature.linkIcon} alt="Link icon" className="inline w-4 h-4 mx-1"
+                                                 style={{ filter: 'hue-rotate(20deg) saturate(0.7) brightness(0.8)' }} />}
+                      <a href={feature.linkHref} className="feature-link underline transition-colors duration-200"
+                         style={{
+                           color: 'var(--primary-beige)',
+                           textDecorationColor: 'var(--light-beige)'
+                         }}
+                         onMouseEnter={(e) => {
+                           e.target.style.color = 'var(--primary-beige-hover)';
+                         }}
+                         onMouseLeave={(e) => {
+                           e.target.style.color = 'var(--primary-beige)';
+                         }}>
+                        {feature.linkText}
+                      </a>
+                    </>
+                  )}
+                  {feature.infoLink && (
+                    <a href={feature.infoLink} className="ml-2 inline-flex items-center justify-center w-5 h-5 text-xs font-semibold rounded-full transition-all duration-200"
+                       style={{
+                         color: 'var(--warm-white)',
+                         backgroundColor: 'var(--primary-beige)'
+                       }}
+                       onMouseEnter={(e) => {
+                         e.target.style.backgroundColor = 'var(--primary-beige-hover)';
+                       }}
+                       onMouseLeave={(e) => {
+                         e.target.style.backgroundColor = 'var(--primary-beige)';
+                       }}>
+                      i
+                    </a>
+                  )}
+                </div>
+                {feature.subtitle && (
+                  <div className="feature-description text-sm" style={{ color: 'var(--soft-gray)', lineHeight: '1.4' }}>
+                    {feature.subtitle}
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
+
+      {/* Right Container */}
+      <div className="features-container-right p-8 rounded-xl border transition-all duration-300"
+           style={{
+             backgroundColor: 'var(--warm-white)',
+             borderColor: '#EEEBE6',
+             boxShadow: '0 2px 8px rgba(184, 168, 152, 0.08)',
+             borderRight: '3px solid var(--primary-beige)'
+           }}>
+        <div className="features-list">
+          {rightColumnFeatures.map((feature, index) => (
+            <div key={feature.id}
+                 className={`feature-item flex items-start gap-3 py-5 transition-all duration-200 rounded-lg -mx-3 px-3 ${
+                   index < rightColumnFeatures.length - 1 ? 'border-b' : ''
+                 }`}
+                 style={{
+                   borderColor: index < rightColumnFeatures.length - 1 ? '#F0EDE8' : 'transparent'
+                 }}
+                 onMouseEnter={(e) => {
+                   e.currentTarget.style.backgroundColor = '#F7F6F4';
+                 }}
+                 onMouseLeave={(e) => {
+                   e.currentTarget.style.backgroundColor = 'transparent';
+                 }}>
+
+              {/* Feature Icon */}
+              <div className="feature-icon flex-shrink-0 w-6 h-6 mt-0.5"
+                   style={{ color: 'var(--primary-beige)' }}>
+                <img src={feature.icon} alt="Feature icon" className="w-full h-full"
+                     style={{ filter: 'hue-rotate(20deg) saturate(0.7) brightness(0.8)' }} />
+              </div>
+
+              {/* Feature Content */}
+              <div className="feature-content flex-1">
+                <div className="feature-title font-medium mb-1" style={{ color: '#5C5651', lineHeight: '1.4' }}>
+                  {feature.title}
+                  {feature.linkText && feature.linkHref && (
+                    <>
+                      {' '}
+                      {feature.linkIcon && <img src={feature.linkIcon} alt="Link icon" className="inline w-4 h-4 mx-1"
+                                                 style={{ filter: 'hue-rotate(20deg) saturate(0.7) brightness(0.8)' }} />}
+                      <a href={feature.linkHref} className="feature-link underline transition-colors duration-200"
+                         style={{
+                           color: 'var(--primary-beige)',
+                           textDecorationColor: 'var(--light-beige)'
+                         }}
+                         onMouseEnter={(e) => {
+                           e.target.style.color = 'var(--primary-beige-hover)';
+                         }}
+                         onMouseLeave={(e) => {
+                           e.target.style.color = 'var(--primary-beige)';
+                         }}>
+                        {feature.linkText}
+                      </a>
+                    </>
+                  )}
+                  {feature.infoLink && (
+                    <a href={feature.infoLink} className="ml-2 inline-flex items-center justify-center w-5 h-5 text-xs font-semibold rounded-full transition-all duration-200"
+                       style={{
+                         color: 'var(--warm-white)',
+                         backgroundColor: 'var(--primary-beige)'
+                       }}
+                       onMouseEnter={(e) => {
+                         e.target.style.backgroundColor = 'var(--primary-beige-hover)';
+                       }}
+                       onMouseLeave={(e) => {
+                         e.target.style.backgroundColor = 'var(--primary-beige)';
+                       }}>
+                      i
+                    </a>
+                  )}
+                </div>
+                {feature.subtitle && (
+                  <div className="feature-description text-sm" style={{ color: 'var(--soft-gray)', lineHeight: '1.4' }}>
+                    {feature.subtitle}
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   </div>
 </section>
