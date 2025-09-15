@@ -24,6 +24,11 @@ function App() {
     setIsContactFormOpen(true);
   };
 
+  const handleContactFormOpen = () => {
+    setContactFormSource('header');
+    setIsContactFormOpen(true);
+  };
+
   return (
     <Router>
       <div className="min-h-screen bg-white font-light text-gray-800 overflow-x-hidden">
@@ -34,22 +39,64 @@ function App() {
                 isMobileMenuOpen={isMobileMenuOpen}
                 setIsMobileMenuOpen={setIsMobileMenuOpen}
                 onGetStartedClick={handleGetStartedClick}
+                onContactFormOpen={handleContactFormOpen}
               />
               <MainContent onGetStartedClick={handleGetStartedClick} />
             </>
           } />
           {/* Moved to docs folder: /old-main, /anytime-style, /dark-style routes */}
-          <Route path="/faq" element={<FAQ />} />
-          <Route path="/incorporation-guide" element={<IncorporationGuide />} />
-          <Route path="/acra-compliance" element={<ACRACompliancePage onGetStartedClick={handleGetStartedClick} />} />
-          <Route path="/fintech" element={<FinTechPage onGetStartedClick={handleGetStartedClick} />} />
+          <Route path="/faq" element={
+            <>
+              <Header
+                isMobileMenuOpen={isMobileMenuOpen}
+                setIsMobileMenuOpen={setIsMobileMenuOpen}
+                onGetStartedClick={handleGetStartedClick}
+                onContactFormOpen={handleContactFormOpen}
+              />
+              <FAQ />
+            </>
+          } />
+          <Route path="/incorporation-guide" element={
+            <>
+              <Header
+                isMobileMenuOpen={isMobileMenuOpen}
+                setIsMobileMenuOpen={setIsMobileMenuOpen}
+                onGetStartedClick={handleGetStartedClick}
+                onContactFormOpen={handleContactFormOpen}
+              />
+              <IncorporationGuide />
+            </>
+          } />
+          <Route path="/acra-compliance" element={
+            <>
+              <Header
+                isMobileMenuOpen={isMobileMenuOpen}
+                setIsMobileMenuOpen={setIsMobileMenuOpen}
+                onGetStartedClick={handleGetStartedClick}
+                onContactFormOpen={handleContactFormOpen}
+              />
+              <ACRACompliancePage onGetStartedClick={handleGetStartedClick} />
+            </>
+          } />
+          <Route path="/fintech" element={
+            <>
+              <Header
+                isMobileMenuOpen={isMobileMenuOpen}
+                setIsMobileMenuOpen={setIsMobileMenuOpen}
+                onGetStartedClick={handleGetStartedClick}
+                onContactFormOpen={handleContactFormOpen}
+              />
+              <FinTechPage onGetStartedClick={handleGetStartedClick} />
+            </>
+          } />
           <Route path="/thank-you" element={<ThankYouPage />} />
         </Routes>
         <MobileLocationPanel />
-        <MobileNavigation 
+        <MobileNavigation
           isOpen={isMobileMenuOpen}
           setIsOpen={setIsMobileMenuOpen}
           onGetStartedClick={handleGetStartedClick}
+          onContactFormOpen={handleContactFormOpen}
         />
         {/* ChatWidget removed - now using AI-powered widget in HTML */}
         <ContactForm 

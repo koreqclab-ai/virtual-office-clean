@@ -1,27 +1,6 @@
-import React, { useState } from 'react';
-import { Header } from './Header';
+import React from 'react';
 
 export function FinTechPage({ onGetStartedClick }) {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const handleGetStartedClick = (source) => {
-    // Navigate to pricing section on homepage
-    if (window.location.pathname === '/') {
-      // Already on homepage, scroll to pricing
-      const pricingElement = document.getElementById('pricing');
-      if (pricingElement) {
-        const headerHeight = 80;
-        const targetPosition = pricingElement.offsetTop - headerHeight - 20;
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
-      }
-    } else {
-      // Navigate to homepage with pricing focus
-      window.location.href = '/#pricing';
-    }
-  };
   return (
     <div className="min-h-screen bg-white">
       {/* Schema.org JSON-LD */}

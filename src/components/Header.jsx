@@ -1,7 +1,9 @@
 import React, { useCallback } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-export function Header({ isMobileMenuOpen, setIsMobileMenuOpen, onGetStartedClick }) {
+export function Header({ isMobileMenuOpen, setIsMobileMenuOpen, onGetStartedClick, onContactFormOpen }) {
+  const location = useLocation();
+  const navigate = useNavigate();
   // Smooth scroll functionality
   const scrollToSection = useCallback((sectionId, offset = 20) => {
     const element = document.getElementById(sectionId);
@@ -18,7 +20,33 @@ export function Header({ isMobileMenuOpen, setIsMobileMenuOpen, onGetStartedClic
 
   const handlePricingClick = (e) => {
     e.preventDefault();
-    scrollToSection('pricing');
+
+    if (location.pathname === '/') {
+      // If on landing page, scroll to pricing section
+      scrollToSection('pricing');
+    } else {
+      // If on other pages, navigate to landing page pricing section
+      navigate('/#pricing');
+      setTimeout(() => {
+        const pricingElement = document.getElementById('pricing');
+        if (pricingElement) {
+          const headerHeight = 80;
+          const targetPosition = pricingElement.offsetTop - headerHeight - 20;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 300);
+    }
+  };
+
+  const handleContactClick = (e) => {
+    e.preventDefault();
+    // Open contact form modal directly
+    if (onContactFormOpen) {
+      onContactFormOpen();
+    }
   };
   return (
     <header className="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
@@ -48,7 +76,7 @@ export function Header({ isMobileMenuOpen, setIsMobileMenuOpen, onGetStartedClic
               ACRA<br/>Compliance
             </Link>
             <button
-              onClick={() => onGetStartedClick('header-get-started')}
+              onClick={handleContactClick}
               className="text-white px-6 py-2 rounded font-medium hover:opacity-90"
               style={{backgroundColor: '#D4B896'}}
             >

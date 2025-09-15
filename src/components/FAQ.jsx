@@ -1,32 +1,12 @@
 import React, { useState } from 'react';
-import { Header } from './Header';
 
 export function FAQ() {
   const [openFaq, setOpenFaq] = useState(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  const handleGetStartedClick = (source) => {
-    // Navigate to pricing section on homepage
-    if (window.location.pathname === '/') {
-      // Already on homepage, scroll to pricing
-      const pricingElement = document.getElementById('pricing');
-      if (pricingElement) {
-        const headerHeight = 80;
-        const targetPosition = pricingElement.offsetTop - headerHeight - 20;
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
-      }
-    } else {
-      // Navigate to homepage with pricing focus
-      window.location.href = '/#pricing';
-    }
-  };
 
   const faqData = [
     // PAA High-Priority Questions

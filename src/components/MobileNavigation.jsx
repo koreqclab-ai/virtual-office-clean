@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 
-export function MobileNavigation({ isOpen, setIsOpen, onGetStartedClick }) {
+export function MobileNavigation({ isOpen, setIsOpen, onGetStartedClick, onContactFormOpen }) {
   // Smooth scroll functionality
   const scrollToSection = useCallback((sectionId, offset = 30) => {
     const element = document.getElementById(sectionId);
@@ -68,9 +68,13 @@ export function MobileNavigation({ isOpen, setIsOpen, onGetStartedClick }) {
                   </Link>
                 </li>
                 <li className="pt-4 border-t border-gray-100">
-                  <button 
+                  <button
                     onClick={() => {
-                      onGetStartedClick('get-started');
+                      if (onContactFormOpen) {
+                        onContactFormOpen();
+                      } else {
+                        onGetStartedClick('mobile-get-started');
+                      }
                       setIsOpen(false);
                     }}
                     className="w-full bg-amber-600 text-white py-3 rounded-full hover:bg-amber-700 transition-colors font-medium"
