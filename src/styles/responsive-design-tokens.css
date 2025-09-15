@@ -498,8 +498,35 @@ input[type="checkbox"]:checked {
   to { transform: rotate(360deg); }
 }
 
+/* Smooth Scroll Behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scroll padding for sections to account for fixed header */
+#pricing {
+  scroll-margin-top: 100px;
+}
+
+/* Enhanced smooth scroll for sections */
+section[id] {
+  scroll-margin-top: 100px;
+}
+
+/* Adjust scroll margin for mobile devices */
+@media (max-width: 768px) {
+  #pricing,
+  section[id] {
+    scroll-margin-top: 120px;
+  }
+}
+
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   * {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;

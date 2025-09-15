@@ -1,6 +1,24 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 export function Header({ isMobileMenuOpen, setIsMobileMenuOpen, onGetStartedClick }) {
+  // Smooth scroll functionality
+  const scrollToSection = useCallback((sectionId, offset = 20) => {
+    const element = document.getElementById(sectionId);
+    if (!element) return;
+
+    const headerHeight = document.querySelector('header')?.offsetHeight || 80;
+    const targetPosition = element.offsetTop - headerHeight - offset;
+
+    window.scrollTo({
+      top: Math.max(0, targetPosition),
+      behavior: 'smooth'
+    });
+  }, []);
+
+  const handlePricingClick = (e) => {
+    e.preventDefault();
+    scrollToSection('pricing');
+  };
   return (
     <header className="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -13,7 +31,10 @@ export function Header({ isMobileMenuOpen, setIsMobileMenuOpen, onGetStartedClic
           </div>
 
           <nav className="hidden md:flex space-x-8 items-center">
-            <a href="/pricing" className="font-medium hover:opacity-75" style={{color: '#8B7355'}}>
+            <a href="#pricing"
+               className="font-medium hover:opacity-75 transition-all duration-200"
+               style={{color: '#8B7355'}}
+               onClick={handlePricingClick}>
               Pricing
             </a>
             <a href="/faq" className="font-medium hover:opacity-75" style={{color: '#8B7355'}}>

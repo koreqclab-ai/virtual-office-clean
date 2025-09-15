@@ -1,7 +1,27 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 
 export function MobileNavigation({ isOpen, setIsOpen, onGetStartedClick }) {
+  // Smooth scroll functionality
+  const scrollToSection = useCallback((sectionId, offset = 30) => {
+    const element = document.getElementById(sectionId);
+    if (!element) return;
+
+    const headerHeight = document.querySelector('header')?.offsetHeight || 80;
+    const targetPosition = element.offsetTop - headerHeight - offset;
+
+    window.scrollTo({
+      top: Math.max(0, targetPosition),
+      behavior: 'smooth'
+    });
+  }, []);
+
   const handleLinkClick = () => {
+    setIsOpen(false);
+  };
+
+  const handlePricingClick = (e) => {
+    e.preventDefault();
+    scrollToSection('pricing');
     setIsOpen(false);
   };
 
@@ -45,7 +65,9 @@ export function MobileNavigation({ isOpen, setIsOpen, onGetStartedClick }) {
                   </a>
                 </li>
                 <li>
-                  <a href="#pricing" onClick={handleLinkClick} className="block text-lg text-gray-700 hover:text-amber-600 py-2 transition-colors">
+                  <a href="#pricing"
+                     onClick={handlePricingClick}
+                     className="block text-lg text-gray-700 hover:text-amber-600 py-2 transition-colors">
                     Pricing
                   </a>
                 </li>
