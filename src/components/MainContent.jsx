@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { coreFeatures } from '../data/features';
 import { pricingPlans } from '../data/pricing';
 import React, { useEffect } from 'react';
+import '../styles/responsive-design-tokens.css';
 
 export function MainContent({ onGetStartedClick }) {
   useEffect(() => {
@@ -62,6 +63,18 @@ export function MainContent({ onGetStartedClick }) {
   }, []);
 
   const [activeTab, setActiveTab] = useState('local');
+
+  // Keyboard navigation for tab switching
+  const handleTabKeyDown = (event, tabName) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      setActiveTab(tabName);
+    }
+    if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+      event.preventDefault();
+      setActiveTab(activeTab === 'local' ? 'offshore' : 'local');
+    }
+  };
 
   return (
     <div className="min-h-screen">
@@ -329,74 +342,112 @@ export function MainContent({ onGetStartedClick }) {
       <h2 className="text-4xl font-bold text-gray-900 mb-6">Pricing Plans</h2>
       <p className="text-xl text-gray-600 mb-8">Flexible Virtual Office Plans to Suit Every Business Need</p>
       
-      {/* Modern Tab Selector */}
-      <div className="inline-flex items-center bg-gray-100 rounded-xl p-1 mb-12">
-        <button 
-          className={`px-8 py-3 rounded-lg font-semibold text-sm transition-all duration-200 ${
-            activeTab === 'local' 
-              ? 'bg-orange-500 text-white shadow-md' 
-              : 'text-gray-600 hover:text-gray-900'
+      {/* Responsive Tab Selector with Keyboard Navigation */}
+      <div
+        className="flex flex-col sm:inline-flex sm:flex-row items-center bg-gray-100 rounded-xl p-1 mb-8 sm:mb-12 w-full sm:w-auto max-w-md sm:max-w-none mx-auto"
+        role="tablist"
+        aria-label="Pricing plan categories"
+      >
+        <button
+          id="local-tab"
+          className={`w-full sm:w-auto touch-target-comfort px-4 sm:px-6 md:px-8 py-3 rounded-lg font-semibold text-xs sm:text-sm transition-all duration-200 mb-1 sm:mb-0 focus:outline-none focus:ring-2 focus:ring-orange-300 ${
+            activeTab === 'local'
+              ? 'bg-orange-500 text-white shadow-md'
+              : 'text-gray-600 hover:text-gray-900 active:bg-gray-200'
           }`}
           onClick={() => setActiveTab('local')}
+          onKeyDown={(e) => handleTabKeyDown(e, 'local')}
+          aria-selected={activeTab === 'local'}
+          aria-controls="local-plans"
+          role="tab"
+          tabIndex={activeTab === 'local' ? 0 : -1}
         >
           <div className="text-center">
-            <div className="font-bold">Local Company</div>
-            <div className="text-xs opacity-75">registered in Singapore</div>
+            <div className="font-bold text-sm sm:text-base">Local Company</div>
+            <div className="text-xs opacity-75 hidden sm:block">registered in Singapore</div>
           </div>
         </button>
-        <button 
-          className={`px-8 py-3 rounded-lg font-semibold text-sm transition-all duration-200 ${
-            activeTab === 'offshore' 
-              ? 'bg-orange-500 text-white shadow-md' 
-              : 'text-gray-600 hover:text-gray-900'
+        <button
+          id="offshore-tab"
+          className={`w-full sm:w-auto touch-target-comfort px-4 sm:px-6 md:px-8 py-3 rounded-lg font-semibold text-xs sm:text-sm transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-orange-300 ${
+            activeTab === 'offshore'
+              ? 'bg-orange-500 text-white shadow-md'
+              : 'text-gray-600 hover:text-gray-900 active:bg-gray-200'
           }`}
           onClick={() => setActiveTab('offshore')}
+          onKeyDown={(e) => handleTabKeyDown(e, 'offshore')}
+          aria-selected={activeTab === 'offshore'}
+          aria-controls="offshore-plans"
+          role="tab"
+          tabIndex={activeTab === 'offshore' ? 0 : -1}
         >
           <div className="text-center">
-            <div className="font-bold">Offshore Company</div>
-            <div className="text-xs opacity-75">registered overseas</div>
+            <div className="font-bold text-sm sm:text-base">Offshore Company</div>
+            <div className="text-xs opacity-75 hidden sm:block">registered overseas</div>
           </div>
         </button>
       </div>
     </div>
 
-    {/* Local Company Plans */}
-    <div className={`transition-all duration-300 ${activeTab === 'local' ? 'opacity-100' : 'opacity-0 hidden'}`}>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    {/* Local Company Plans - Mobile-First Grid */}
+    <div
+      id="local-plans"
+      className={`transition-all duration-300 ${activeTab === 'local' ? 'opacity-100' : 'opacity-0 hidden'}`}
+      role="tabpanel"
+      aria-labelledby="local-tab"
+    >
+      <div className="grid-responsive cols-sm-2 cols-lg-4">
         {pricingPlans.filter(plan => plan.category === 'local').map((plan) => (
-          <div key={plan.id} className="relative bg-white border border-gray-200 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-            {/* Plan Header */}
-            <div className="flex items-center justify-between mb-6">
-              <div className="flex space-x-2">
+          <div
+            key={plan.id}
+            className="card-responsive relative border border-gray-200 hover:border-orange-200 focus-within:border-orange-300 transition-all duration-300"
+            role="article"
+            aria-labelledby={`plan-${plan.id}-title`}
+          >
+            {/* Plan Header - Mobile Optimized */}
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 sm:mb-6">
+              <div className="flex space-x-2 mb-2 sm:mb-0 justify-center sm:justify-start">
                 {plan.icons.map((icon, index) => (
-                  <div key={index} className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
-                    <img src={icon} alt="Plan icon" className="w-6 h-6" />
+                  <div
+                    key={index}
+                    className="w-10 h-10 sm:w-12 sm:h-12 bg-orange-100 rounded-full flex items-center justify-center"
+                    role="img"
+                    aria-label={`Plan icon ${index + 1}`}
+                  >
+                    <img src={icon} alt="" className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
                 ))}
               </div>
               {plan.badge && (
-                <span className="bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                <span className="bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded-full text-center sm:text-left">
                   {plan.badge}
                 </span>
               )}
             </div>
 
-            {/* Plan Title & Price */}
-            <h3 className="text-lg font-bold text-gray-900 mb-4">{plan.title}</h3>
-            <div className="flex items-baseline justify-between mb-6">
-              <div>
-                <span className="text-3xl font-bold text-orange-500">{plan.price}</span>
-                <span className="text-gray-600">/year</span>
+            {/* Plan Title & Price - Mobile Optimized */}
+            <h3
+              id={`plan-${plan.id}-title`}
+              className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4 text-center sm:text-left"
+            >
+              {plan.title}
+            </h3>
+            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-4 sm:mb-6 text-center sm:text-left">
+              <div className="mb-2 sm:mb-0">
+                <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-500">{plan.price}</span>
+                <span className="text-gray-600 text-sm sm:text-base">/year</span>
               </div>
-              <span className="text-sm text-gray-500">No GST</span>
+              <span className="text-xs sm:text-sm text-gray-500">No GST</span>
             </div>
 
-            {/* Subscribe Button */}
+            {/* Subscribe Button - Touch Optimized */}
             <button
               onClick={() => onGetStartedClick(`${plan.id}-plan`)}
-              className="w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors mb-6"
+              className="btn-responsive w-full bg-orange-500 text-white hover:bg-orange-600 active:bg-orange-700 focus:ring-4 focus:ring-orange-200 mb-4 sm:mb-6 text-sm sm:text-base"
+              aria-label={`Subscribe to ${plan.title} plan`}
             >
-              Get Business Address Now
+              <span className="block sm:hidden">Get Started</span>
+              <span className="hidden sm:block">Get Business Address Now</span>
             </button>
 
             {/* Features */}
@@ -468,43 +519,65 @@ export function MainContent({ onGetStartedClick }) {
       </div>
     </div>
 
-    {/* Offshore Company Plans */}
-    <div className={`transition-all duration-300 ${activeTab === 'offshore' ? 'opacity-100' : 'opacity-0 hidden'}`}>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    {/* Offshore Company Plans - Mobile-First Grid */}
+    <div
+      id="offshore-plans"
+      className={`transition-all duration-300 ${activeTab === 'offshore' ? 'opacity-100' : 'opacity-0 hidden'}`}
+      role="tabpanel"
+      aria-labelledby="offshore-tab"
+    >
+      <div className="grid-responsive cols-sm-2 cols-lg-4">
         {pricingPlans.filter(plan => plan.category === 'offshore').map((plan) => (
-          <div key={plan.id} className="relative bg-white border border-gray-200 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-            {/* Plan Header */}
-            <div className="flex items-center justify-between mb-6">
-              <div className="flex space-x-2">
+          <div
+            key={plan.id}
+            className="card-responsive relative border border-gray-200 hover:border-orange-200 focus-within:border-orange-300 transition-all duration-300"
+            role="article"
+            aria-labelledby={`plan-offshore-${plan.id}-title`}
+          >
+            {/* Plan Header - Mobile Optimized */}
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 sm:mb-6">
+              <div className="flex space-x-2 mb-2 sm:mb-0 justify-center sm:justify-start">
                 {plan.icons.map((icon, index) => (
-                  <div key={index} className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
-                    <img src={icon} alt="Plan icon" className="w-6 h-6" />
+                  <div
+                    key={index}
+                    className="w-10 h-10 sm:w-12 sm:h-12 bg-orange-100 rounded-full flex items-center justify-center"
+                    role="img"
+                    aria-label={`Plan icon ${index + 1}`}
+                  >
+                    <img src={icon} alt="" className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
                 ))}
               </div>
               {plan.badge && (
-                <span className="bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                <span className="bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded-full text-center sm:text-left">
                   {plan.badge}
                 </span>
               )}
             </div>
 
-            {/* Plan Title & Price */}
-            <h3 className="text-lg font-bold text-gray-900 mb-4">{plan.title}</h3>
-            <div className="flex items-baseline justify-between mb-6">
-              <div>
-                <span className="text-3xl font-bold text-orange-500">{plan.price}</span>
-                <span className="text-gray-600">/year</span>
+            {/* Plan Title & Price - Mobile Optimized */}
+            <h3
+              id={`plan-offshore-${plan.id}-title`}
+              className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4 text-center sm:text-left"
+            >
+              {plan.title}
+            </h3>
+            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-4 sm:mb-6 text-center sm:text-left">
+              <div className="mb-2 sm:mb-0">
+                <span className="text-2xl sm:text-3xl md:text-4xl font-bold text-orange-500">{plan.price}</span>
+                <span className="text-gray-600 text-sm sm:text-base">/year</span>
               </div>
-              <span className="text-sm text-gray-500">No GST</span>
+              <span className="text-xs sm:text-sm text-gray-500">No GST</span>
             </div>
 
-            {/* Subscribe Button */}
+            {/* Subscribe Button - Touch Optimized */}
             <button
               onClick={() => onGetStartedClick(`${plan.id}-plan`)}
-              className="w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors mb-6"
+              className="btn-responsive w-full bg-orange-500 text-white hover:bg-orange-600 active:bg-orange-700 focus:ring-4 focus:ring-orange-200 mb-4 sm:mb-6 text-sm sm:text-base"
+              aria-label={`Subscribe to ${plan.title} plan`}
             >
-              Get Business Address Now
+              <span className="block sm:hidden">Get Started</span>
+              <span className="hidden sm:block">Get Business Address Now</span>
             </button>
 
             {/* Features */}

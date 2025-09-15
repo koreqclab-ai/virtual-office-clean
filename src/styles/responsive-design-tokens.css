@@ -1,0 +1,310 @@
+/* Responsive Design Tokens - Mobile-First Approach */
+:root {
+  /* Breakpoints - Mobile First */
+  --mobile: 320px;
+  --mobile-lg: 414px;
+  --tablet: 768px;
+  --tablet-lg: 1024px;
+  --desktop: 1200px;
+  --large-desktop: 1440px;
+  --ultra-wide: 1920px;
+
+  /* Spacing Scale - Mobile First */
+  --spacing-xs: 0.5rem;    /* 8px */
+  --spacing-sm: 1rem;      /* 16px */
+  --spacing-md: 1.5rem;    /* 24px */
+  --spacing-lg: 2rem;      /* 32px */
+  --spacing-xl: 3rem;      /* 48px */
+  --spacing-2xl: 4rem;     /* 64px */
+  --spacing-3xl: 6rem;     /* 96px */
+
+  /* Typography Scale - Mobile First */
+  --font-size-xs: 0.75rem;   /* 12px */
+  --font-size-sm: 0.875rem;  /* 14px */
+  --font-size-base: 1rem;    /* 16px */
+  --font-size-lg: 1.125rem;  /* 18px */
+  --font-size-xl: 1.25rem;   /* 20px */
+  --font-size-2xl: 1.5rem;   /* 24px */
+  --font-size-3xl: 1.875rem; /* 30px */
+  --font-size-4xl: 2.25rem;  /* 36px */
+  --font-size-5xl: 3rem;     /* 48px */
+
+  /* Line Heights */
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+
+  /* Container Sizes */
+  --container-mobile: 100%;
+  --container-tablet: 48rem;   /* 768px */
+  --container-desktop: 64rem;  /* 1024px */
+  --container-large: 80rem;    /* 1280px */
+  --container-max: 90rem;      /* 1440px */
+
+  /* Grid Gaps */
+  --gap-mobile: var(--spacing-sm);   /* 16px */
+  --gap-tablet: var(--spacing-md);   /* 24px */
+  --gap-desktop: var(--spacing-lg);  /* 32px */
+
+  /* Card & Component Sizes */
+  --card-padding-mobile: var(--spacing-sm);   /* 16px */
+  --card-padding-tablet: var(--spacing-md);   /* 24px */
+  --card-padding-desktop: var(--spacing-lg);  /* 32px */
+
+  /* Touch Target Sizes */
+  --touch-target-min: 44px;  /* iOS/Android minimum */
+  --touch-target-comfort: 48px;
+
+  /* Transition & Animation */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+}
+
+/* Responsive Typography Utilities */
+.text-responsive-xs { font-size: var(--font-size-xs); }
+.text-responsive-sm { font-size: var(--font-size-sm); }
+.text-responsive-base { font-size: var(--font-size-base); }
+.text-responsive-lg { font-size: var(--font-size-lg); }
+.text-responsive-xl { font-size: var(--font-size-xl); }
+.text-responsive-2xl { font-size: var(--font-size-2xl); }
+.text-responsive-3xl { font-size: var(--font-size-3xl); }
+.text-responsive-4xl { font-size: var(--font-size-4xl); }
+.text-responsive-5xl { font-size: var(--font-size-5xl); }
+
+/* Responsive Spacing Utilities */
+.spacing-xs { padding: var(--spacing-xs); }
+.spacing-sm { padding: var(--spacing-sm); }
+.spacing-md { padding: var(--spacing-md); }
+.spacing-lg { padding: var(--spacing-lg); }
+.spacing-xl { padding: var(--spacing-xl); }
+
+/* Touch-Friendly Interactive Elements */
+.touch-target {
+  min-height: var(--touch-target-min);
+  min-width: var(--touch-target-min);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.touch-target-comfort {
+  min-height: var(--touch-target-comfort);
+  min-width: var(--touch-target-comfort);
+}
+
+/* Responsive Container Classes */
+.container-responsive {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-sm);
+  padding-right: var(--spacing-sm);
+}
+
+@media (min-width: 768px) {
+  .container-responsive {
+    padding-left: var(--spacing-md);
+    padding-right: var(--spacing-md);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-responsive {
+    padding-left: var(--spacing-lg);
+    padding-right: var(--spacing-lg);
+  }
+}
+
+/* Mobile-First Grid System */
+.grid-responsive {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gap-mobile);
+}
+
+@media (min-width: 640px) {
+  .grid-responsive {
+    gap: var(--gap-tablet);
+  }
+  .grid-responsive.cols-sm-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .grid-responsive.cols-md-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-responsive.cols-md-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-responsive {
+    gap: var(--gap-desktop);
+  }
+  .grid-responsive.cols-lg-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .grid-responsive.cols-lg-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Responsive Card Components */
+.card-responsive {
+  background: white;
+  border-radius: 0.75rem;
+  padding: var(--card-padding-mobile);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  transition: box-shadow var(--transition-normal);
+}
+
+@media (min-width: 768px) {
+  .card-responsive {
+    padding: var(--card-padding-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-responsive {
+    padding: var(--card-padding-desktop);
+  }
+}
+
+.card-responsive:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive Button Styles */
+.btn-responsive {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--touch-target-comfort);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  border-radius: 0.5rem;
+  transition: all var(--transition-fast);
+  border: none;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .btn-responsive {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: var(--font-size-base);
+  }
+}
+
+/* Print Styles */
+@media print {
+  .container-responsive {
+    max-width: none;
+    padding: 0;
+  }
+
+  .grid-responsive {
+    display: block;
+  }
+
+  .card-responsive {
+    break-inside: avoid;
+    margin-bottom: var(--spacing-md);
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .card-responsive {
+    border: 2px solid currentColor;
+  }
+
+  .btn-responsive {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Device-Specific Optimizations */
+
+/* iOS Safari specific fixes */
+@supports (-webkit-touch-callout: none) {
+  .btn-responsive {
+    -webkit-appearance: none;
+    border-radius: 0.5rem;
+  }
+}
+
+/* Android Chrome specific fixes */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .touch-target {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Desktop hover states - only apply on devices that can hover */
+@media (hover: hover) {
+  .card-responsive:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .btn-responsive:hover {
+    transform: translateY(-1px);
+  }
+}
+
+/* Mobile-specific performance optimizations */
+@media (max-width: 767px) {
+  * {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  .card-responsive {
+    will-change: transform;
+  }
+}
+
+/* Large screen optimizations */
+@media (min-width: 1440px) {
+  .container-responsive {
+    max-width: 1200px;
+  }
+
+  .grid-responsive {
+    gap: 2.5rem;
+  }
+}
+
+/* Ultra-wide screen optimizations */
+@media (min-width: 1920px) {
+  .container-responsive {
+    max-width: 1400px;
+  }
+}
+
+/* Landscape mobile orientation */
+@media (max-height: 500px) and (orientation: landscape) {
+  .card-responsive {
+    padding: var(--spacing-xs);
+  }
+
+  .btn-responsive {
+    min-height: 40px;
+    padding: var(--spacing-xs);
+  }
+}
