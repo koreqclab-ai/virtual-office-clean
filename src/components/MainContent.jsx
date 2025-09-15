@@ -322,257 +322,46 @@ export function MainContent({ onGetStartedClick }) {
   </div>
 </section>
 
-{/* Pricing Plans Section */}
-<section id="pricing" className="py-20 bg-white">
+{/* Is It Right For You Section */}
+<section id="pricing" className="py-20" style={{backgroundColor: '#F5E6D3'}}>
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="text-center mb-16">
-      <h2 className="text-4xl font-bold text-gray-900 mb-6">Pricing Plans</h2>
-      <p className="text-xl text-gray-600 mb-8">Flexible Virtual Office Plans to Suit Every Business Need</p>
-      
-      {/* Modern Tab Selector */}
-      <div className="inline-flex items-center bg-gray-100 rounded-xl p-1 mb-12">
-        <button 
-          className={`px-8 py-3 rounded-lg font-semibold text-sm transition-all duration-200 ${
-            activeTab === 'local' 
-              ? 'bg-orange-500 text-white shadow-md' 
-              : 'text-gray-600 hover:text-gray-900'
-          }`}
-          onClick={() => setActiveTab('local')}
-        >
-          <div className="text-center">
-            <div className="font-bold">Local Company</div>
-            <div className="text-xs opacity-75">registered in Singapore</div>
-          </div>
-        </button>
-        <button 
-          className={`px-8 py-3 rounded-lg font-semibold text-sm transition-all duration-200 ${
-            activeTab === 'offshore' 
-              ? 'bg-orange-500 text-white shadow-md' 
-              : 'text-gray-600 hover:text-gray-900'
-          }`}
-          onClick={() => setActiveTab('offshore')}
-        >
-          <div className="text-center">
-            <div className="font-bold">Offshore Company</div>
-            <div className="text-xs opacity-75">registered overseas</div>
-          </div>
-        </button>
-      </div>
+      <h2 className="text-5xl font-bold mb-6" style={{color: '#5A4A3A'}}>Is a Virtual Office Address Right for You?</h2>
+      <p className="text-2xl mb-16" style={{color: '#7A6A5A'}}>You might benefit from our CBD address if:</p>
     </div>
 
-    {/* Local Company Plans */}
-    <div className={`transition-all duration-300 ${activeTab === 'local' ? 'opacity-100' : 'opacity-0 hidden'}`}>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {pricingPlans.filter(plan => plan.category === 'local').map((plan) => (
-          <div key={plan.id} className="relative bg-white border border-gray-200 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-            {/* Plan Header */}
-            <div className="flex items-center justify-between mb-6">
-              <div className="flex space-x-2">
-                {plan.icons.map((icon, index) => (
-                  <div key={index} className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
-                    <img src={icon} alt="Plan icon" className="w-6 h-6" />
-                  </div>
-                ))}
-              </div>
-              {plan.badge && (
-                <span className="bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
-                  {plan.badge}
-                </span>
-              )}
-            </div>
-
-            {/* Plan Title & Price */}
-            <h3 className="text-lg font-bold text-gray-900 mb-4">{plan.title}</h3>
-            <div className="flex items-baseline justify-between mb-6">
-              <div>
-                <span className="text-3xl font-bold text-orange-500">{plan.price}</span>
-                <span className="text-gray-600">/year</span>
-              </div>
-              <span className="text-sm text-gray-500">No GST</span>
-            </div>
-
-            {/* Subscribe Button */}
-            <button
-              onClick={() => onGetStartedClick(`${plan.id}-plan`)}
-              className="w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors mb-6"
-            >
-              Get Business Address Now
-            </button>
-
-            {/* Features */}
-            <div className="space-y-4">
-              <div className="flex items-center text-sm">
-                <span className="text-orange-500 font-bold mr-2">✓</span>
-                <span>All core features</span>
-              </div>
-              
-              <div>
-                <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">What's Special</h4>
-                <div className="space-y-3">
-                  {plan.specialFeatures.map((feature, index) => (
-                    <div key={index} className="space-y-2">
-                      <div className="flex items-start">
-                        <span className="text-orange-500 font-bold mr-2 mt-0.5">✓</span>
-                        <div className="text-sm">
-                          <p className="font-medium text-gray-900">{feature.title}</p>
-                          {feature.subtitle && (
-                            <p className="text-gray-600 mt-1">{feature.subtitle}</p>
-                          )}
-                          {feature.details && (
-                            <ul className="mt-2 space-y-1 text-gray-600">
-                              {feature.details.map((detail, idx) => (
-                                <li key={idx} className="text-xs">• {detail}</li>
-                              ))}
-                            </ul>
-                          )}
-                          {feature.image && (
-                            <img 
-                              src={feature.image.src} 
-                              alt={feature.image.alt}
-                              className="w-full max-w-[200px] mx-auto my-3 rounded-lg"
-                            />
-                          )}
-                          {feature.link && (
-                            <div className="mt-2">
-                              <a 
-                                href={feature.link.href}
-                                className="text-orange-500 hover:text-orange-600 text-xs underline inline-flex items-center"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                {feature.link.text}
-                                {feature.link.image && (
-                                  <img src={feature.link.image} alt="PDF" className="w-4 h-4 ml-1" />
-                                )}
-                              </a>
-                            </div>
-                          )}
-                          {feature.note && (
-                            <p className="text-xs text-gray-500 mt-2">{feature.note}</p>
-                          )}
-                          {feature.disclaimer && (
-                            <p className="text-xs text-gray-500 mt-1">{feature.disclaimer}</p>
-                          )}
-                          {feature.additionalInfo && (
-                            <p className="text-xs italic text-gray-500 mt-1">{feature.additionalInfo}</p>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
+    {/* Benefit Cards Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+      <div className="text-center p-6 bg-white rounded-lg shadow-sm">
+        <div className="w-26 h-26 mx-auto rounded-full flex items-center justify-center mb-4" style={{backgroundColor: '#B8A898'}}>
+          <img src="/images/icons/acra_registration.png" alt="ACRA Registration" className="w-13 h-13" />
+        </div>
+        <h3 className="text-lg font-semibold mb-2" style={{color: '#5A4A3A'}}>ACRA Registration</h3>
+        <p className="text-sm" style={{color: '#7A6A5A'}}>Need real Singapore address for company registration</p>
       </div>
-    </div>
 
-    {/* Offshore Company Plans */}
-    <div className={`transition-all duration-300 ${activeTab === 'offshore' ? 'opacity-100' : 'opacity-0 hidden'}`}>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {pricingPlans.filter(plan => plan.category === 'offshore').map((plan) => (
-          <div key={plan.id} className="relative bg-white border border-gray-200 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-            {/* Plan Header */}
-            <div className="flex items-center justify-between mb-6">
-              <div className="flex space-x-2">
-                {plan.icons.map((icon, index) => (
-                  <div key={index} className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center">
-                    <img src={icon} alt="Plan icon" className="w-6 h-6" />
-                  </div>
-                ))}
-              </div>
-              {plan.badge && (
-                <span className="bg-orange-500 text-white text-xs font-semibold px-3 py-1 rounded-full">
-                  {plan.badge}
-                </span>
-              )}
-            </div>
+      <div className="text-center p-6 bg-white rounded-lg shadow-sm">
+        <div className="w-26 h-26 mx-auto rounded-full flex items-center justify-center mb-4" style={{backgroundColor: '#B8A898'}}>
+          <img src="/images/icons/home_based_business.png" alt="Home-Based Business" className="w-13 h-13" />
+        </div>
+        <h3 className="text-lg font-semibold mb-2" style={{color: '#5A4A3A'}}>Home-Based Business</h3>
+        <p className="text-sm" style={{color: '#7A6A5A'}}>Run e-commerce or online business professionally</p>
+      </div>
 
-            {/* Plan Title & Price */}
-            <h3 className="text-lg font-bold text-gray-900 mb-4">{plan.title}</h3>
-            <div className="flex items-baseline justify-between mb-6">
-              <div>
-                <span className="text-3xl font-bold text-orange-500">{plan.price}</span>
-                <span className="text-gray-600">/year</span>
-              </div>
-              <span className="text-sm text-gray-500">No GST</span>
-            </div>
+      <div className="text-center p-6 bg-white rounded-lg shadow-sm">
+        <div className="w-26 h-26 mx-auto rounded-full flex items-center justify-center mb-4" style={{backgroundColor: '#B8A898'}}>
+          <img src="/images/icons/privacy_protection.png" alt="Privacy Protection" className="w-13 h-13" />
+        </div>
+        <h3 className="text-lg font-semibold mb-2" style={{color: '#5A4A3A'}}>Privacy Protection</h3>
+        <p className="text-sm" style={{color: '#7A6A5A'}}>Keep personal address off public records</p>
+      </div>
 
-            {/* Subscribe Button */}
-            <button
-              onClick={() => onGetStartedClick(`${plan.id}-plan`)}
-              className="w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition-colors mb-6"
-            >
-              Get Business Address Now
-            </button>
-
-            {/* Features */}
-            <div className="space-y-4">
-              <div className="flex items-center text-sm">
-                <span className="text-orange-500 font-bold mr-2">✓</span>
-                <span>All core features</span>
-              </div>
-              
-              <div>
-                <h4 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">What's Special</h4>
-                <div className="space-y-3">
-                  {plan.specialFeatures.map((feature, index) => (
-                    <div key={index} className="space-y-2">
-                      <div className="flex items-start">
-                        <span className="text-orange-500 font-bold mr-2 mt-0.5">✓</span>
-                        <div className="text-sm">
-                          <p className="font-medium text-gray-900">{feature.title}</p>
-                          {feature.subtitle && (
-                            <p className="text-gray-600 mt-1">{feature.subtitle}</p>
-                          )}
-                          {feature.details && (
-                            <ul className="mt-2 space-y-1 text-gray-600">
-                              {feature.details.map((detail, idx) => (
-                                <li key={idx} className="text-xs">• {detail}</li>
-                              ))}
-                            </ul>
-                          )}
-                          {feature.image && (
-                            <img 
-                              src={feature.image.src} 
-                              alt={feature.image.alt}
-                              className="w-full max-w-[200px] mx-auto my-3 rounded-lg"
-                            />
-                          )}
-                          {feature.link && (
-                            <div className="mt-2">
-                              <a 
-                                href={feature.link.href}
-                                className="text-orange-500 hover:text-orange-600 text-xs underline inline-flex items-center"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                {feature.link.text}
-                                {feature.link.image && (
-                                  <img src={feature.link.image} alt="PDF" className="w-4 h-4 ml-1" />
-                                )}
-                              </a>
-                            </div>
-                          )}
-                          {feature.note && (
-                            <p className="text-xs text-gray-500 mt-2">{feature.note}</p>
-                          )}
-                          {feature.disclaimer && (
-                            <p className="text-xs text-gray-500 mt-1">{feature.disclaimer}</p>
-                          )}
-                          {feature.additionalInfo && (
-                            <p className="text-xs italic text-gray-500 mt-1">{feature.additionalInfo}</p>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
+      <div className="text-center p-6 bg-white rounded-lg shadow-sm">
+        <div className="w-26 h-26 mx-auto rounded-full flex items-center justify-center mb-4" style={{backgroundColor: '#B8A898'}}>
+          <img src="/images/icons/cbd_presence.png" alt="CBD Presence" className="w-13 h-13" />
+        </div>
+        <h3 className="text-lg font-semibold mb-2" style={{color: '#5A4A3A'}}>CBD Presence</h3>
+        <p className="text-sm" style={{color: '#7A6A5A'}}>Appear established in Singapore's business district</p>
       </div>
     </div>
   </div>
