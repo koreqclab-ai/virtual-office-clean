@@ -385,6 +385,96 @@
   }
 }
 
+/* Contact Modal Responsive Design */
+@media (max-width: 768px) {
+  .contact-modal {
+    margin: 1rem !important;
+    max-width: calc(100vw - 2rem) !important;
+    border-radius: 12px !important;
+  }
+
+  .modal-header,
+  .modal-body {
+    padding: 1.5rem !important;
+  }
+
+  .modal-title {
+    font-size: 1.5rem !important;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .modal-actions {
+    flex-direction: column-reverse !important;
+    gap: 0.75rem !important;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-actions {
+    flex-direction: column-reverse;
+    gap: 0.75rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+  }
+}
+
+/* Form Input Placeholder Styling */
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #A39086;
+  font-style: normal;
+}
+
+/* Form Validation States */
+.form-input.error,
+.form-select.error,
+.form-textarea.error {
+  border-color: #C87171 !important;
+  background-color: #FEF7F7 !important;
+}
+
+.form-input.success,
+.form-select.success,
+.form-textarea.success {
+  border-color: #B8A898 !important;
+  background-color: #F7F6F4 !important;
+}
+
+.error-message {
+  color: #C87171;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+/* Loading State Animation */
+.btn-primary.loading::after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border: 2px solid white;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  margin-left: 0.5rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
   * {
