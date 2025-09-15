@@ -13,21 +13,18 @@ export function Header({ isMobileMenuOpen, setIsMobileMenuOpen, onGetStartedClic
           </div>
 
           <nav className="hidden md:flex space-x-8 items-center">
-            <a href="/" className="text-gray-700 hover:text-gray-900 font-medium transition-colors duration-200">
-              Home
-            </a>
-            <a href="#services" className="text-gray-700 hover:text-gray-900 font-medium transition-colors duration-200">
-              Services
-            </a>
-            <a href="#locations" className="text-gray-700 hover:text-gray-900 font-medium transition-colors duration-200">
-              Locations
-            </a>
-            <a href="#pricing" className="text-gray-700 hover:text-gray-900 font-medium transition-colors duration-200">
+            <a href="/pricing" className="text-gray-700 hover:text-gray-900 font-medium">
               Pricing
+            </a>
+            <a href="/faq" className="text-gray-700 hover:text-gray-900 font-medium">
+              FAQ
+            </a>
+            <a href="/incorporation-guide" className="text-gray-700 hover:text-gray-900 font-medium">
+              Incorporation Guide
             </a>
             <button
               onClick={() => onGetStartedClick('header-get-started')}
-              className="bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600 transition-all duration-200 font-medium"
+              className="bg-orange-500 text-white px-6 py-2 rounded hover:bg-orange-600 font-medium"
             >
               Get Business Address Now
             </button>
