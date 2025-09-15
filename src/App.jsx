@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Header } from './components/Header';
 import { MainContent } from './components/MainContent';
 import { Footer } from './components/Footer';
-import { TrustIndicatorsFooter } from './components/TrustIndicatorsFooter';
 import { MobileLocationPanel } from './components/MobileLocationPanel';
 import { MobileNavigation } from './components/MobileNavigation';
 // Removed old ChatWidget - now using AI-powered widget in HTML
@@ -36,7 +35,6 @@ function App() {
                 onGetStartedClick={handleGetStartedClick}
               />
               <MainContent onGetStartedClick={handleGetStartedClick} />
-              <TrustIndicatorsFooter />
             </>
           } />
           {/* Moved to docs folder: /old-main, /anytime-style, /dark-style routes */}
