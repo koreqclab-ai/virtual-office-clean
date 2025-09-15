@@ -65,43 +65,43 @@ export function MainContent({ onGetStartedClick }) {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section - Singapore Marina Bay Sands Background */}
-      <section className="relative h-[75vh] flex items-center">
-        {/* Background with adjusted positioning to show MBS rooftop */}
+      {/* Hero Section - Marina Bay Sands Background - Exactly like Image 2 */}
+      <section className="relative min-h-screen flex items-center">
+        {/* Marina Bay Sands Background - Exactly like Image 2 */}
         <div
-          className="absolute inset-0 bg-cover bg-center"
+          className="absolute inset-0 bg-cover bg-center bg-gray-900"
           style={{
-            backgroundImage: 'url("/images/hero/marina-bay-sands-aerial.avif")'
+            backgroundImage: 'url("/images/hero/marina_bay_sands_aerial.jpg")'
           }}
         >
-          <div className="absolute inset-0 bg-black/35"></div>
+          {/* Dark overlay for text readability - matching Image 2 */}
+          <div className="absolute inset-0 bg-black/40"></div>
         </div>
 
-        {/* Content Container - Left Positioned */}
+        {/* Hero Content - Positioned like Image 2 */}
         <div className="relative z-10 w-full">
           <div className="ml-[15%] max-w-4xl text-left">
 
-            {/* Hero Text - Spacing & proportions to match Image 1 */}
+            {/* Hero Text - Exactly matching Image 2 */}
             <h1>
+              {/* Golden first line exactly like Image 2 */}
               <span
-                className="block text-4xl md:text-5xl font-bold leading-tight mb-4"
+                className="block text-5xl font-bold leading-tight mb-3"
                 style={{color: '#D4B896'}}
               >
                 Establish Your Business
               </span>
-              <span className="block text-4xl md:text-5xl font-bold leading-tight mb-4 text-white">
+              {/* White text lines like Image 2 */}
+              <span className="block text-5xl font-bold leading-tight mb-3 text-white">
                 Presence with a Premium
               </span>
-              <span className="block text-4xl md:text-5xl font-bold leading-tight mb-10 text-white">
+              <span className="block text-5xl font-bold leading-tight mb-8 text-white">
                 Singapore CBD Address
               </span>
             </h1>
 
-            {/* Body Text */}
-            <p
-              className="text-lg leading-relaxed max-w-2xl"
-              style={{color: 'rgba(255,255,255,0.9)'}}
-            >
+            {/* Body text with proper contrast */}
+            <p className="text-lg leading-relaxed max-w-2xl text-white/90">
               Use a real International Plaza address to register your company with ACRA, open business bank accounts, receive mail securely, and protect your privacy.
             </p>
 
