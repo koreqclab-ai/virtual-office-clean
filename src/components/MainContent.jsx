@@ -311,8 +311,7 @@ export function MainContent({ onGetStartedClick }) {
            style={{
              backgroundColor: 'var(--warm-white)',
              borderColor: '#EEEBE6',
-             boxShadow: '0 2px 8px rgba(184, 168, 152, 0.08)',
-             borderLeft: '3px solid var(--primary-beige)'
+             boxShadow: '0 2px 8px rgba(184, 168, 152, 0.08)'
            }}>
         <div className="features-list">
           {leftColumnFeatures.map((feature, index) => (
@@ -334,7 +333,10 @@ export function MainContent({ onGetStartedClick }) {
               <div className="feature-icon flex-shrink-0 w-6 h-6 mt-0.5"
                    style={{ color: 'var(--primary-beige)' }}>
                 <img src={feature.icon} alt="Feature icon" className="w-full h-full"
-                     style={{ filter: 'hue-rotate(20deg) saturate(0.7) brightness(0.8)' }} />
+                     style={{
+                       filter: 'sepia(1) saturate(0.8) hue-rotate(25deg) brightness(0.9)',
+                       color: '#B8A898'
+                     }} />
               </div>
 
               {/* Feature Content */}
@@ -345,7 +347,10 @@ export function MainContent({ onGetStartedClick }) {
                     <>
                       {' '}
                       {feature.linkIcon && <img src={feature.linkIcon} alt="Link icon" className="inline w-4 h-4 mx-1"
-                                                 style={{ filter: 'hue-rotate(20deg) saturate(0.7) brightness(0.8)' }} />}
+                                                 style={{
+                       filter: 'sepia(1) saturate(0.8) hue-rotate(25deg) brightness(0.9)',
+                       color: '#B8A898'
+                     }} />}
                       <a href={feature.linkHref} className="feature-link underline transition-colors duration-200"
                          style={{
                            color: 'var(--primary-beige)',
@@ -393,8 +398,7 @@ export function MainContent({ onGetStartedClick }) {
            style={{
              backgroundColor: 'var(--warm-white)',
              borderColor: '#EEEBE6',
-             boxShadow: '0 2px 8px rgba(184, 168, 152, 0.08)',
-             borderRight: '3px solid var(--primary-beige)'
+             boxShadow: '0 2px 8px rgba(184, 168, 152, 0.08)'
            }}>
         <div className="features-list">
           {rightColumnFeatures.map((feature, index) => (
@@ -416,7 +420,10 @@ export function MainContent({ onGetStartedClick }) {
               <div className="feature-icon flex-shrink-0 w-6 h-6 mt-0.5"
                    style={{ color: 'var(--primary-beige)' }}>
                 <img src={feature.icon} alt="Feature icon" className="w-full h-full"
-                     style={{ filter: 'hue-rotate(20deg) saturate(0.7) brightness(0.8)' }} />
+                     style={{
+                       filter: 'sepia(1) saturate(0.8) hue-rotate(25deg) brightness(0.9)',
+                       color: '#B8A898'
+                     }} />
               </div>
 
               {/* Feature Content */}
@@ -427,7 +434,10 @@ export function MainContent({ onGetStartedClick }) {
                     <>
                       {' '}
                       {feature.linkIcon && <img src={feature.linkIcon} alt="Link icon" className="inline w-4 h-4 mx-1"
-                                                 style={{ filter: 'hue-rotate(20deg) saturate(0.7) brightness(0.8)' }} />}
+                                                 style={{
+                       filter: 'sepia(1) saturate(0.8) hue-rotate(25deg) brightness(0.9)',
+                       color: '#B8A898'
+                     }} />}
                       <a href={feature.linkHref} className="feature-link underline transition-colors duration-200"
                          style={{
                            color: 'var(--primary-beige)',
