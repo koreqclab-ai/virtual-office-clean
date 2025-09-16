@@ -61,30 +61,42 @@ export function MainContent() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section - Marina Bay Sands Background - Full screen height */}
-      <section className="relative min-h-screen flex items-start" style={{paddingTop: '264px'}}>
-        {/* Marina Bay Sands Background - Optimized Picture Element */}
-        <picture className="absolute inset-0">
-          <source
-            media="(max-width: 640px)"
-            srcSet="/images/hero/marina_bay_sands_aerial_mobile.jpg"
-            type="image/jpeg"
-          />
-          <source
-            media="(max-width: 1024px)"
-            srcSet="/images/hero/marina_bay_sands_aerial_tablet.jpg"
-            type="image/jpeg"
-          />
-          <img
-            src="/images/hero/marina_bay_sands_aerial.jpg"
-            alt="Singapore Marina Bay Sands skyline aerial view"
-            className="absolute inset-0 h-full w-full object-cover"
-            style={{ objectPosition: "center 20%" }}
-            loading="eager"
-            decoding="async"
-            fetchpriority="high"
-          />
-        </picture>
+      {/* Hero Section - Marina Bay Sands Background - Full screen height with aspect ratio */}
+      <section
+        className="hero-section relative min-h-screen flex items-start"
+        style={{
+          paddingTop: '264px',
+          backgroundColor: '#4A5568', // Fallback color matching hero image
+          backgroundImage: 'linear-gradient(135deg, #2D3748 0%, #4A5568 50%, #718096 100%)'
+        }}
+      >
+        {/* Marina Bay Sands Background - Optimized Picture Element with explicit dimensions */}
+        <div className="hero-image-container absolute inset-0" style={{ aspectRatio: '16/9' }}>
+          <picture>
+            <source
+              media="(max-width: 640px)"
+              srcSet="/images/hero/marina_bay_sands_aerial_mobile.jpg"
+              type="image/jpeg"
+            />
+            <source
+              media="(max-width: 1024px)"
+              srcSet="/images/hero/marina_bay_sands_aerial_tablet.jpg"
+              type="image/jpeg"
+            />
+            <img
+              src="/images/hero/marina_bay_sands_aerial.jpg"
+              alt="Singapore Marina Bay Sands skyline aerial view"
+              className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300"
+              style={{ objectPosition: "center 20%" }}
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+              width="1920"
+              height="1080"
+              onLoad={(e) => e.target.style.opacity = '1'}
+            />
+          </picture>
+        </div>
         {/* Dark overlay for text readability - matching Image 2 */}
         <div className="absolute inset-0 bg-black/35"></div>
 
@@ -135,7 +147,7 @@ export function MainContent() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
               <div className="w-26 h-26 mx-auto rounded-full flex items-center justify-center mb-6" style={{backgroundColor: '#F5E6D3'}}>
-                <img src="/images/icons/cbd_presence.png" alt="Premium Location" className="w-13 h-13" loading="lazy" />
+                <img src="/images/icons/cbd_presence.png" alt="Premium Location" className="w-13 h-13" loading="lazy" width="52" height="52" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Premium Location</h3>
               <p className="text-gray-600 leading-relaxed">
@@ -178,7 +190,7 @@ export function MainContent() {
             <div className="bg-gray-50 p-8 rounded-2xl">
               <div className="flex items-center mb-6">
                 <div className="w-16 h-16 rounded-full flex items-center justify-center mr-4 overflow-hidden" style={{ backgroundColor: 'var(--light-beige)' }}>
-                  <img src="/images/vincent.png" alt="Vincent Tan" className="w-full h-full object-cover" />
+                  <img src="/images/vincent.png" alt="Vincent Tan" className="w-full h-full object-cover" loading="lazy" width="64" height="64" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-gray-900">Vincent Tan</h3>

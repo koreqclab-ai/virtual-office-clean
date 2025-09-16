@@ -18,9 +18,66 @@
 
     <!-- Critical CSS inlined for above-the-fold content -->
     <style>
-      /* Critical CSS for initial paint */
-      body { margin: 0; font-family: system-ui, -apple-system, sans-serif; }
-      .hero-loading { min-height: 60vh; background: linear-gradient(135deg, #8B7355 0%, #B59A7A 100%); }
+      /* Critical CSS for initial paint and CLS prevention */
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+        line-height: 1.5;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      /* Header critical styles */
+      header {
+        height: 80px;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: white;
+        border-bottom: 1px solid #f3f4f6;
+      }
+
+      /* Hero section critical styles */
+      .hero-section {
+        min-height: 100vh;
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        padding-top: 264px;
+      }
+
+      /* Hero image container - prevent CLS */
+      .hero-image-container {
+        position: absolute;
+        inset: 0;
+        aspect-ratio: 16/9;
+        background: #1f2937; /* Fallback dark bg */
+      }
+
+      /* Hero text critical styles */
+      .hero-title {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 700;
+        line-height: 1.2;
+        margin: 0 0 2rem 0;
+        text-align: center;
+      }
+
+      /* Prevent font loading shift */
+      @font-face {
+        font-family: 'system-fallback';
+        src: local('system-ui'), local('-apple-system'), local('BlinkMacSystemFont');
+        font-display: swap;
+      }
+
+      /* Loading state */
+      .hero-loading {
+        min-height: 60vh;
+        background: linear-gradient(135deg, #8B7355 0%, #B59A7A 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     </style>
 
     <!-- Optimized Google Analytics - Non-blocking -->
