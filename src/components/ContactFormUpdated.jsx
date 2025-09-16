@@ -10,7 +10,6 @@ export function ContactForm({ isOpen, onClose, selectedPlan }) {
     email: '',
     companyName: '',
     phoneNumber: '',
-    serviceOfInterest: selectedPlan.label,
     additionalMessage: '',
     optionalServices: {
       companyReg: false,
@@ -23,20 +22,6 @@ export function ContactForm({ isOpen, onClose, selectedPlan }) {
   const [status, setStatus] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const gotchaRef = useRef(null);
-
-  // Fire GA event when modal opens
-  useEffect(() => {
-    if (isOpen && selectedPlan && typeof gtag !== 'undefined') {
-      gtag('event', 'open_contact_modal', {
-        event_category: 'Lead',
-        event_label: selectedPlan.label,
-        plan_id: selectedPlan.id,
-        price: selectedPlan.price,
-        segment: selectedPlan.segment,
-        value: selectedPlan.price
-      });
-    }
-  }, [isOpen, selectedPlan]);
 
   // Body scroll lock
   useEffect(() => {
@@ -73,7 +58,6 @@ export function ContactForm({ isOpen, onClose, selectedPlan }) {
         email: '',
         companyName: '',
         phoneNumber: '',
-        serviceOfInterest: selectedPlan.label,
         additionalMessage: '',
         optionalServices: {
           companyReg: false,
@@ -84,7 +68,7 @@ export function ContactForm({ isOpen, onClose, selectedPlan }) {
       });
       setStatus(null);
     }
-  }, [isOpen, selectedPlan]);
+  }, [isOpen]);
 
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -134,19 +118,12 @@ export function ContactForm({ isOpen, onClose, selectedPlan }) {
       .filter(Boolean);
 
     try {
-      // Environment-based endpoint selection
-      const endpoint = (import.meta.env.VERCEL_ENV === 'production'
-        ? import.meta.env.VITE_FORMSPREE_ENDPOINT_PROD
-        : import.meta.env.VITE_FORMSPREE_ENDPOINT_STAGING)
-        || import.meta.env.VITE_FORMSPREE_ENDPOINT_PROD
-        || 'https://formspree.io/f/xwpnlagk'; // final fallback
-
       const payload = {
         name: formData.fullName,
         email: formData.email,
         company: formData.companyName || 'Not provided',
         phone: formData.phoneNumber || 'Not provided',
-        selected_service: formData.serviceOfInterest,
+        selected_service: selectedPlan.label,
         message: formData.additionalMessage || 'No additional message',
         extra_services: selectedServices.join(', ') || 'None selected',
         _subject: 'New Enquiry – Anson & Co Virtual Address',
@@ -154,7 +131,7 @@ export function ContactForm({ isOpen, onClose, selectedPlan }) {
         _from: 'Anson & Co Enquiry Bot'
       };
 
-      const response = await fetch(endpoint, {
+      const response = await fetch('https://formspree.io/f/xwpnlagk', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -166,7 +143,7 @@ export function ContactForm({ isOpen, onClose, selectedPlan }) {
       if (response.ok) {
         setStatus({
           success: true,
-          serviceOfInterest: formData.serviceOfInterest,
+          selectedService: selectedPlan.label,
           optionalServices: selectedServices
         });
 
@@ -229,11 +206,9 @@ export function ContactForm({ isOpen, onClose, selectedPlan }) {
 
             <div className="text-slate-600 mb-6 space-y-2">
               <p className="text-lg">✅ Thank you! We've received your request.</p>
-              <p><strong>Selected service:</strong> {status.serviceOfInterest}</p>
-              {status.optionalServices.length > 0 ? (
-                <p><strong>Optional services noted:</strong> {status.optionalServices.join(', ')}</p>
-              ) : (
-                <p><strong>Optional services noted:</strong> None</p>
+              <p><strong>Selected service:</strong> {status.selectedService}</p>
+              {status.optionalServices.length > 0 && (
+                <p><strong>Optional services noted:</strong> {status.optionalServices.join(' / ')}</p>
               )}
             </div>
 
@@ -350,13 +325,8 @@ export function ContactForm({ isOpen, onClose, selectedPlan }) {
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-2">Selected Service</label>
               <div className="p-3 bg-slate-50 border border-slate-300 rounded-lg text-slate-800">
-                {formData.serviceOfInterest}
+                {selectedPlan.label}
               </div>
-              <input
-                type="hidden"
-                name="serviceOfInterest"
-                value={formData.serviceOfInterest}
-              />
             </div>
 
             <div>

@@ -8,9 +8,9 @@ export function Navigation() {
     <nav className="hidden md:flex space-x-6 items-center">
       <Link to="/" aria-label="Anson & Co logo">
         <div className="flex flex-col">
-          <h1 className="font-serif text-2xl md:text-3xl font-bold text-custom-gold leading-tight">
+          <div className="font-serif text-2xl md:text-3xl font-bold text-custom-gold leading-tight">
             ANSON & CO
-          </h1>
+          </div>
           <span className="text-sm md:text-base font-light tracking-wide text-custom-gold">
             The Right Address Matters
           </span>
