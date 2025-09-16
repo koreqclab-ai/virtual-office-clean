@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
+import { lockScroll, unlockScroll } from '../utils/scrollLock';
 
 export function ContactForm({ isOpen, onClose, selectedPlan }) {
   // Only render if we have a valid plan
@@ -23,6 +24,7 @@ export function ContactForm({ isOpen, onClose, selectedPlan }) {
   const [status, setStatus] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const gotchaRef = useRef(null);
+  const fullNameRef = useRef(null);
 
   // Fire GA event when modal opens
   useEffect(() => {
@@ -41,10 +43,11 @@ export function ContactForm({ isOpen, onClose, selectedPlan }) {
   // Body scroll lock
   useEffect(() => {
     if (isOpen) {
-      const prev = document.body.style.overflow;
-      document.body.style.overflow = 'hidden';
-      return () => { document.body.style.overflow = prev; };
+      lockScroll();
     }
+    return () => {
+      unlockScroll();
+    };
   }, [isOpen]);
 
   // Keyboard handling
@@ -58,11 +61,17 @@ export function ContactForm({ isOpen, onClose, selectedPlan }) {
   // Focus management
   useEffect(() => {
     if (isOpen) {
+      lockScroll();
       setTimeout(() => {
-        const fullNameInput = document.getElementById('fullName');
-        if (fullNameInput) fullNameInput.focus();
+        fullNameRef.current?.focus();
       }, 100);
+    } else {
+      unlockScroll();
     }
+
+    return () => {
+      unlockScroll();
+    };
   }, [isOpen]);
 
   // Reset form and status when modal opens
@@ -252,26 +261,31 @@ export function ContactForm({ isOpen, onClose, selectedPlan }) {
 
   // Main form state
   return createPortal(
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4" role="dialog" aria-modal="true" aria-labelledby="contact-title">
-      <div className="fixed inset-0 bg-black/50" onClick={handleClose} />
-      <div className="relative w-full max-w-3xl rounded-2xl bg-white shadow-xl outline-none max-h-[90vh] sm:max-h-[85vh] flex flex-col overflow-hidden" onClick={(e) => e.stopPropagation()}>
-
-        {/* Sticky header */}
-        <div className="sticky top-0 z-10 bg-white/95 backdrop-blur border-b px-6 py-4">
+    <div className="fixed inset-0 z-[70]">
+      <div className="absolute inset-0 bg-black/40" onClick={handleClose} aria-hidden="true" />
+      <div className="absolute inset-0 flex items-start sm:items-center justify-center p-4 sm:p-6">
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="w-full max-w-3xl rounded-2xl bg-white shadow-xl outline-none max-h-[85vh] overflow-y-auto"
+          onClick={(e) => e.stopPropagation()}
+        >
+        {/* Header */}
+        <div className="px-6 pt-6 pb-3 border-b">
           <div className="flex items-start justify-between">
             <div>
-              <h2 id="contact-title" className="text-2xl font-serif font-semibold text-[#8B7355]">Get Your Business Address</h2>
-              <p className="mt-1 text-sm text-slate-600">Complete the form below to get started with your International Plaza CBD address.</p>
+              <h2 id="contact-title" className="text-2xl font-semibold text-[#8B7355]">Get Your Business Address</h2>
+              <p className="text-sm text-gray-500 mt-1">Complete the form below to get started with your International Plaza CBD address.</p>
             </div>
-            <button aria-label="Close contact form" onClick={handleClose} className="ml-4 rounded-full p-2 hover:bg-slate-100 text-2xl leading-none text-slate-400 hover:text-slate-600">
-              ×
-            </button>
+            <button aria-label="Close" onClick={handleClose} className="ml-4 p-2 rounded hover:bg-black/5 text-xl leading-none text-slate-400 hover:text-slate-600">✕</button>
           </div>
         </div>
 
-        {/* Scrollable content */}
-        <div className="flex-1 overflow-y-auto px-6 py-5 supports-[overflow:overlay]:overflow-overlay [-webkit-overflow-scrolling:touch]">
-          <form id="contact-form" onSubmit={handleSubmit} className="grid gap-5">
+        {/* Form wrapper */}
+        <form onSubmit={handleSubmit} className="contents">
+          {/* Scrollable Content */}
+          <div className="flex-1 overflow-y-auto px-6 py-4">
+            <div className="grid gap-5">
             {/* Hidden fields for Formspree configuration */}
             <input
               type="text"
@@ -287,19 +301,20 @@ export function ContactForm({ isOpen, onClose, selectedPlan }) {
               value={formData.email}
             />
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="fullName" className="block text-sm font-medium text-slate-700 mb-2">Full Name *</label>
                 <input
                   type="text"
                   id="fullName"
                   name="fullName"
+                  ref={fullNameRef}
                   value={formData.fullName}
                   onChange={handleInputChange}
                   placeholder="Your full name"
                   required
                   disabled={isSubmitting}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#B59A7A] focus:border-[#B59A7A] outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#B59A7A] focus:border-[#B59A7A] outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 />
               </div>
               <div>
@@ -313,12 +328,12 @@ export function ContactForm({ isOpen, onClose, selectedPlan }) {
                   placeholder="your@email.com"
                   required
                   disabled={isSubmitting}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#B59A7A] focus:border-[#B59A7A] outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#B59A7A] focus:border-[#B59A7A] outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 />
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="companyName" className="block text-sm font-medium text-slate-700 mb-2">Company Name</label>
                 <input
@@ -329,7 +344,7 @@ export function ContactForm({ isOpen, onClose, selectedPlan }) {
                   onChange={handleInputChange}
                   placeholder="Your company name (optional)"
                   disabled={isSubmitting}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#B59A7A] focus:border-[#B59A7A] outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#B59A7A] focus:border-[#B59A7A] outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 />
               </div>
               <div>
@@ -342,7 +357,7 @@ export function ContactForm({ isOpen, onClose, selectedPlan }) {
                   onChange={handleInputChange}
                   placeholder="+65 0000 0000"
                   disabled={isSubmitting}
-                  className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#B59A7A] focus:border-[#B59A7A] outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#B59A7A] focus:border-[#B59A7A] outline-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 />
               </div>
             </div>
@@ -367,15 +382,15 @@ export function ContactForm({ isOpen, onClose, selectedPlan }) {
                 value={formData.additionalMessage}
                 onChange={handleInputChange}
                 placeholder="Any specific requirements or questions?"
-                rows="4"
+                rows="3"
                 disabled={isSubmitting}
-                className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#B59A7A] focus:border-[#B59A7A] outline-none transition-colors resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#B59A7A] focus:border-[#B59A7A] outline-none transition-colors resize-none disabled:opacity-50 disabled:cursor-not-allowed max-h-[120px]"
               />
             </div>
 
-            <div>
-              <p className="block text-sm font-medium text-slate-700 mb-3">I also need the following services:</p>
-              <div className="space-y-3">
+            <fieldset className="mt-6">
+              <legend className="block text-sm font-medium text-slate-700 mb-3">I also need the following services:</legend>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <label className="flex items-start">
                   <input
                     type="checkbox"
@@ -421,41 +436,41 @@ export function ContactForm({ isOpen, onClose, selectedPlan }) {
                   <span className="text-sm text-slate-700">Cheque Deposit Services</span>
                 </label>
               </div>
-            </div>
-          </form>
+            </fieldset>
 
-          {/* Error Message */}
-          {status?.success === false && (
-            <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg">
-              <p className="text-sm text-red-600">
-                {status.message}
-              </p>
-            </div>
-          )}
-        </div>
-
-        {/* Sticky footer with Submit */}
-        <div className="sticky bottom-0 z-10 bg-white/95 backdrop-blur border-t px-6 py-4">
-          <button
-            type="submit"
-            form="contact-form"
-            disabled={isSubmitting}
-            className="w-full rounded-full px-5 py-3 font-medium text-white bg-[#B59A7A] hover:bg-[#A88C6A] transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
-          >
-            {isSubmitting ? (
-              <>
-                <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                Submitting...
-              </>
-            ) : (
-              'Submit Request'
+            {/* Error Message */}
+            {status?.success === false && (
+              <div className="mt-4 p-3 bg-red-50 border border-red-200 rounded-lg">
+                <p className="text-sm text-red-600">
+                  {status.message}
+                </p>
+              </div>
             )}
-          </button>
-        </div>
+            </div>
+          </div>
 
+          {/* Sticky Footer */}
+          <div className="px-6 py-4 border-t bg-white sticky bottom-0">
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full rounded-xl py-3 font-semibold hover:opacity-95 transition bg-[#B59A7A] text-white disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+            >
+              {isSubmitting ? (
+                <>
+                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Submitting...
+                </>
+              ) : (
+                'Submit Request'
+              )}
+            </button>
+          </div>
+        </form>
+        </div>
       </div>
     </div>,
     document.getElementById('portal-root')
