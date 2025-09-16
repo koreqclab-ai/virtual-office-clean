@@ -629,3 +629,20 @@ body {
     max-width: 300px;
   }
 }
+
+/* === Trust Badge sizing floor (mobile-safe) === */
+@layer components {
+  /* Container that wraps the icon/image */
+  .trust-badge {
+    @apply aspect-square flex items-center justify-center rounded-full select-none;
+    min-width: 80px;   /* floor for phones */
+    min-height: 80px;
+  }
+
+  /* The icon (img/svg) inside the container */
+  .trust-badge-icon {
+    @apply h-auto;
+    min-width: 64px;
+    min-height: 64px;
+  }
+}

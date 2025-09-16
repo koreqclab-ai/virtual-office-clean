@@ -24,7 +24,7 @@ export function MainContent() {
         "postalCode": "079903",
         "addressCountry": "SG"
       },
-      "telephone": "+65-6123-4567",
+      "telephone": "+65-8183-7101",
       "url": "https://virtualaddress.biz",
       "priceRange": "$$$",
       "openingHours": "Mo-Fr 09:00-18:00"
@@ -146,8 +146,17 @@ export function MainContent() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
-              <div className="w-26 h-26 mx-auto rounded-full flex items-center justify-center mb-6" style={{backgroundColor: '#F5E6D3'}}>
-                <img src="/images/icons/cbd_presence.png" alt="Premium Location" className="w-13 h-13" loading="lazy" width="52" height="52" />
+              <div className="mx-auto rounded-full bg-[#F5E6D3] flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-6">
+                <img
+                  src="/images/icons/cbd_presence.png"
+                  alt="Premium Location badge"
+                  width="256"
+                  height="256"
+                  decoding="async"
+                  loading="lazy"
+                  fetchpriority="low"
+                  className="w-14 sm:w-16 md:w-20 h-auto select-none"
+                />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Premium Location</h3>
               <p className="text-gray-600 leading-relaxed">
@@ -156,8 +165,17 @@ export function MainContent() {
             </div>
 
             <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
-              <div className="w-26 h-26 mx-auto rounded-full flex items-center justify-center mb-6" style={{backgroundColor: '#F5E6D3'}}>
-                <img src="/images/icons/acra_registration.png" alt="ACRA Registration" className="w-13 h-13" loading="lazy" />
+              <div className="mx-auto rounded-full bg-[#F5E6D3] flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-6">
+                <img
+                  src="/images/icons/acra_registration.png"
+                  alt="ACRA Registration badge"
+                  width="256"
+                  height="256"
+                  decoding="async"
+                  loading="lazy"
+                  fetchpriority="low"
+                  className="w-14 sm:w-16 md:w-20 h-auto select-none"
+                />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">ACRA Registration</h3>
               <p className="text-gray-600 leading-relaxed">
@@ -166,8 +184,17 @@ export function MainContent() {
             </div>
 
             <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
-              <div className="w-26 h-26 mx-auto rounded-full flex items-center justify-center mb-6" style={{backgroundColor: '#F5E6D3'}}>
-                <img src="/images/icons/privacy_protection.png" alt="Privacy Protection" className="w-13 h-13" loading="lazy" />
+              <div className="mx-auto rounded-full bg-[#F5E6D3] flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-6">
+                <img
+                  src="/images/icons/privacy_protection.png"
+                  alt="Privacy Protection badge"
+                  width="256"
+                  height="256"
+                  decoding="async"
+                  loading="lazy"
+                  fetchpriority="low"
+                  className="w-14 sm:w-16 md:w-20 h-auto select-none"
+                />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Privacy Protection</h3>
               <p className="text-gray-600 leading-relaxed">
@@ -269,32 +296,64 @@ export function MainContent() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div className="w-26 h-26 mx-auto rounded-full flex items-center justify-center mb-4" style={{backgroundColor: '#F5E6D3'}}>
-                <img src="/images/icons/acra_registration.png" alt="ACRA Registration" className="w-13 h-13" />
+              <div className="trust-badge w-28 sm:w-32 md:w-36 mx-auto mb-4" style={{backgroundColor: '#F5E6D3'}}>
+                <img
+                  src="/images/icons/acra_registration.png"
+                  alt="ACRA Registration"
+                  loading="lazy"
+                  decoding="async"
+                  width="256"
+                  height="256"
+                  className="trust-badge-icon w-16 sm:w-20 md:w-24"
+                />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">ACRA Registration</h3>
               <p className="text-gray-600 text-sm">Need real Singapore address for company registration</p>
             </div>
             
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div className="w-26 h-26 mx-auto rounded-full flex items-center justify-center mb-4" style={{backgroundColor: '#F5E6D3'}}>
-                <img src="/images/icons/home_based_business.png" alt="Home-Based Business" className="w-13 h-13" />
+              <div className="trust-badge w-28 sm:w-32 md:w-36 mx-auto mb-4" style={{backgroundColor: '#F5E6D3'}}>
+                <img
+                  src="/images/icons/home_based_business.png"
+                  alt="Home-Based Business"
+                  loading="lazy"
+                  decoding="async"
+                  width="256"
+                  height="256"
+                  className="trust-badge-icon w-16 sm:w-20 md:w-24"
+                />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Home-Based Business</h3>
               <p className="text-gray-600 text-sm">Run e-commerce or online business professionally</p>
             </div>
             
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div className="w-26 h-26 mx-auto rounded-full flex items-center justify-center mb-4" style={{backgroundColor: '#F5E6D3'}}>
-                <img src="/images/icons/privacy_protection.png" alt="Privacy Protection" className="w-13 h-13" />
+              <div className="trust-badge w-28 sm:w-32 md:w-36 mx-auto mb-4" style={{backgroundColor: '#F5E6D3'}}>
+                <img
+                  src="/images/icons/privacy_protection.png"
+                  alt="Privacy Protection"
+                  loading="lazy"
+                  decoding="async"
+                  width="256"
+                  height="256"
+                  className="trust-badge-icon w-16 sm:w-20 md:w-24"
+                />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Privacy Protection</h3>
               <p className="text-gray-600 text-sm">Keep personal address off public records</p>
             </div>
             
             <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div className="w-26 h-26 mx-auto rounded-full flex items-center justify-center mb-4" style={{backgroundColor: '#F5E6D3'}}>
-                <img src="/images/icons/cbd_presence.png" alt="CBD Presence" className="w-13 h-13" />
+              <div className="trust-badge w-28 sm:w-32 md:w-36 mx-auto mb-4" style={{backgroundColor: '#F5E6D3'}}>
+                <img
+                  src="/images/icons/cbd_presence.png"
+                  alt="CBD Presence"
+                  loading="lazy"
+                  decoding="async"
+                  width="256"
+                  height="256"
+                  className="trust-badge-icon w-16 sm:w-20 md:w-24"
+                />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">CBD Presence</h3>
               <p className="text-gray-600 text-sm">Appear established in Singapore's business district</p>
@@ -340,7 +399,7 @@ export function MainContent() {
               {/* Feature Icon */}
               <div className="feature-icon flex-shrink-0 w-6 h-6 mt-0.5"
                    style={{ color: 'var(--primary-beige)' }}>
-                <img src={feature.icon} alt="Feature icon" className="w-full h-full"
+                <img src={feature.icon} alt={feature.title} className="w-full h-full"
                      style={{
                        filter: 'sepia(1) saturate(0.8) hue-rotate(25deg) brightness(0.9)',
                        color: '#B8A898'
@@ -354,7 +413,7 @@ export function MainContent() {
                   {feature.linkText && feature.linkHref && (
                     <>
                       {' '}
-                      {feature.linkIcon && <img src={feature.linkIcon} alt="Link icon" className="inline w-4 h-4 mx-1"
+                      {feature.linkIcon && <img src={feature.linkIcon} alt="External link" className="inline w-4 h-4 mx-1"
                                                  style={{
                        filter: 'sepia(1) saturate(0.8) hue-rotate(25deg) brightness(0.9)',
                        color: '#B8A898'
@@ -412,7 +471,7 @@ export function MainContent() {
               {/* Feature Icon */}
               <div className="feature-icon flex-shrink-0 w-6 h-6 mt-0.5"
                    style={{ color: 'var(--primary-beige)' }}>
-                <img src={feature.icon} alt="Feature icon" className="w-full h-full"
+                <img src={feature.icon} alt={feature.title} className="w-full h-full"
                      style={{
                        filter: 'sepia(1) saturate(0.8) hue-rotate(25deg) brightness(0.9)',
                        color: '#B8A898'
@@ -426,7 +485,7 @@ export function MainContent() {
                   {feature.linkText && feature.linkHref && (
                     <>
                       {' '}
-                      {feature.linkIcon && <img src={feature.linkIcon} alt="Link icon" className="inline w-4 h-4 mx-1"
+                      {feature.linkIcon && <img src={feature.linkIcon} alt="External link" className="inline w-4 h-4 mx-1"
                                                  style={{
                        filter: 'sepia(1) saturate(0.8) hue-rotate(25deg) brightness(0.9)',
                        color: '#B8A898'
@@ -611,10 +670,11 @@ export function MainContent() {
                             </ul>
                           )}
                           {feature.image && (
-                            <img 
-                              src={feature.image.src} 
+                            <img
+                              src={feature.image.src}
                               alt={feature.image.alt}
                               className="w-full max-w-[200px] mx-auto my-3 rounded-lg"
+                              loading="lazy"
                             />
                           )}
                           {feature.link && (
@@ -637,7 +697,7 @@ export function MainContent() {
                               >
                                 {feature.link.text}
                                 {feature.link.image && (
-                                  <img src={feature.link.image} alt="PDF" className="w-4 h-4 ml-1" />
+                                  <img src={feature.link.image} alt="Download PDF" className="w-4 h-4 ml-1" />
                                 )}
                               </a>
                             </div>
@@ -765,10 +825,11 @@ export function MainContent() {
                             </ul>
                           )}
                           {feature.image && (
-                            <img 
-                              src={feature.image.src} 
+                            <img
+                              src={feature.image.src}
                               alt={feature.image.alt}
                               className="w-full max-w-[200px] mx-auto my-3 rounded-lg"
+                              loading="lazy"
                             />
                           )}
                           {feature.link && (
@@ -791,7 +852,7 @@ export function MainContent() {
                               >
                                 {feature.link.text}
                                 {feature.link.image && (
-                                  <img src={feature.link.image} alt="PDF" className="w-4 h-4 ml-1" />
+                                  <img src={feature.link.image} alt="Download PDF" className="w-4 h-4 ml-1" />
                                 )}
                               </a>
                             </div>
