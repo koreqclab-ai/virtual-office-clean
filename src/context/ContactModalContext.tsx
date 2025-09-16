@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode, useCallback } from 'react';
 import { ContactForm } from '../components/ContactForm';
+import { lockScroll, unlockScroll } from '../utils/scrollLock';
 
 type PlanData = {
   id: string;
@@ -35,14 +36,14 @@ export function ContactModalProvider({ children }: { children: ReactNode }) {
   // Lock body scroll when modal is open to prevent background scrolling
   React.useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
+      lockScroll();
     } else {
-      document.body.style.overflow = '';
+      unlockScroll();
     }
 
     // Cleanup on unmount
     return () => {
-      document.body.style.overflow = '';
+      unlockScroll();
     };
   }, [isOpen]);
 

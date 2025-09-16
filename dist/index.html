@@ -4,10 +4,116 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
+    <!-- Resource Hints for Performance -->
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//static.hotjar.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://c.animaapp.com" crossorigin>
+
+    <!-- Preload critical above-the-fold hero image -->
+    <link rel="preload" as="image" href="/images/hero/marina_bay_sands_aerial.jpg" media="(min-width: 1025px)">
+    <link rel="preload" as="image" href="/images/hero/marina_bay_sands_aerial_tablet.jpg" media="(max-width: 1024px) and (min-width: 641px)">
+    <link rel="preload" as="image" href="/images/hero/marina_bay_sands_aerial_mobile.jpg" media="(max-width: 640px)">
+
+    <!-- Critical CSS inlined for above-the-fold content -->
+    <style>
+      /* Critical CSS for initial paint and CLS prevention */
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+        line-height: 1.5;
+        -webkit-text-size-adjust: 100%;
+      }
+
+      /* Header critical styles */
+      header {
+        height: 80px;
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: white;
+        border-bottom: 1px solid #f3f4f6;
+      }
+
+      /* Hero section critical styles */
+      .hero-section {
+        min-height: 100vh;
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        padding-top: 264px;
+      }
+
+      /* Hero image container - prevent CLS */
+      .hero-image-container {
+        position: absolute;
+        inset: 0;
+        aspect-ratio: 16/9;
+        background: #1f2937; /* Fallback dark bg */
+      }
+
+      /* Hero text critical styles */
+      .hero-title {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 700;
+        line-height: 1.2;
+        margin: 0 0 2rem 0;
+        text-align: center;
+      }
+
+      /* Prevent font loading shift */
+      @font-face {
+        font-family: 'system-fallback';
+        src: local('system-ui'), local('-apple-system'), local('BlinkMacSystemFont');
+        font-display: swap;
+      }
+
+      /* Loading state */
+      .hero-loading {
+        min-height: 60vh;
+        background: linear-gradient(135deg, #8B7355 0%, #B59A7A 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+
+    <!-- Optimized Google Analytics - Non-blocking -->
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17479879284');
+
+      // Load GA script asynchronously after page load
+      window.addEventListener('load', function() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17479879284';
+        document.head.appendChild(script);
+      });
+    </script>
+
+    <!-- Optimized Hotjar - Non-blocking -->
+    <script>
+      window.addEventListener('load', function() {
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:6521237,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+      });
+    </script>
+
     <!-- SEO Optimization for Virtual Office Singapore - Monthly Pricing Hook Strategy -->
-    <title>Virtual Office Singapore from $9.99/month | CBD Virtual Office Singapore International Plaza</title>
-    <meta name="description" content="CBD Virtual Office Singapore from $9.99/month at International Plaza. Premium Anson Road address with monthly pricing, billed annually. Best virtual office Singapore with mail forwarding. Start today!" />
+    <title>CBD Virtual Office Singapore $9.99/month | Anson Road</title>
+    <meta name="description" content="Premium CBD virtual office Singapore $9.99/month at International Plaza. Professional Anson Road address & mail forwarding. Start today!" />
     <meta name="keywords" content="virtual office singapore $9.99, cbd virtual office singapore monthly, virtual office singapore international plaza, cheap cbd virtual office singapore, virtual office singapore $9.99 month, singapore business address monthly, virtual office singapore anson road monthly, professional virtual office singapore affordable" />
     
     <!-- Open Graph for Social Media -->
@@ -43,7 +149,6 @@
       "image": "/business-photo.jpg",
       "description": "Classy but affordable CBD virtual office Singapore from $9.99/month. Premium International Plaza address with monthly pricing, billed annually.",
       "url": "https://virtualaddress.biz",
-      "telephone": "+65-6123-4567",
       "email": "hello@virtualaddress.biz",
       "address": {
         "@type": "PostalAddress",
@@ -89,13 +194,27 @@
       "logo": "/logo.png",
       "foundingDate": "2009",
       "slogan": "Classy but Affordable CBD Virtual Office",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+65-6123-4567",
-        "contactType": "customer service",
-        "areaServed": "SG",
-        "availableLanguage": ["English", "Chinese"]
-      }
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+              "contactType": "customer service",
+          "areaServed": "SG",
+          "availableLanguage": ["English", "Chinese"],
+          "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "18:00"
+          }
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "areaServed": "SG",
+          "availableLanguage": ["English", "Chinese"],
+          "email": "hello@virtualaddress.biz"
+        }
+      ]
     }
     </script>
     
@@ -214,189 +333,27 @@
           }
         ]
       },
-      "keywords": "virtual office singapore $9.99, cbd virtual office singapore monthly, virtual office singapore international plaza, cheap cbd virtual office singapore, singapore business address monthly, virtual office singapore anson road monthly"
+      "keywords": "virtual office singapore $9.99, cbd virtual office singapore monthly, virtual office singapore international plaza, cheap cbd virtual office singapore, singapore business address monthly, virtual office singapore anson road monthly, singapore registered office address, acra business address singapore, premium singapore business address cbd",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 1.2743,
+        "longitude": 103.8458
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "127",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
     }
     </script>
-    <script type="module" crossorigin src="./assets/index-bb36bc76.js"></script>
-    <link rel="stylesheet" href="./assets/index-3c87174d.css">
+    <script type="module" crossorigin src="/assets/index-b285611c.js"></script>
+    <link rel="stylesheet" href="/assets/index-93182a57.css">
   </head>
   <body>
     <div id="root"></div>
+    <div id="portal-root"></div>
     
-<!-- AI Chat Widget with Dynamic Configuration -->
-<script
-  data-widget-id="anson-demo-widget"
-  data-api-key="anson-demo-key"
-  data-primary-color="#C4A484"
-  data-company-name="Anson & Co"
-  data-welcome-message="Hello! How can I help you with your premium Singapore CBD address and virtual office services?"
-  data-position="bottom-right">
-(function() {
-  'use strict';
-  
-  // Get configuration from script tag or use defaults
-  const script = document.currentScript;
-  const config = {
-    widgetId: script?.dataset?.widgetId || 'a0b1c2d3-e4f5-6789-a0b1-c2d3e4f56789',
-    apiKey: script?.dataset?.apiKey || 'aw_MTc1Njc0MDg0Nzc5MjAuMzM4OTQ5ODYz', 
-    primaryColor: script?.dataset?.primaryColor || '#2563eb', // Default blue, can be customized
-    companyName: script?.dataset?.companyName || 'AI Assistant',
-    welcomeMessage: script?.dataset?.welcomeMessage || 'Hello! How can I help you today?',
-    position: script?.dataset?.position || 'bottom-right'
-  };
-  
-  let isOpen = false;
-  let chatHistory = [];
-  let sessionId = Date.now().toString(36) + Math.random().toString(36).substr(2);
-  let visitorId = localStorage.getItem('ai-chat-visitor-id') || (Date.now().toString(36) + Math.random().toString(36).substr(2));
-  localStorage.setItem('ai-chat-visitor-id', visitorId);
-
-  function createWidget() {
-    const widgetHTML = `
-      <div id="ai-chat-widget" style="
-        position: fixed;
-        ${config.position.includes('right') ? 'right: 20px;' : 'left: 20px;'}
-        ${config.position.includes('bottom') ? 'bottom: 20px;' : 'top: 20px;'}
-        z-index: 1000;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      ">
-        <div id="ai-chat-container" style="display: none; width: 350px; height: 500px; background: white; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.15); overflow: hidden;">
-          <div style="background: ${config.primaryColor}; color: white; padding: 16px; display: flex; justify-content: space-between; align-items: center;">
-            <h3 style="margin: 0; font-size: 16px; font-weight: 600;">${config.companyName}</h3>
-            <button onclick="closeChat()" style="background: none; border: none; color: white; font-size: 20px; cursor: pointer; padding: 0; width: 24px; height: 24px;">×</button>
-          </div>
-          <div id="ai-chat-messages" style="height: 380px; overflow-y: auto; padding: 16px;">
-            <div style="background: #f3f4f6; padding: 12px; border-radius: 12px; margin-bottom: 12px;">
-              ${config.welcomeMessage}
-            </div>
-          </div>
-          <div style="padding: 16px; border-top: 1px solid #e5e7eb;">
-            <div style="display: flex; gap: 8px;">
-              <input id="ai-chat-input" type="text" placeholder="Type your message..." style="flex: 1; padding: 10px; border: 1px solid #d1d5db; border-radius: 8px; outline: none;">
-              <button onclick="sendMessage()" style="background: ${config.primaryColor}; color: white; border: none; padding: 10px 16px; border-radius: 8px; cursor: pointer;">Send</button>
-            </div>
-          </div>
-        </div>
-        <button id="ai-chat-button" onclick="toggleChat()" style="
-          width: 60px; 
-          height: 60px; 
-          border-radius: 30px; 
-          background: ${config.primaryColor}; 
-          border: none; 
-          cursor: pointer; 
-          box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 24px;
-          color: white;
-        ">💬</button>
-      </div>
-    `;
-    
-    document.body.insertAdjacentHTML('beforeend', widgetHTML);
-  }
-
-  window.toggleChat = function() {
-    const container = document.getElementById('ai-chat-container');
-    const button = document.getElementById('ai-chat-button');
-    isOpen = !isOpen;
-    container.style.display = isOpen ? 'block' : 'none';
-    button.style.display = isOpen ? 'none' : 'flex';
-  };
-
-  window.closeChat = function() {
-    const container = document.getElementById('ai-chat-container');
-    const button = document.getElementById('ai-chat-button');
-    isOpen = false;
-    container.style.display = 'none';
-    button.style.display = 'flex';
-  };
-
-  window.sendMessage = async function() {
-    const input = document.getElementById('ai-chat-input');
-    const messages = document.getElementById('ai-chat-messages');
-    const message = input.value.trim();
-    
-    if (!message) return;
-    
-    // Add user message
-    messages.insertAdjacentHTML('beforeend', `
-      <div style="text-align: right; margin-bottom: 12px;">
-        <div style="background: ${config.primaryColor}; color: white; padding: 10px; border-radius: 12px; display: inline-block; max-width: 80%;">
-          ${message}
-        </div>
-      </div>
-    `);
-    
-    input.value = '';
-    messages.scrollTop = messages.scrollHeight;
-    
-    // Add loading indicator
-    messages.insertAdjacentHTML('beforeend', `
-      <div id="loading-msg" style="margin-bottom: 12px;">
-        <div style="background: #f3f4f6; padding: 10px; border-radius: 12px; display: inline-block;">
-          Typing...
-        </div>
-      </div>
-    `);
-    messages.scrollTop = messages.scrollHeight;
-
-    try {
-      const response = await fetch('https://ai-chat-agent-platform-8dgg83jsj-ai-chat-agent-platform.vercel.app/api/widget/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          message,
-          widgetId: config.widgetId,
-          apiKey: config.apiKey,
-          sessionId,
-          visitorId
-        })
-      });
-      
-      const data = await response.json();
-      
-      // Remove loading
-      document.getElementById('loading-msg')?.remove();
-      
-      // Add AI response
-      messages.insertAdjacentHTML('beforeend', `
-        <div style="margin-bottom: 12px;">
-          <div style="background: #f3f4f6; padding: 10px; border-radius: 12px; display: inline-block; max-width: 80%;">
-            ${data.message || 'Sorry, I encountered an error. Please try again.'}
-          </div>
-        </div>
-      `);
-      messages.scrollTop = messages.scrollHeight;
-      
-    } catch (error) {
-      document.getElementById('loading-msg')?.remove();
-      messages.insertAdjacentHTML('beforeend', `
-        <div style="margin-bottom: 12px;">
-          <div style="background: #fef2f2; color: #dc2626; padding: 10px; border-radius: 12px; display: inline-block; max-width: 80%;">
-            Connection error. Please try again.
-          </div>
-        </div>
-      `);
-      messages.scrollTop = messages.scrollHeight;
-    }
-  };
-
-  // Handle Enter key
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' && document.activeElement?.id === 'ai-chat-input') {
-      sendMessage();
-    }
-  });
-
-  // Initialize when DOM is ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', createWidget);
-  } else {
-    createWidget();
-  }
-})();
-</script> 
- </body>
+  </body>
 </html>
