@@ -5,18 +5,43 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17479879284"></script>
+    <!-- Resource Hints for Performance -->
+    <link rel="dns-prefetch" href="//www.googletagmanager.com">
+    <link rel="dns-prefetch" href="//static.hotjar.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Preload critical above-the-fold hero image -->
+    <link rel="preload" as="image" href="/images/hero/marina_bay_sands_aerial.jpg" media="(min-width: 1025px)">
+    <link rel="preload" as="image" href="/images/hero/marina_bay_sands_aerial_tablet.jpg" media="(max-width: 1024px) and (min-width: 641px)">
+    <link rel="preload" as="image" href="/images/hero/marina_bay_sands_aerial_mobile.jpg" media="(max-width: 640px)">
+
+    <!-- Critical CSS inlined for above-the-fold content -->
+    <style>
+      /* Critical CSS for initial paint */
+      body { margin: 0; font-family: system-ui, -apple-system, sans-serif; }
+      .hero-loading { min-height: 60vh; background: linear-gradient(135deg, #8B7355 0%, #B59A7A 100%); }
+    </style>
+
+    <!-- Optimized Google Analytics - Non-blocking -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'AW-17479879284');
+
+      // Load GA script asynchronously after page load
+      window.addEventListener('load', function() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17479879284';
+        document.head.appendChild(script);
+      });
     </script>
 
-    <!-- Hotjar Tracking Code for Virtual Office subscription -->
+    <!-- Optimized Hotjar - Non-blocking -->
     <script>
+      window.addEventListener('load', function() {
         (function(h,o,t,j,a,r){
             h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
             h._hjSettings={hjid:6521237,hjsv:6};
@@ -25,6 +50,7 @@
             r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
             a.appendChild(r);
         })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+      });
     </script>
 
     <!-- SEO Optimization for Virtual Office Singapore - Monthly Pricing Hook Strategy -->

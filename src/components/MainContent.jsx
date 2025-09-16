@@ -135,7 +135,7 @@ export function MainContent() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
               <div className="w-26 h-26 mx-auto rounded-full flex items-center justify-center mb-6" style={{backgroundColor: '#F5E6D3'}}>
-                <img src="/images/icons/cbd_presence.png" alt="Premium Location" className="w-13 h-13" />
+                <img src="/images/icons/cbd_presence.png" alt="Premium Location" className="w-13 h-13" loading="lazy" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Premium Location</h3>
               <p className="text-gray-600 leading-relaxed">
@@ -145,7 +145,7 @@ export function MainContent() {
 
             <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
               <div className="w-26 h-26 mx-auto rounded-full flex items-center justify-center mb-6" style={{backgroundColor: '#F5E6D3'}}>
-                <img src="/images/icons/acra_registration.png" alt="ACRA Registration" className="w-13 h-13" />
+                <img src="/images/icons/acra_registration.png" alt="ACRA Registration" className="w-13 h-13" loading="lazy" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">ACRA Registration</h3>
               <p className="text-gray-600 leading-relaxed">
@@ -155,7 +155,7 @@ export function MainContent() {
 
             <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
               <div className="w-26 h-26 mx-auto rounded-full flex items-center justify-center mb-6" style={{backgroundColor: '#F5E6D3'}}>
-                <img src="/images/icons/privacy_protection.png" alt="Privacy Protection" className="w-13 h-13" />
+                <img src="/images/icons/privacy_protection.png" alt="Privacy Protection" className="w-13 h-13" loading="lazy" />
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-4">Privacy Protection</h3>
               <p className="text-gray-600 leading-relaxed">

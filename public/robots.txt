@@ -1,0 +1,17 @@
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://virtualaddress.biz/sitemap.xml
+
+# Block access to admin/private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /_next/
+Disallow: /api/
+
+# Allow all search engines to crawl the main content
+Allow: /
+Allow: /faq
+Allow: /incorporation-guide
+Allow: /acra-compliance
