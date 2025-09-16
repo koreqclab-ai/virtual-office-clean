@@ -1,112 +1,41 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { Header } from './components/Header';
-import { MainContent } from './components/MainContent';
 import { Footer } from './components/Footer';
-import { MobileLocationPanel } from './components/MobileLocationPanel';
 import { MobileNavigation } from './components/MobileNavigation';
-// Removed old ChatWidget - now using AI-powered widget in HTML
-import { ContactForm } from './components/ContactForm';
-import { ThankYouPage } from './components/ThankYouPage';
-// Moved to docs folder: AnytimeStyleLanding, DarkStyleLanding, ArcSpacesStyleLanding
+
+import { MainContent } from './components/MainContent';
 import { FAQ } from './components/FAQ';
-import { ACRACompliancePage } from './components/ACRACompliancePage';
-import { FinTechPage } from './components/FinTechPage';
 import { IncorporationGuide } from './components/IncorporationGuide';
+import { ACRACompliancePage } from './components/ACRACompliancePage';
 
-function App() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isContactFormOpen, setIsContactFormOpen] = useState(false);
-  const [contactFormSource, setContactFormSource] = useState('unknown');
-
-  const handleGetStartedClick = (source) => {
-    setContactFormSource(source);
-    setIsContactFormOpen(true);
-  };
-
-  const handleContactFormOpen = () => {
-    setContactFormSource('header');
-    setIsContactFormOpen(true);
-  };
-
-  return (
-    <Router>
-      <div className="min-h-screen bg-white font-light text-gray-800 overflow-x-hidden">
-        <Routes>
-          <Route path="/" element={
-            <>
-              <Header
-                isMobileMenuOpen={isMobileMenuOpen}
-                setIsMobileMenuOpen={setIsMobileMenuOpen}
-                onGetStartedClick={handleGetStartedClick}
-                onContactFormOpen={handleContactFormOpen}
-              />
-              <MainContent onGetStartedClick={handleGetStartedClick} />
-            </>
-          } />
-          {/* Moved to docs folder: /old-main, /anytime-style, /dark-style routes */}
-          <Route path="/faq" element={
-            <>
-              <Header
-                isMobileMenuOpen={isMobileMenuOpen}
-                setIsMobileMenuOpen={setIsMobileMenuOpen}
-                onGetStartedClick={handleGetStartedClick}
-                onContactFormOpen={handleContactFormOpen}
-              />
-              <FAQ />
-            </>
-          } />
-          <Route path="/incorporation-guide" element={
-            <>
-              <Header
-                isMobileMenuOpen={isMobileMenuOpen}
-                setIsMobileMenuOpen={setIsMobileMenuOpen}
-                onGetStartedClick={handleGetStartedClick}
-                onContactFormOpen={handleContactFormOpen}
-              />
-              <IncorporationGuide />
-            </>
-          } />
-          <Route path="/acra-compliance" element={
-            <>
-              <Header
-                isMobileMenuOpen={isMobileMenuOpen}
-                setIsMobileMenuOpen={setIsMobileMenuOpen}
-                onGetStartedClick={handleGetStartedClick}
-                onContactFormOpen={handleContactFormOpen}
-              />
-              <ACRACompliancePage onGetStartedClick={handleGetStartedClick} />
-            </>
-          } />
-          <Route path="/fintech" element={
-            <>
-              <Header
-                isMobileMenuOpen={isMobileMenuOpen}
-                setIsMobileMenuOpen={setIsMobileMenuOpen}
-                onGetStartedClick={handleGetStartedClick}
-                onContactFormOpen={handleContactFormOpen}
-              />
-              <FinTechPage onGetStartedClick={handleGetStartedClick} />
-            </>
-          } />
-          <Route path="/thank-you" element={<ThankYouPage />} />
-        </Routes>
-        <MobileLocationPanel />
-        <MobileNavigation
-          isOpen={isMobileMenuOpen}
-          setIsOpen={setIsMobileMenuOpen}
-          onGetStartedClick={handleGetStartedClick}
-          onContactFormOpen={handleContactFormOpen}
-        />
-        {/* ChatWidget removed - now using AI-powered widget in HTML */}
-        <ContactForm 
-          isOpen={isContactFormOpen}
-          onClose={() => setIsContactFormOpen(false)}
-          buttonSource={contactFormSource}
-        />
-      </div>
-    </Router>
-  );
+function useHashScroll() {
+  const { hash } = useLocation();
+  useEffect(() => {
+    if (!hash) return;
+    const id = hash.replace('#', '');
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  }, [hash]);
 }
 
-export default App;
+export default function App() {
+  useHashScroll();
+
+  return (
+    <div className="min-h-screen flex flex-col bg-white">
+      <Header />
+      <main className="flex-1">
+        <Routes>
+          <Route path="/" element={<MainContent />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/incorporation-guide" element={<IncorporationGuide />} />
+          <Route path="/acra-compliance" element={<ACRACompliancePage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </main>
+      <Footer />
+      <MobileNavigation />
+    </div>
+  );
+}

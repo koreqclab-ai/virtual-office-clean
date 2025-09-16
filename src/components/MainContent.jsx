@@ -3,9 +3,13 @@ import { useState } from 'react';
 import { leftColumnFeatures, rightColumnFeatures } from '../data/features';
 import { pricingPlans } from '../data/pricing';
 import React, { useEffect } from 'react';
+import { useGoToPricing } from '../utils/scrollToPricing';
+import { useContactModal } from '../context/ContactModalContext';
 import '../styles/responsive-design-tokens.css';
 
-export function MainContent({ onGetStartedClick }) {
+export function MainContent() {
+  const { goToPricing } = useGoToPricing();
+  const { openContact } = useContactModal();
   useEffect(() => {
     // Add Business Schema for Rich Snippets
     const businessSchema = {
@@ -59,42 +63,55 @@ export function MainContent({ onGetStartedClick }) {
     <div className="min-h-screen">
       {/* Hero Section - Marina Bay Sands Background - Full screen height */}
       <section className="relative min-h-screen flex items-start" style={{paddingTop: '264px'}}>
-        {/* Marina Bay Sands Background - Exactly like Image 2 */}
-        <div
-          className="absolute inset-0 bg-cover bg-gray-900"
-          style={{
-            backgroundImage: 'url("/images/hero/marina_bay_sands_aerial.jpg")',
-            backgroundPosition: "center 20%"
-          }}
-        >
-          {/* Dark overlay for text readability - matching Image 2 */}
-          <div className="absolute inset-0 bg-black/40"></div>
-        </div>
+        {/* Marina Bay Sands Background - Optimized Picture Element */}
+        <picture className="absolute inset-0">
+          <source
+            media="(max-width: 640px)"
+            srcSet="/images/hero/marina_bay_sands_aerial_mobile.jpg"
+            type="image/jpeg"
+          />
+          <source
+            media="(max-width: 1024px)"
+            srcSet="/images/hero/marina_bay_sands_aerial_tablet.jpg"
+            type="image/jpeg"
+          />
+          <img
+            src="/images/hero/marina_bay_sands_aerial.jpg"
+            alt="Singapore Marina Bay Sands skyline aerial view"
+            className="absolute inset-0 h-full w-full object-cover"
+            style={{ objectPosition: "center 20%" }}
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          />
+        </picture>
+        {/* Dark overlay for text readability - matching Image 2 */}
+        <div className="absolute inset-0 bg-black/35"></div>
 
-        {/* Hero Content - Positioned like Image 2 */}
+        {/* Hero Content - Centered for all devices */}
         <div className="relative z-10 w-full">
-          <div className="ml-[15%] max-w-4xl text-left">
+          <div className="text-center mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
 
-            {/* Hero Text - Exactly matching Image 2 */}
-            <h1>
-              {/* Golden first line exactly like Image 2 */}
+            {/* Hero Text - Centered and Responsive */}
+            <h1 className="text-center">
+              {/* Golden first line */}
               <span
-                className="block text-5xl font-bold leading-tight mb-1"
+                className="block text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-1"
                 style={{color: '#D4B896'}}
               >
                 Establish Your Business
               </span>
-              {/* White text lines like Image 2 */}
-              <span className="block text-5xl font-bold leading-tight mb-1 text-white">
+              {/* White text lines */}
+              <span className="block text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-1 text-white">
                 Presence with a Premium
               </span>
-              <span className="block text-5xl font-bold leading-tight mb-8 text-white">
+              <span className="block text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-8 text-white">
                 Singapore CBD Address
               </span>
             </h1>
 
-            {/* Body text with proper contrast */}
-            <p className="text-lg leading-relaxed max-w-2xl text-white/90">
+            {/* Body text with proper contrast and centering */}
+            <p className="text-center text-base sm:text-lg leading-relaxed max-w-4xl lg:max-w-3xl mx-auto text-white/90 px-4">
               Use a real International Plaza address to register your company with ACRA, open business bank accounts, receive mail securely, and protect your privacy.
             </p>
 
@@ -284,9 +301,9 @@ export function MainContent({ onGetStartedClick }) {
     </div>
 
     {/* Dual Container Layout */}
-    <div className="core-features-wrapper grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+    <div className="core-features-wrapper grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto items-stretch">
       {/* Left Container */}
-      <div className="features-container-left p-8 rounded-xl border transition-all duration-300"
+      <div className="features-container-left p-8 rounded-xl border transition-all duration-300 h-full flex flex-col"
            style={{
              backgroundColor: 'var(--warm-white)',
              borderColor: '#EEEBE6',
@@ -345,21 +362,6 @@ export function MainContent({ onGetStartedClick }) {
                       </a>
                     </>
                   )}
-                  {feature.infoLink && (
-                    <a href={feature.infoLink} className="ml-2 inline-flex items-center justify-center w-5 h-5 text-xs font-semibold rounded-full transition-all duration-200"
-                       style={{
-                         color: 'var(--warm-white)',
-                         backgroundColor: 'var(--primary-beige)'
-                       }}
-                       onMouseEnter={(e) => {
-                         e.target.style.backgroundColor = 'var(--primary-beige-hover)';
-                       }}
-                       onMouseLeave={(e) => {
-                         e.target.style.backgroundColor = 'var(--primary-beige)';
-                       }}>
-                      i
-                    </a>
-                  )}
                 </div>
                 {feature.subtitle && (
                   <div className="feature-description text-sm" style={{ color: 'var(--soft-gray)', lineHeight: '1.4' }}>
@@ -373,7 +375,7 @@ export function MainContent({ onGetStartedClick }) {
       </div>
 
       {/* Right Container */}
-      <div className="features-container-right p-8 rounded-xl border transition-all duration-300"
+      <div className="features-container-right p-8 rounded-xl border transition-all duration-300 h-full flex flex-col"
            style={{
              backgroundColor: 'var(--warm-white)',
              borderColor: '#EEEBE6',
@@ -431,21 +433,6 @@ export function MainContent({ onGetStartedClick }) {
                         {feature.linkText}
                       </a>
                     </>
-                  )}
-                  {feature.infoLink && (
-                    <a href={feature.infoLink} className="ml-2 inline-flex items-center justify-center w-5 h-5 text-xs font-semibold rounded-full transition-all duration-200"
-                       style={{
-                         color: 'var(--warm-white)',
-                         backgroundColor: 'var(--primary-beige)'
-                       }}
-                       onMouseEnter={(e) => {
-                         e.target.style.backgroundColor = 'var(--primary-beige-hover)';
-                       }}
-                       onMouseLeave={(e) => {
-                         e.target.style.backgroundColor = 'var(--primary-beige)';
-                       }}>
-                      i
-                    </a>
                   )}
                 </div>
                 {feature.subtitle && (
@@ -534,11 +521,11 @@ export function MainContent({ onGetStartedClick }) {
       role="tabpanel"
       aria-labelledby="local-tab"
     >
-      <div className="grid-responsive cols-sm-2 cols-lg-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
         {pricingPlans.filter(plan => plan.category === 'local').map((plan) => (
           <div
             key={plan.id}
-            className="card-responsive relative border transition-all duration-300"
+            className="flex flex-col h-full w-full max-w-sm mx-auto relative border transition-all duration-300 bg-white rounded-lg p-6 shadow-sm hover:shadow-lg"
             style={{
               backgroundColor: 'var(--warm-white)',
               borderColor: 'var(--border-subtle)'
@@ -585,24 +572,6 @@ export function MainContent({ onGetStartedClick }) {
               <span className="text-xs sm:text-sm card-subtitle" style={{color: 'var(--text-very-muted)'}}>No GST</span>
             </div>
 
-            {/* Subscribe Button - Touch Optimized - Neutral Colors */}
-            <button
-              onClick={() => onGetStartedClick(`${plan.id}-plan`)}
-              className="btn-responsive w-full cta-button mb-4 sm:mb-6 text-sm sm:text-base focus:ring-4 focus:outline-none"
-              style={{
-                backgroundColor: 'var(--primary-beige)',
-                color: 'white',
-                '--tw-ring-color': 'var(--light-beige)'
-              }}
-              onMouseEnter={(e) => e.target.style.backgroundColor = 'var(--primary-beige-hover)'}
-              onMouseLeave={(e) => e.target.style.backgroundColor = 'var(--primary-beige)'}
-              onMouseDown={(e) => e.target.style.backgroundColor = 'var(--primary-beige-active)'}
-              aria-label={`Subscribe to ${plan.title} plan`}
-            >
-              <span className="block sm:hidden">Get Started</span>
-              <span className="hidden sm:block">Get Business Address Now</span>
-            </button>
-
             {/* Features */}
             <div className="space-y-4">
               <div className="flex items-center text-sm">
@@ -677,6 +646,23 @@ export function MainContent({ onGetStartedClick }) {
                 </div>
               </div>
             </div>
+
+            {/* Subscribe Button - Touch Optimized - Bottom Aligned */}
+            <div className="mt-auto">
+              <button
+                onClick={() => openContact({
+                  id: plan.id,
+                  label: `${plan.title} ${plan.price}/year`,
+                  price: parseInt(plan.price.replace('S$', '')),
+                  segment: plan.category === 'local' ? 'Local Company' : 'Offshore Company'
+                })}
+                className="btn-primary w-full text-sm sm:text-base focus:ring-4 focus:outline-none"
+                aria-label={`Subscribe to ${plan.title} plan`}
+              >
+                <span className="block sm:hidden">Get Started</span>
+                <span className="hidden sm:block">Get Business Address Now</span>
+              </button>
+            </div>
           </div>
         ))}
       </div>
@@ -689,11 +675,11 @@ export function MainContent({ onGetStartedClick }) {
       role="tabpanel"
       aria-labelledby="offshore-tab"
     >
-      <div className="grid-responsive cols-sm-2 cols-lg-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
         {pricingPlans.filter(plan => plan.category === 'offshore').map((plan) => (
           <div
             key={plan.id}
-            className="card-responsive relative border transition-all duration-300"
+            className="flex flex-col h-full w-full max-w-sm mx-auto relative border transition-all duration-300 bg-white rounded-lg p-6 shadow-sm hover:shadow-lg"
             style={{
               backgroundColor: 'var(--warm-white)',
               borderColor: 'var(--border-subtle)'
@@ -740,24 +726,6 @@ export function MainContent({ onGetStartedClick }) {
               <span className="text-xs sm:text-sm card-subtitle" style={{color: 'var(--text-very-muted)'}}>No GST</span>
             </div>
 
-            {/* Subscribe Button - Touch Optimized - Neutral Colors */}
-            <button
-              onClick={() => onGetStartedClick(`${plan.id}-plan`)}
-              className="btn-responsive w-full cta-button mb-4 sm:mb-6 text-sm sm:text-base focus:ring-4 focus:outline-none"
-              style={{
-                backgroundColor: 'var(--primary-beige)',
-                color: 'white',
-                '--tw-ring-color': 'var(--light-beige)'
-              }}
-              onMouseEnter={(e) => e.target.style.backgroundColor = 'var(--primary-beige-hover)'}
-              onMouseLeave={(e) => e.target.style.backgroundColor = 'var(--primary-beige)'}
-              onMouseDown={(e) => e.target.style.backgroundColor = 'var(--primary-beige-active)'}
-              aria-label={`Subscribe to ${plan.title} plan`}
-            >
-              <span className="block sm:hidden">Get Started</span>
-              <span className="hidden sm:block">Get Business Address Now</span>
-            </button>
-
             {/* Features */}
             <div className="space-y-4">
               <div className="flex items-center text-sm">
@@ -831,6 +799,23 @@ export function MainContent({ onGetStartedClick }) {
                   ))}
                 </div>
               </div>
+            </div>
+
+            {/* Subscribe Button - Touch Optimized - Bottom Aligned */}
+            <div className="mt-auto">
+              <button
+                onClick={() => openContact({
+                  id: plan.id,
+                  label: `${plan.title} ${plan.price}/year`,
+                  price: parseInt(plan.price.replace('S$', '')),
+                  segment: plan.category === 'local' ? 'Local Company' : 'Offshore Company'
+                })}
+                className="btn-primary w-full text-sm sm:text-base focus:ring-4 focus:outline-none"
+                aria-label={`Subscribe to ${plan.title} plan`}
+              >
+                <span className="block sm:hidden">Get Started</span>
+                <span className="hidden sm:block">Get Business Address Now</span>
+              </button>
             </div>
           </div>
         ))}

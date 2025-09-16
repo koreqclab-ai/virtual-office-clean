@@ -1,6 +1,8 @@
 import React from 'react';
+import { useGoToPricing } from '../utils/scrollToPricing';
 
-export function FinTechPage({ onGetStartedClick }) {
+export function FinTechPage() {
+  const { goToPricing } = useGoToPricing();
   return (
     <div className="min-h-screen bg-white">
       {/* Schema.org JSON-LD */}
@@ -28,12 +30,6 @@ export function FinTechPage({ onGetStartedClick }) {
         }}
       />
 
-      <Header
-        isMobileMenuOpen={isMobileMenuOpen}
-        setIsMobileMenuOpen={setIsMobileMenuOpen}
-        onGetStartedClick={handleGetStartedClick}
-      />
-
       {/* Hero Section */}
       <section className="pt-[100px] pb-20 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -47,15 +43,15 @@ export function FinTechPage({ onGetStartedClick }) {
             <p className="text-xl text-gray-600 font-optima max-w-4xl mx-auto mb-8">
               Accelerate your MAS licensing success with Singapore's premier FinTech virtual office. Professional CBD address, regulatory compliance support, and strategic location advantages for innovative financial services.
             </p>
-            <button 
-              onClick={() => handleGetStartedClick('fintech-hero')}
-              className="bg-custom-gold hover:bg-custom-goldHover text-white px-8 py-4 rounded-lg font-optima font-bold text-lg transition-colors mr-4"
+            <button
+              onClick={goToPricing}
+              className="btn-primary px-8 py-4 font-optima text-lg mr-4"
             >
               Start Your MAS Application
             </button>
-            <button 
-              onClick={() => handleGetStartedClick('fintech-consultation')}
-              className="border border-custom-gold text-custom-gold hover:bg-custom-gold hover:text-white px-8 py-4 rounded-lg font-optima font-bold text-lg transition-colors"
+            <button
+              onClick={goToPricing}
+              className="btn-primary px-8 py-4 font-optima text-lg"
             >
               Schedule Consultation
             </button>
@@ -359,9 +355,9 @@ export function FinTechPage({ onGetStartedClick }) {
                   <span className="font-optima text-gray-700">2 hours meeting room/month</span>
                 </li>
               </ul>
-              <button 
-                onClick={() => handleGetStartedClick('fintech-starter')}
-                className="w-full bg-custom-gold hover:bg-custom-goldHover text-white py-3 rounded-lg font-optima font-bold transition-colors"
+              <button
+                onClick={goToPricing}
+                className="btn-primary w-full py-3 font-optima"
               >
                 Get Started
               </button>
@@ -408,9 +404,9 @@ export function FinTechPage({ onGetStartedClick }) {
                   <span className="font-optima text-gray-700">Dedicated account manager</span>
                 </li>
               </ul>
-              <button 
-                onClick={() => handleGetStartedClick('fintech-professional')}
-                className="w-full bg-custom-gold hover:bg-custom-goldHover text-white py-3 rounded-lg font-optima font-bold transition-colors"
+              <button
+                onClick={goToPricing}
+                className="btn-primary w-full py-3 font-optima"
               >
                 Get Started
               </button>
@@ -454,9 +450,9 @@ export function FinTechPage({ onGetStartedClick }) {
                   <span className="font-optima text-gray-700">24/7 priority support</span>
                 </li>
               </ul>
-              <button 
-                onClick={() => handleGetStartedClick('fintech-enterprise')}
-                className="w-full bg-custom-gold hover:bg-custom-goldHover text-white py-3 rounded-lg font-optima font-bold transition-colors"
+              <button
+                onClick={goToPricing}
+                className="btn-primary w-full py-3 font-optima"
               >
                 Get Started
               </button>
@@ -474,38 +470,21 @@ export function FinTechPage({ onGetStartedClick }) {
           <p className="text-xl text-white/90 font-optima mb-8">
             Join Singapore's most successful FinTech companies using International Plaza CBD. Professional address, regulatory compliance, and MAS licensing support in one comprehensive solution.
           </p>
-          <button 
-            onClick={() => handleGetStartedClick('fintech-cta')}
-            className="bg-white text-custom-gold px-8 py-4 rounded-lg font-optima font-bold text-lg hover:bg-gray-100 transition-colors mr-4"
+          <button
+            onClick={goToPricing}
+            className="btn-primary px-8 py-4 font-optima text-lg mr-4"
           >
             Start Your Application
           </button>
-          <button 
-            onClick={() => handleGetStartedClick('fintech-consultation')}
-            className="border border-white text-white hover:bg-white hover:text-custom-gold px-8 py-4 rounded-lg font-optima font-bold text-lg transition-colors"
+          <button
+            onClick={goToPricing}
+            className="btn-primary px-8 py-4 font-optima text-lg"
           >
             Book Consultation
           </button>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="flex items-center mb-4 md:mb-0">
-              <img 
-                src="/logo.png" 
-                alt="Anson & Co" 
-                className="h-12 w-auto"
-              />
-            </div>
-            <div className="text-sm text-gray-400 font-optima">
-              © 2025 Anson & Co. All rights reserved. | FinTech Virtual Office Services
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

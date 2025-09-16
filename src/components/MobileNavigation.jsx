@@ -1,44 +1,45 @@
-import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
+import { useGoToPricing } from '../utils/scrollToPricing';
+import { useMobileNav } from '../context/MobileNavContext';
+import { useContactModal } from '../context/ContactModalContext';
 
-export function MobileNavigation({ isOpen, setIsOpen, onGetStartedClick, onContactFormOpen }) {
-  // Smooth scroll functionality
-  const scrollToSection = useCallback((sectionId, offset = 30) => {
-    const element = document.getElementById(sectionId);
-    if (!element) return;
-
-    const headerHeight = document.querySelector('header')?.offsetHeight || 80;
-    const targetPosition = element.offsetTop - headerHeight - offset;
-
-    window.scrollTo({
-      top: Math.max(0, targetPosition),
-      behavior: 'smooth'
-    });
-  }, []);
-
-  const handleLinkClick = () => {
-    setIsOpen(false);
-  };
+export function MobileNavigation() {
+  const { isNavOpen, closeNav } = useMobileNav();
+  const { openContact } = useContactModal();
+  const { goToPricing } = useGoToPricing();
 
   const handlePricingClick = (e) => {
-    e.preventDefault();
-    scrollToSection('pricing');
-    setIsOpen(false);
+    goToPricing(e);
+    closeNav();
   };
 
+  const handleLinkClick = () => {
+    closeNav();
+  };
+
+  const handleContactClick = () => {
+    closeNav();
+    openContact({
+      id: 'mobile-nav-cta',
+      label: 'General Inquiry',
+      price: 0,
+      segment: 'Mobile Navigation CTA'
+    });
+  };
+
+  if (!isNavOpen) return null;
+
   return (
-    <>
-      {isOpen && (
-        <div className="md:hidden fixed inset-0 z-40">
-          <div className="fixed inset-0 bg-black bg-opacity-50" onClick={() => setIsOpen(false)}></div>
-          <div className="fixed top-0 right-0 h-full w-80 max-w-sm bg-white shadow-xl z-50 transform transition-transform duration-300 ease-in-out">
+    <div className="fixed inset-0 z-[8000]">
+      <div className="absolute inset-0 bg-black/40" onClick={closeNav} />
+      <nav className="absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-white shadow-xl focus:outline-none transform transition-transform duration-300 ease-in-out">
             <div className="flex items-center justify-between p-6 border-b border-gray-100">
               <div>
                 <h2 className="text-xl font-bold text-gray-900 mb-1">Anson & Co</h2>
                 <span className="text-sm text-gray-500">The Right Address Matters</span>
               </div>
-              <button 
-                onClick={() => setIsOpen(false)}
+              <button
+                onClick={closeNav}
                 className="p-2 rounded-md text-gray-600 hover:text-gray-800 hover:bg-gray-100"
               >
                 <span className="sr-only">Close menu</span>
@@ -47,11 +48,11 @@ export function MobileNavigation({ isOpen, setIsOpen, onGetStartedClick, onConta
                 </svg>
               </button>
             </div>
-            
-            <nav className="p-6">
+
+            <div className="p-6">
               <ul className="space-y-4">
                 <li>
-                  <a href="#pricing"
+                  <a href="/#pricing"
                      onClick={handlePricingClick}
                      className="block text-lg text-gray-700 hover:text-amber-600 py-2 transition-colors">
                     Pricing
@@ -67,26 +68,22 @@ export function MobileNavigation({ isOpen, setIsOpen, onGetStartedClick, onConta
                     Incorporation Guide
                   </Link>
                 </li>
+                <li>
+                  <Link to="/acra-compliance" onClick={handleLinkClick} className="block text-lg text-gray-700 hover:text-amber-600 py-2 transition-colors">
+                    ACRA Compliance
+                  </Link>
+                </li>
                 <li className="pt-4 border-t border-gray-100">
                   <button
-                    onClick={() => {
-                      if (onContactFormOpen) {
-                        onContactFormOpen();
-                      } else {
-                        onGetStartedClick('mobile-get-started');
-                      }
-                      setIsOpen(false);
-                    }}
-                    className="w-full bg-amber-600 text-white py-3 rounded-full hover:bg-amber-700 transition-colors font-medium"
+                    onClick={handleContactClick}
+                    className="btn-primary w-full"
                   >
                     Get Business Address Now
                   </button>
                 </li>
               </ul>
-            </nav>
-          </div>
-        </div>
-      )}
-    </>
+            </div>
+        </nav>
+    </div>
   );
 }

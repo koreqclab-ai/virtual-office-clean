@@ -1,6 +1,8 @@
 import React from 'react';
+import { useGoToPricing } from '../utils/scrollToPricing';
 
-export function ACRACompliancePage({ onGetStartedClick }) {
+export function ACRACompliancePage() {
+  const { goToPricing } = useGoToPricing();
   return (
     <div className="min-h-screen bg-white">
       {/* Schema.org JSON-LD */}
@@ -28,12 +30,6 @@ export function ACRACompliancePage({ onGetStartedClick }) {
         }}
       />
 
-      <Header
-        isMobileMenuOpen={isMobileMenuOpen}
-        setIsMobileMenuOpen={setIsMobileMenuOpen}
-        onGetStartedClick={handleGetStartedClick}
-      />
-
       {/* Hero Section */}
       <section className="pt-[100px] pb-12 bg-gradient-to-br from-gray-50 to-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,8 +41,8 @@ export function ACRACompliancePage({ onGetStartedClick }) {
               Meet all ACRA requirements with International Plaza CBD's fully compliant virtual office solutions. Professional address, accessibility compliance, and documentation support for seamless business registration.
             </p>
             <button
-              onClick={() => handleGetStartedClick('acra-hero')}
-              className="bg-custom-gold hover:bg-custom-goldHover text-white px-8 py-4 rounded-lg font-optima font-bold text-lg transition-colors"
+              onClick={goToPricing}
+              className="btn-primary px-8 py-4 text-lg font-optima"
             >
               Get ACRA Compliant Address
             </button>
@@ -297,24 +293,25 @@ export function ACRACompliancePage({ onGetStartedClick }) {
         </div>
       </section>
 
-
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="flex items-center mb-4 md:mb-0">
-              <img 
-                src="/logo.png" 
-                alt="Anson & Co" 
-                className="h-12 w-auto"
-              />
-            </div>
-            <div className="text-sm text-gray-400 font-optima">
-              © 2025 Anson & Co. All rights reserved. | ACRA Compliance Virtual Office Services
-            </div>
-          </div>
+      {/* Bottom CTA Section - Optimal placement after process explanation */}
+      <section className="acra-bottom-cta">
+        <div className="bottom-cta-container">
+          <h3 className="cta-heading">Ready to Start Your ACRA Compliance Journey?</h3>
+          <p className="cta-description">
+            Join hundreds of Singapore businesses who trust International Plaza CBD for their ACRA compliance needs.
+            Get your premium virtual office address in just 4 simple steps.
+          </p>
+          <button
+            className="btn-primary text-lg font-optima px-12 py-4"
+            onClick={goToPricing}
+            aria-label="Get ACRA compliant virtual office address - opens contact form"
+          >
+            Get ACRA Compliant Address
+          </button>
+          <p className="cta-guarantee">✓ 100% ACRA Success Rate • ✓ Zero Compliance Violations in 2024</p>
         </div>
-      </footer>
+      </section>
+
     </div>
   );
 }

@@ -1,9 +1,15 @@
 import React, { useCallback } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useGoToPricing } from '../utils/scrollToPricing';
+import { useMobileNav } from '../context/MobileNavContext';
+import { useContactModal } from '../context/ContactModalContext';
 
-export function Header({ isMobileMenuOpen, setIsMobileMenuOpen, onGetStartedClick, onContactFormOpen }) {
+export function Header() {
   const location = useLocation();
   const navigate = useNavigate();
+  const { goToPricing } = useGoToPricing();
+  const { isNavOpen, toggleNav } = useMobileNav();
+  const { openContact } = useContactModal();
   // Smooth scroll functionality
   const scrollToSection = useCallback((sectionId, offset = 20) => {
     const element = document.getElementById(sectionId);
@@ -41,22 +47,21 @@ export function Header({ isMobileMenuOpen, setIsMobileMenuOpen, onGetStartedClic
     }
   };
 
-  const handleContactClick = (e) => {
-    e.preventDefault();
-    // Open contact form modal directly
-    if (onContactFormOpen) {
-      onContactFormOpen();
-    }
-  };
   return (
     <header className="bg-white shadow-sm border-b border-gray-100 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex items-center">
-            <div className="flex-shrink-0">
-              <h1 className="font-serif text-3xl font-bold" style={{ color: '#8B7355' }}>ANSON & CO</h1>
-              <span className="text-sm font-normal" style={{color: '#8B7355'}}>The Right Address Matters</span>
-            </div>
+            <Link to="/" className="flex-shrink-0 cursor-pointer hover:opacity-80 transition-opacity duration-200" aria-label="Anson & Co logo">
+              <div className="flex flex-col">
+                <h1 className="font-serif text-2xl md:text-3xl font-bold text-custom-gold leading-tight">
+                  ANSON & CO
+                </h1>
+                <span className="text-sm md:text-base font-light tracking-wide text-custom-gold">
+                  The Right Address Matters
+                </span>
+              </div>
+            </Link>
           </div>
 
           <nav className="hidden md:flex space-x-6 items-center">
@@ -76,24 +81,24 @@ export function Header({ isMobileMenuOpen, setIsMobileMenuOpen, onGetStartedClic
               ACRA<br/>Compliance
             </Link>
             <button
-              onClick={handleContactClick}
-              className="text-white px-6 py-2 rounded font-medium hover:opacity-90"
-              style={{backgroundColor: '#D4B896'}}
+              onClick={handlePricingClick}
+              className="btn-primary"
             >
               Get Business Address Now
             </button>
           </nav>
 
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={toggleNav}
             className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            aria-expanded="false"
+            aria-expanded={isNavOpen}
+            aria-label="Open menu"
           >
             <span className="sr-only">Open main menu</span>
             <div className="w-6 h-6 flex flex-col justify-around">
-              <span className={`w-full h-0.5 bg-current transform transition-all duration-200 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
-              <span className={`w-full h-0.5 bg-current transition-all duration-200 ${isMobileMenuOpen ? 'opacity-0' : ''}`}></span>
-              <span className={`w-full h-0.5 bg-current transform transition-all duration-200 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
+              <span className={`w-full h-0.5 bg-current transform transition-all duration-200 ${isNavOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+              <span className={`w-full h-0.5 bg-current transition-all duration-200 ${isNavOpen ? 'opacity-0' : ''}`}></span>
+              <span className={`w-full h-0.5 bg-current transform transition-all duration-200 ${isNavOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
             </div>
           </button>
         </div>

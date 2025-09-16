@@ -38,6 +38,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Reusable primary CTA */
+.btn-primary {
+  @apply bg-custom-gold text-white rounded-full px-6 md:px-8 py-3 md:py-3.5 font-bold shadow-md transition;
+}
+
+.btn-primary:hover {
+  @apply bg-custom-goldHover;
+}
+
 /* Contact Form Modal Styles */
 .modal-overlay {
   position: fixed;
@@ -47,7 +56,7 @@ body {
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(4px);
-  z-index: 1000;
+  z-index: 9999;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -255,6 +264,110 @@ body {
 
 .shadow-premium {
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08);
+}
+
+/* ACRA Compliance Page CTA Styles */
+.acra-bottom-cta {
+  background-color: #F7F6F4;          /* Light background to stand out */
+  padding: 4rem 2rem;
+  text-align: center;
+  margin-top: 3rem;                   /* Separation from process section */
+}
+
+.bottom-cta-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.cta-heading {
+  color: #4A453F;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  font-family: 'Playfair Display', serif;
+}
+
+.cta-description {
+  color: #6B6560;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.acra-compliant-cta-button {
+  background-color: #B8A898;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 1.25rem 3rem;              /* Larger padding for prominence */
+  font-size: 1.25rem;                 /* Larger font size */
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(184, 168, 152, 0.25);
+  margin-bottom: 1.5rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.acra-compliant-cta-button:hover {
+  background-color: #A39086;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(184, 168, 152, 0.4);
+}
+
+.acra-compliant-cta-button:active {
+  transform: translateY(-1px);
+}
+
+.cta-guarantee {
+  color: #5C5651;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin: 0;
+  opacity: 0.8;
+  position: relative;
+}
+
+.cta-guarantee::before {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  background-color: #B8A898;
+  margin: 0 auto 1rem;
+}
+
+/* Mobile Responsive for ACRA CTA */
+@media (max-width: 768px) {
+  .acra-bottom-cta {
+    padding: 3rem 1rem;
+    margin-top: 2rem;
+  }
+
+  .cta-heading {
+    font-size: 1.5rem;
+  }
+
+  .cta-description {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .acra-compliant-cta-button {
+    width: 100%;
+    max-width: 320px;
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+  }
+
+  .cta-guarantee {
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
 }
 
 .animate-fade-in-up {

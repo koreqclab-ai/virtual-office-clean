@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useGoToPricing } from '../utils/scrollToPricing';
 
 export function ComprehensiveFAQ() {
   const [openFAQ, setOpenFAQ] = useState(0);
+  const { goToPricing } = useGoToPricing();
 
   const faqCategories = [
     {
@@ -230,21 +232,8 @@ export function ComprehensiveFAQ() {
 
         <div className="text-center mt-16">
           <button
-            className="comprehensive-faq-cta-button"
-            onClick={() => {
-              window.location.href = '/#pricing';
-              setTimeout(() => {
-                const pricingSection = document.getElementById('pricing');
-                if (pricingSection) {
-                  const headerHeight = document.querySelector('header')?.offsetHeight || 80;
-                  const targetPosition = pricingSection.offsetTop - headerHeight - 20;
-                  window.scrollTo({
-                    top: Math.max(0, targetPosition),
-                    behavior: 'smooth'
-                  });
-                }
-              }, 100);
-            }}
+            className="btn-primary"
+            onClick={goToPricing}
             aria-label="Navigate to pricing plans section"
           >
             Get Business Address Now

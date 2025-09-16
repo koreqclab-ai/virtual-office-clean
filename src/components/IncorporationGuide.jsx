@@ -21,12 +21,6 @@ export function IncorporationGuide() {
         }}
       />
 
-      <Header
-        isMobileMenuOpen={isMobileMenuOpen}
-        setIsMobileMenuOpen={setIsMobileMenuOpen}
-        onGetStartedClick={handleGetStartedClick}
-      />
-
       {/* Main Content */}
       <main className="pt-[80px] sm:pt-[100px] pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -163,23 +157,6 @@ export function IncorporationGuide() {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="flex items-center mb-4 md:mb-0">
-              <img
-                src="/logo.png"
-                alt="Anson & Co"
-                className="h-12 w-auto"
-              />
-            </div>
-            <div className="text-sm text-gray-400 font-optima">
-              © 2025 Anson & Co. All rights reserved. | International Plaza CBD Virtual Office Services
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }

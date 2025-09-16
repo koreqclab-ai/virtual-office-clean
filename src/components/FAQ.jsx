@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useGoToPricing } from '../utils/scrollToPricing';
 
 export function FAQ() {
   const [openFaq, setOpenFaq] = useState(null);
+  const { goToPricing } = useGoToPricing();
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
@@ -122,12 +124,6 @@ export function FAQ() {
         }}
       />
 
-      <Header
-        isMobileMenuOpen={isMobileMenuOpen}
-        setIsMobileMenuOpen={setIsMobileMenuOpen}
-        onGetStartedClick={handleGetStartedClick}
-      />
-
       {/* FAQ Content */}
       <main className="pt-[80px] sm:pt-[100px] pb-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -192,21 +188,8 @@ export function FAQ() {
           {/* CTA Section */}
           <div className="mt-16 text-center">
             <button
-              className="faq-cta-button"
-              onClick={() => {
-                window.location.href = '/#pricing';
-                setTimeout(() => {
-                  const pricingSection = document.getElementById('pricing');
-                  if (pricingSection) {
-                    const headerHeight = document.querySelector('header')?.offsetHeight || 80;
-                    const targetPosition = pricingSection.offsetTop - headerHeight - 20;
-                    window.scrollTo({
-                      top: Math.max(0, targetPosition),
-                      behavior: 'smooth'
-                    });
-                  }
-                }, 100);
-              }}
+              className="btn-primary"
+              onClick={goToPricing}
               aria-label="Navigate to pricing plans section"
             >
               Get Business Address Now
@@ -215,23 +198,6 @@ export function FAQ() {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="flex items-center mb-4 md:mb-0">
-              <img 
-                src="/logo.png" 
-                alt="Anson & Co" 
-                className="h-12 w-auto"
-              />
-            </div>
-            <div className="text-sm text-gray-400 font-optima">
-              © 2024 Anson & Co. All rights reserved. | International Plaza CBD Virtual Office Services
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
