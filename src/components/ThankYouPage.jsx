@@ -63,11 +63,11 @@ export function ThankYouPage() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <div className="flex items-center space-x-3">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                <path d="M8 12.052c1.995 0 3.5-1.505 3.5-3.5s-1.505-3.5-3.5-3.5-3.5 1.505-3.5 3.5 1.505 3.5 3.5 3.5zM9 2C6.48 2 4.44 4.04 4.44 6.56c0 2.88 2.88 7.19 4.38 9.44.22.34.53.34.75 0 1.5-2.25 4.38-6.56 4.38-9.44C13.56 4.04 11.52 2 9 2z" />
               </svg>
-              <a href="tel:+6561234567" className="text-white hover:text-amber-200 transition-colors font-medium">
-                +65 6123 4567
-              </a>
+              <span className="text-white font-medium">
+                Visit Our Office
+              </span>
             </div>
             <div className="flex items-center space-x-3">
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">

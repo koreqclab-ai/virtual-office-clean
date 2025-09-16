@@ -6,6 +6,8 @@ import React, { useEffect } from 'react';
 import { useGoToPricing } from '../utils/scrollToPricing';
 import { useContactModal } from '../context/ContactModalContext';
 import '../styles/responsive-design-tokens.css';
+import TrustBadge from './TrustBadge';
+import TrustBadgeSmall from './TrustBadgeSmall';
 
 export function MainContent() {
   const { goToPricing } = useGoToPricing();
@@ -24,7 +26,6 @@ export function MainContent() {
         "postalCode": "079903",
         "addressCountry": "SG"
       },
-      "telephone": "+65-8183-7101",
       "url": "https://virtualaddress.biz",
       "priceRange": "$$$",
       "openingHours": "Mo-Fr 09:00-18:00"
@@ -145,62 +146,26 @@ export function MainContent() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
-              <div className="mx-auto rounded-full bg-[#F5E6D3] flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-6">
-                <img
-                  src="/images/icons/cbd_presence.png"
-                  alt="Premium Location badge"
-                  width="256"
-                  height="256"
-                  decoding="async"
-                  loading="lazy"
-                  fetchpriority="low"
-                  className="w-14 sm:w-16 md:w-20 h-auto select-none"
-                />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Premium Location</h3>
-              <p className="text-gray-600 leading-relaxed">
-                International Plaza address commands respect from banks, government agencies, and business partners across Southeast Asia.
-              </p>
-            </div>
+            <TrustBadge
+              icon="/images/icons/cbd_presence.png"
+              alt="Premium Location badge"
+              title="Premium Location"
+              description="International Plaza address commands respect from banks, government agencies, and business partners across Southeast Asia."
+            />
 
-            <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
-              <div className="mx-auto rounded-full bg-[#F5E6D3] flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-6">
-                <img
-                  src="/images/icons/acra_registration.png"
-                  alt="ACRA Registration badge"
-                  width="256"
-                  height="256"
-                  decoding="async"
-                  loading="lazy"
-                  fetchpriority="low"
-                  className="w-14 sm:w-16 md:w-20 h-auto select-none"
-                />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">ACRA Registration</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Use our pre-verified address for company registration, ensuring compliance with all Singapore business requirements.
-              </p>
-            </div>
+            <TrustBadge
+              icon="/images/icons/acra_registration.png"
+              alt="ACRA Registration badge"
+              title="ACRA Registration"
+              description="Use our pre-verified address for company registration, ensuring compliance with all Singapore business requirements."
+            />
 
-            <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
-              <div className="mx-auto rounded-full bg-[#F5E6D3] flex items-center justify-center w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mb-6">
-                <img
-                  src="/images/icons/privacy_protection.png"
-                  alt="Privacy Protection badge"
-                  width="256"
-                  height="256"
-                  decoding="async"
-                  loading="lazy"
-                  fetchpriority="low"
-                  className="w-14 sm:w-16 md:w-20 h-auto select-none"
-                />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Privacy Protection</h3>
-              <p className="text-gray-600 leading-relaxed">
-                Keep your personal address private while maintaining a professional business presence in Singapore's CBD.
-              </p>
-            </div>
+            <TrustBadge
+              icon="/images/icons/privacy_protection.png"
+              alt="Privacy Protection badge"
+              title="Privacy Protection"
+              description="Keep your personal address private while maintaining a professional business presence in Singapore's CBD."
+            />
           </div>
         </div>
       </section>
@@ -295,69 +260,33 @@ export function MainContent() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div className="trust-badge w-28 sm:w-32 md:w-36 mx-auto mb-4" style={{backgroundColor: '#F5E6D3'}}>
-                <img
-                  src="/images/icons/acra_registration.png"
-                  alt="ACRA Registration"
-                  loading="lazy"
-                  decoding="async"
-                  width="256"
-                  height="256"
-                  className="trust-badge-icon w-16 sm:w-20 md:w-24"
-                />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">ACRA Registration</h3>
-              <p className="text-gray-600 text-sm">Need real Singapore address for company registration</p>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div className="trust-badge w-28 sm:w-32 md:w-36 mx-auto mb-4" style={{backgroundColor: '#F5E6D3'}}>
-                <img
-                  src="/images/icons/home_based_business.png"
-                  alt="Home-Based Business"
-                  loading="lazy"
-                  decoding="async"
-                  width="256"
-                  height="256"
-                  className="trust-badge-icon w-16 sm:w-20 md:w-24"
-                />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Home-Based Business</h3>
-              <p className="text-gray-600 text-sm">Run e-commerce or online business professionally</p>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div className="trust-badge w-28 sm:w-32 md:w-36 mx-auto mb-4" style={{backgroundColor: '#F5E6D3'}}>
-                <img
-                  src="/images/icons/privacy_protection.png"
-                  alt="Privacy Protection"
-                  loading="lazy"
-                  decoding="async"
-                  width="256"
-                  height="256"
-                  className="trust-badge-icon w-16 sm:w-20 md:w-24"
-                />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Privacy Protection</h3>
-              <p className="text-gray-600 text-sm">Keep personal address off public records</p>
-            </div>
-            
-            <div className="text-center p-6 bg-white rounded-lg shadow-sm">
-              <div className="trust-badge w-28 sm:w-32 md:w-36 mx-auto mb-4" style={{backgroundColor: '#F5E6D3'}}>
-                <img
-                  src="/images/icons/cbd_presence.png"
-                  alt="CBD Presence"
-                  loading="lazy"
-                  decoding="async"
-                  width="256"
-                  height="256"
-                  className="trust-badge-icon w-16 sm:w-20 md:w-24"
-                />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">CBD Presence</h3>
-              <p className="text-gray-600 text-sm">Appear established in Singapore's business district</p>
-            </div>
+            <TrustBadgeSmall
+              icon="/images/icons/acra_registration.png"
+              alt="ACRA Registration"
+              title="ACRA Registration"
+              description="Need real Singapore address for company registration"
+            />
+
+            <TrustBadgeSmall
+              icon="/images/icons/cbd_presence.png"
+              alt="Home-Based Business"
+              title="Home-Based Business"
+              description="Run e-commerce or online business professionally"
+            />
+
+            <TrustBadgeSmall
+              icon="/images/icons/privacy_protection.png"
+              alt="Privacy Protection"
+              title="Privacy Protection"
+              description="Keep personal address off public records"
+            />
+
+            <TrustBadgeSmall
+              icon="/images/icons/cbd_presence.png"
+              alt="CBD Presence"
+              title="CBD Presence"
+              description="Appear established in Singapore's business district"
+            />
           </div>
         </div>
       </section>

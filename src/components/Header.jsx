@@ -65,6 +65,13 @@ export function Header() {
           </div>
 
           <nav className="hidden md:flex space-x-6 items-center">
+            <button
+              onClick={openContact}
+              className="font-medium hover:opacity-75 transition-all duration-200 text-center"
+              style={{color: '#8B7355'}}
+            >
+              Contact Us
+            </button>
             <a href="#pricing"
                className="font-medium hover:opacity-75 transition-all duration-200 text-center"
                style={{color: '#8B7355'}}

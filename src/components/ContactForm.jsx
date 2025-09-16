@@ -205,7 +205,7 @@ ${selectedServices.length > 0 ? selectedServices.join(', ') : 'None requested'}
                   name="phoneNumber"
                   value={formData.phoneNumber}
                   onChange={handleInputChange}
-                  placeholder="+65 1234 5678"
+                  placeholder="+65 0000 0000"
                   className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#B59A7A] focus:border-[#B59A7A] outline-none transition-colors"
                 />
               </div>

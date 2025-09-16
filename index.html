@@ -10,6 +10,7 @@
     <link rel="dns-prefetch" href="//static.hotjar.com">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://c.animaapp.com" crossorigin>
 
     <!-- Preload critical above-the-fold hero image -->
     <link rel="preload" as="image" href="/images/hero/marina_bay_sands_aerial.jpg" media="(min-width: 1025px)">
@@ -111,8 +112,8 @@
     </script>
 
     <!-- SEO Optimization for Virtual Office Singapore - Monthly Pricing Hook Strategy -->
-    <title>Virtual Office Singapore $9.99/month | CBD Address</title>
-    <meta name="description" content="Premium CBD virtual office Singapore from $9.99/month at International Plaza. Professional Anson Road address with mail forwarding. Start today!" />
+    <title>CBD Virtual Office Singapore $9.99/month | Anson Road</title>
+    <meta name="description" content="Premium CBD virtual office Singapore $9.99/month at International Plaza. Professional Anson Road address & mail forwarding. Start today!" />
     <meta name="keywords" content="virtual office singapore $9.99, cbd virtual office singapore monthly, virtual office singapore international plaza, cheap cbd virtual office singapore, virtual office singapore $9.99 month, singapore business address monthly, virtual office singapore anson road monthly, professional virtual office singapore affordable" />
     
     <!-- Open Graph for Social Media -->
@@ -148,7 +149,6 @@
       "image": "/business-photo.jpg",
       "description": "Classy but affordable CBD virtual office Singapore from $9.99/month. Premium International Plaza address with monthly pricing, billed annually.",
       "url": "https://virtualaddress.biz",
-      "telephone": "+65-6123-4567",
       "email": "hello@virtualaddress.biz",
       "address": {
         "@type": "PostalAddress",
@@ -194,13 +194,27 @@
       "logo": "/logo.png",
       "foundingDate": "2009",
       "slogan": "Classy but Affordable CBD Virtual Office",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+65-6123-4567",
-        "contactType": "customer service",
-        "areaServed": "SG",
-        "availableLanguage": ["English", "Chinese"]
-      }
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+              "contactType": "customer service",
+          "areaServed": "SG",
+          "availableLanguage": ["English", "Chinese"],
+          "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "09:00",
+            "closes": "18:00"
+          }
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "areaServed": "SG",
+          "availableLanguage": ["English", "Chinese"],
+          "email": "hello@virtualaddress.biz"
+        }
+      ]
     }
     </script>
     
@@ -319,7 +333,19 @@
           }
         ]
       },
-      "keywords": "virtual office singapore $9.99, cbd virtual office singapore monthly, virtual office singapore international plaza, cheap cbd virtual office singapore, singapore business address monthly, virtual office singapore anson road monthly"
+      "keywords": "virtual office singapore $9.99, cbd virtual office singapore monthly, virtual office singapore international plaza, cheap cbd virtual office singapore, singapore business address monthly, virtual office singapore anson road monthly, singapore registered office address, acra business address singapore, premium singapore business address cbd",
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 1.2743,
+        "longitude": 103.8458
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "127",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
     }
     </script>
   </head>
