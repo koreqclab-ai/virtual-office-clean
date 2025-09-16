@@ -38,22 +38,29 @@ export default function App() {
       <MobileNavigation />
 
       {/* Staging Badge - only show in non-production environments */}
-      {import.meta.env.VERCEL_ENV !== 'production' && (
-        <div style={{
-          position: 'fixed',
-          right: 12,
-          bottom: 12,
-          zIndex: 9999,
-          padding: '6px 10px',
-          borderRadius: 8,
-          fontSize: 12,
-          background: '#0f172a',
-          color: '#fff',
-          opacity: 0.85
-        }}>
-          STAGING PREVIEW
-        </div>
-      )}
+      {(() => {
+        const isProd = import.meta.env.MODE === 'production' ||
+                       import.meta.env.VITE_ENV === 'production' ||
+                       import.meta.env.VERCEL_ENV === 'production';
+        if (isProd) return null;
+
+        return (
+          <div style={{
+            position: 'fixed',
+            right: 12,
+            bottom: 12,
+            zIndex: 9999,
+            padding: '6px 10px',
+            borderRadius: 8,
+            fontSize: 12,
+            background: '#0f172a',
+            color: '#fff',
+            opacity: 0.85
+          }}>
+            STAGING PREVIEW
+          </div>
+        );
+      })()}
     </div>
   );
 }
