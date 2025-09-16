@@ -54,9 +54,9 @@ export function Header() {
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0 cursor-pointer hover:opacity-80 transition-opacity duration-200" aria-label="Anson & Co logo">
               <div className="flex flex-col">
-                <h1 className="font-serif text-2xl md:text-3xl font-bold text-custom-gold leading-tight">
+                <div className="font-serif text-2xl md:text-3xl font-bold text-custom-gold leading-tight">
                   ANSON & CO
-                </h1>
+                </div>
                 <span className="text-sm md:text-base font-light tracking-wide text-custom-gold">
                   The Right Address Matters
                 </span>
