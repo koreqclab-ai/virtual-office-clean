@@ -83,7 +83,7 @@ export function MobileNavigation() {
                 </li>
               </ul>
             </div>
-        </nav>
+      </nav>
     </div>
   );
 }
