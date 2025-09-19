@@ -24,7 +24,12 @@ function useHashScroll() {
 
 export default function App() {
   useHashScroll();
-  const { isOpen, closeContact, selectedPlan } = useContactModal();
+  const { isOpen, closeContact, selectedPlan, openContact } = useContactModal();
+
+  // Dev QA helper - only in development
+  if (import.meta.env.DEV) {
+    window.__openContact = (plan) => openContact(plan || null);
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
