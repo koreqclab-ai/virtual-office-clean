@@ -3,6 +3,9 @@ import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { MobileNavigation } from './components/MobileNavigation';
+import AnalyticsBindings from './components/AnalyticsBindings';
+import ContactFormModal from './components/ContactFormModal';
+import { useContactModal } from './context/ContactModalContext';
 
 import { MainContent } from './components/MainContent';
 import { FAQ } from './components/FAQ';
@@ -21,9 +24,11 @@ function useHashScroll() {
 
 export default function App() {
   useHashScroll();
+  const { isOpen, closeContact, selectedPlan } = useContactModal();
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
+      <AnalyticsBindings />
       <Header />
       <main className="flex-1">
         <Routes>
@@ -37,30 +42,30 @@ export default function App() {
       <Footer />
       <MobileNavigation />
 
-      {/* Staging Badge - only show in non-production environments */}
-      {(() => {
-        const isProd = import.meta.env.MODE === 'production' ||
-                       import.meta.env.VITE_ENV === 'production' ||
-                       import.meta.env.VERCEL_ENV === 'production';
-        if (isProd) return null;
+      {/* Contact Modal - Portaled to body */}
+      <ContactFormModal
+        isOpen={isOpen}
+        onClose={closeContact}
+        selectedPlan={selectedPlan}
+      />
 
-        return (
-          <div style={{
-            position: 'fixed',
-            right: 12,
-            bottom: 12,
-            zIndex: 9999,
-            padding: '6px 10px',
-            borderRadius: 8,
-            fontSize: 12,
-            background: '#0f172a',
-            color: '#fff',
-            opacity: 0.85
-          }}>
-            STAGING PREVIEW
-          </div>
-        );
-      })()}
+      {/* Dev Badge - only show in development */}
+      {import.meta.env.MODE !== 'production' && (
+        <div className="dev-badge" style={{
+          position: 'fixed',
+          right: 12,
+          bottom: 12,
+          zIndex: 9999,
+          padding: '6px 10px',
+          borderRadius: 8,
+          fontSize: 12,
+          background: '#0f172a',
+          color: '#fff',
+          opacity: 0.85
+        }}>
+          STAGING PREVIEW
+        </div>
+      )}
     </div>
   );
 }

@@ -81,18 +81,23 @@
       }
     </style>
 
-    <!-- Optimized Google Analytics - Non-blocking -->
+    <!-- Google Analytics 4 + Google Ads unified gtag -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
+
+      // Initialize GA4
+      gtag('config', 'G-9QWP0849FN');
+
+      // Initialize Google Ads
       gtag('config', 'AW-17479879284');
 
-      // Load GA script asynchronously after page load
+      // Load gtag.js asynchronously after page load
       window.addEventListener('load', function() {
         var script = document.createElement('script');
         script.async = true;
-        script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17479879284';
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-9QWP0849FN';
         document.head.appendChild(script);
       });
     </script>
@@ -351,7 +356,7 @@
   </head>
   <body>
     <div id="root"></div>
-    <div id="portal-root"></div>
+    <div id="modal-root"></div>
     <script type="module" src="/src/index.tsx"></script>
   </body>
 </html>

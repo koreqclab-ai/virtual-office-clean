@@ -37,7 +37,7 @@ export function ACRACompliancePage() {
             <h1 className="text-[40px] lg:text-[60px] font-optima font-bold text-custom-gold mb-6">
               ACRA Compliance Made Simple
             </h1>
-            <p className="text-xl text-gray-600 font-optima max-w-4xl mx-auto mb-8">
+            <p className="text-xl text-gray-600 font-optima max-w-4xl mx-auto mb-8 bg-white relative z-10">
               Meet all ACRA requirements with International Plaza CBD's fully compliant virtual office solutions. Professional address, accessibility compliance, and documentation support for seamless business registration.
             </p>
             <button
