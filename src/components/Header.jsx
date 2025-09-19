@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useGoToPricing } from '../utils/scrollToPricing';
 import { useMobileNav } from '../context/MobileNavContext';
 import { useContactModal } from '../context/ContactModalContext';
+import { scrollToId } from '../utils/scrollToId';
 
 export function Header() {
   const location = useLocation();
@@ -29,20 +30,12 @@ export function Header() {
 
     if (location.pathname === '/') {
       // If on landing page, scroll to pricing section
-      scrollToSection('pricing');
+      scrollToId('pricing', 72);
     } else {
       // If on other pages, navigate to landing page pricing section
       navigate('/#pricing');
       setTimeout(() => {
-        const pricingElement = document.getElementById('pricing');
-        if (pricingElement) {
-          const headerHeight = 80;
-          const targetPosition = pricingElement.offsetTop - headerHeight - 20;
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
-        }
+        scrollToId('pricing', 72);
       }, 300);
     }
   };

@@ -3,6 +3,9 @@ import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { MobileNavigation } from './components/MobileNavigation';
+import AnalyticsBindings from './components/AnalyticsBindings';
+import ContactFormModal from './components/ContactFormModal';
+import { useContactModal } from './context/ContactModalContext';
 
 import { MainContent } from './components/MainContent';
 import { FAQ } from './components/FAQ';
@@ -21,9 +24,16 @@ function useHashScroll() {
 
 export default function App() {
   useHashScroll();
+  const { isOpen, closeContact, selectedPlan, openContact } = useContactModal();
+
+  // Dev QA helper - only in development
+  if (import.meta.env.DEV) {
+    window.__openContact = (plan) => openContact(plan || null);
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
+      <AnalyticsBindings />
       <Header />
       <main className="flex-1">
         <Routes>
@@ -37,9 +47,16 @@ export default function App() {
       <Footer />
       <MobileNavigation />
 
-      {/* Staging Badge - only show in non-production environments */}
-      {import.meta.env.VERCEL_ENV !== 'production' && (
-        <div style={{
+      {/* Contact Modal - Portaled to body */}
+      <ContactFormModal
+        isOpen={isOpen}
+        onClose={closeContact}
+        selectedPlan={selectedPlan}
+      />
+
+      {/* Dev Badge - only show in development */}
+      {import.meta.env.MODE !== 'production' && (
+        <div className="dev-badge" style={{
           position: 'fixed',
           right: 12,
           bottom: 12,

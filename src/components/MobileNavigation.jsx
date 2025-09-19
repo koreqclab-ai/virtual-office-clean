@@ -1,16 +1,55 @@
 import { Link } from 'react-router-dom';
+import { useEffect, useRef } from 'react';
 import { useGoToPricing } from '../utils/scrollToPricing';
 import { useMobileNav } from '../context/MobileNavContext';
 import { useContactModal } from '../context/ContactModalContext';
+import { lockScroll, unlockScroll } from '../utils/scrollLock';
+import { scrollToId } from '../utils/scrollToId';
 
 export function MobileNavigation() {
   const { isNavOpen, closeNav } = useMobileNav();
   const { openContact } = useContactModal();
   const { goToPricing } = useGoToPricing();
+  const firstLinkRef = useRef(null);
+
+  // Handle scroll lock and focus management
+  useEffect(() => {
+    if (isNavOpen) {
+      lockScroll();
+      // Focus first link after transition
+      setTimeout(() => {
+        firstLinkRef.current?.focus();
+      }, 300);
+    } else {
+      unlockScroll();
+    }
+
+    return () => {
+      unlockScroll();
+    };
+  }, [isNavOpen]);
+
+  // Handle ESC key
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape' && isNavOpen) {
+        closeNav();
+      }
+    };
+
+    if (isNavOpen) {
+      document.addEventListener('keydown', handleEscape);
+      return () => document.removeEventListener('keydown', handleEscape);
+    }
+  }, [isNavOpen, closeNav]);
 
   const handlePricingClick = (e) => {
-    goToPricing(e);
+    e.preventDefault();
     closeNav();
+    // Small delay to ensure nav closes before scrolling
+    setTimeout(() => {
+      scrollToId('pricing', 72);
+    }, 100);
   };
 
   const handleLinkClick = () => {
@@ -27,12 +66,26 @@ export function MobileNavigation() {
     });
   };
 
-  if (!isNavOpen) return null;
-
   return (
-    <div className="fixed inset-0 z-[8000]">
-      <div className="absolute inset-0 bg-black/40" onClick={closeNav} />
-      <nav className="absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-white shadow-xl focus:outline-none transform transition-transform duration-300 ease-in-out">
+    <div
+      role="dialog"
+      aria-modal="true"
+      className={`fixed inset-0 h-[100dvh] w-full z-[65] ${isNavOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}
+      style={{
+        visibility: isNavOpen ? 'visible' : 'hidden',
+        opacity: isNavOpen ? 1 : 0,
+        transition: 'opacity 300ms, visibility 300ms'
+      }}
+    >
+      <div
+        className={`absolute inset-0 bg-black/50 transition-opacity duration-300 z-[64] ${isNavOpen ? 'opacity-100' : 'opacity-0'}`}
+        onClick={closeNav}
+        style={{ pointerEvents: isNavOpen ? 'auto' : 'none' }}
+      />
+      <nav
+        className={`absolute right-0 top-0 w-[88%] max-w-[420px] bg-white shadow-xl h-[100dvh] z-[65]
+                    transition-transform duration-300 ${isNavOpen ? 'translate-x-0' : 'translate-x-full'} overflow-y-auto`}
+      >
             <div className="flex items-center justify-between p-6 border-b border-gray-100">
               <div>
                 <h2 className="text-xl font-bold text-gray-900 mb-1">Anson & Co</h2>
@@ -53,6 +106,7 @@ export function MobileNavigation() {
               <ul className="space-y-4">
                 <li>
                   <a href="/#pricing"
+                     ref={firstLinkRef}
                      onClick={handlePricingClick}
                      className="block text-lg text-gray-700 hover:text-amber-600 py-2 transition-colors">
                     Pricing
@@ -83,7 +137,7 @@ export function MobileNavigation() {
                 </li>
               </ul>
             </div>
-      </nav>
+          </nav>
     </div>
   );
 }

@@ -651,14 +651,19 @@ export function MainContent() {
             {/* Subscribe Button - Touch Optimized - Bottom Aligned */}
             <div className="mt-auto">
               <button
-                onClick={() => openContact({
-                  id: plan.id,
-                  label: `${plan.title} ${plan.price}/year`,
-                  price: parseInt(plan.price.replace('S$', '')),
-                  segment: plan.category === 'local' ? 'Local Company' : 'Offshore Company'
-                })}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  openContact({
+                    id: plan.id,
+                    label: `${plan.title} ${plan.price}/year`,
+                    price: parseInt(plan.price.replace('S$', '')),
+                    segment: plan.category === 'local' ? 'Local Company' : 'Offshore Company'
+                  });
+                }}
                 className="btn-primary w-full text-sm sm:text-base focus:ring-4 focus:outline-none"
                 aria-label={`Subscribe to ${plan.title} plan`}
+                style={{ pointerEvents: 'auto', zIndex: 10 }}
               >
                 <span className="block sm:hidden">Get Started</span>
                 <span className="hidden sm:block">Get Business Address Now</span>
@@ -806,14 +811,19 @@ export function MainContent() {
             {/* Subscribe Button - Touch Optimized - Bottom Aligned */}
             <div className="mt-auto">
               <button
-                onClick={() => openContact({
-                  id: plan.id,
-                  label: `${plan.title} ${plan.price}/year`,
-                  price: parseInt(plan.price.replace('S$', '')),
-                  segment: plan.category === 'local' ? 'Local Company' : 'Offshore Company'
-                })}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  openContact({
+                    id: plan.id,
+                    label: `${plan.title} ${plan.price}/year`,
+                    price: parseInt(plan.price.replace('S$', '')),
+                    segment: plan.category === 'local' ? 'Local Company' : 'Offshore Company'
+                  });
+                }}
                 className="btn-primary w-full text-sm sm:text-base focus:ring-4 focus:outline-none"
                 aria-label={`Subscribe to ${plan.title} plan`}
+                style={{ pointerEvents: 'auto', zIndex: 10 }}
               >
                 <span className="block sm:hidden">Get Started</span>
                 <span className="hidden sm:block">Get Business Address Now</span>

@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useCallback, useState, useEffect } from 'react';
+import { lockScroll, unlockScroll } from '../utils/scrollLock';
 
 type Ctx = {
   isNavOpen: boolean;
@@ -19,10 +20,11 @@ export const MobileNavProvider: React.FC<{ children: React.ReactNode }> = ({ chi
   // Body scroll lock for the nav layer only
   useEffect(() => {
     if (isNavOpen) {
-      const prev = document.body.style.overflow;
-      document.body.style.overflow = 'hidden';
-      return () => { document.body.style.overflow = prev; };
+      lockScroll();
     }
+    return () => {
+      unlockScroll();
+    };
   }, [isNavOpen]);
 
   return (
